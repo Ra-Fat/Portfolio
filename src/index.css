@@ -35,3 +35,17 @@ div.w-full.h-full.fixed.inset-0.z-0 {
 .animate-bounceSmooth {
   animation: bounceSmooth 1.2s ease-in-out infinite;
 }
+
+@layer base {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #1f2937 inset !important; /* bg-gray-800 */
+    box-shadow: 0 0 0px 1000px #1f2937 inset !important;
+    -webkit-text-fill-color: #f9fafb !important; /* text-gray-50 */
+    caret-color: #f9fafb !important;
+    transition: background-color 5000s ease-in-out 0s; /* trick to suppress Chrome flash */
+  }
+}
+

@@ -30,7 +30,7 @@ const Overview = () => {
           </div>
         </div>
 
-        <div className="w-full lg:w-[55%] flex flex-col gap-5 bg-gray-800/60 backdrop-blur-md rounded-xl">
+        <div className="w-full lg:w-[55%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xl">
           <div className="flex flex-col items-start rounded-xl p-4 pl-5 gap-2 relative overflow-hidden">
             <div className="flex flex-col gap-3">
               <h1 className="font-semibold text-2xl">Hello There!</h1>
@@ -50,8 +50,8 @@ const Overview = () => {
                   {infoDetails
                     .slice(rowIndex * 2, rowIndex * 2 + 2)
                     .map((item, index) => (
-                      <div key={index} className="flex gap-2 p-2 w-full sm:w-1/2 bg-white/5 backdrop-blur-md rounded-xs pl-3 shadow-inner cursor-crosshair transition-transform transform hover:scale-[1.02] hover:shadow-md hover:shadow-gray/10 duration-200">
-                        <span className="bg-white/10 backdrop-blur-md p-2 rounded-xs">{item.icon}</span>
+                      <div key={index} className="flex gap-2 p-2 w-full sm:w-1/2 bg-gray-800/30 backdrop-blur-md rounded-xs pl-3 shadow-inner cursor-crosshair transition-transform transform hover:scale-[1.02] hover:shadow-md hover:shadow-gray/10 duration-200">
+                        <span className="bg-gray-800/20 backdrop-blur-md p-2 rounded-xs">{item.icon}</span>
                         <div className="flex flex-col text-xs justify-center">
                           <span className="text-gray-400 font-bold">{item.label}</span>
                           <span className="font-bold text-white">{item.value}</span>
@@ -68,17 +68,17 @@ const Overview = () => {
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full">
                 {['Frontend', 'Backend', 'Technologies', 'Gaming'].map((text, i) => (
-                  <span key={i} className="text-xs cursor-crosshair p-2 bg-gray-700/60 backdrop-blur-md rounded-xl text-center transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-gray/10 duration-200">
+                  <span key={i} className="text-xs cursor-crosshair p-2 bg-gray-800/30 backdrop-blur-md rounded-xl text-center transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-gray/10 duration-200">
                     {text}
                   </span>
                 ))}
               </div>
 
               <div className="flex items-start sm:items-center gap-2 mt-1 w-full">
-                <a href="#projects" className="flex items-center gap-2 bg-blue-900 hover:bg-blue-950 px-4 py-2.5 rounded-xl font-semibold text-xs transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-blue-500/20 duration-200" >
+                <a href="#projects" className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 px-4 py-2.5 rounded-xl font-semibold text-xs transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-blue-500/20 duration-200" >
                   <Download size={14} className="font-bold" /> Download Resume
                 </a>
-                <a href="#work" className="flex items-center gap-2 border-2 border-gray-800 hover:bg-gray-800/60 px-5 py-2.5 rounded-xl font-semibold text-xs transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-gray/10 duration-200" >
+                <a href="#work" className="flex items-center gap-2 border-2 border-gray-800 bg-gray-800/10 hover:bg-gray-800/60 px-5 py-2.5 rounded-xl font-semibold text-xs transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-gray/10 duration-200" >
                   <Mail size={14} /> Hire Me Now
                 </a>
               </div>

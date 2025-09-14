@@ -26,14 +26,14 @@ const Footer = () => {
                 <h3 className='font-bold text-xl'>Quick Links</h3>
                 <div className='flex flex-wrap gap-15'>
                     <div className='flex flex-col gap-5'>
-                        <a className='flex items-center gap-3' href="#Home"><Home size={18}/> Home</a>
-                        <a className='flex items-center gap-3' href="#About"><Info size={18}/> About</a>
-                        <a className='flex items-center gap-3' href="#Skills"><Code size={18}/> Skills</a>
+                        <a className='flex items-center gap-3' href="#home"><Home size={18}/> Home</a>
+                        <a className='flex items-center gap-3' href="#about"><Info size={18}/> About</a>
+                        <a className='flex items-center gap-3' href="#skills"><Code size={18}/> Skills</a>
                     </div>
                     <div className='flex flex-col gap-5'>
-                        <a className='flex items-center gap-3' href="#Experience"><Briefcase size={18}/> Experience</a>
-                        <a className='flex items-center gap-3' href="#Projects"><FolderKanban size={18}/> Projects</a>
-                        <a className='flex items-center gap-3' href="#Contact"><Mail size={18}/> Contact</a>
+                        <a className='flex items-center gap-3' href="#experience"><Briefcase size={18}/> Experience</a>
+                        <a className='flex items-center gap-3' href="#projects"><FolderKanban size={18}/> Projects</a>
+                        <a className='flex items-center gap-3' href="#contact"><Mail size={18}/> Contact</a>
                     </div>
                 </div>
             </div>

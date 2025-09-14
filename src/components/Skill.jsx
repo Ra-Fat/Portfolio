@@ -32,7 +32,7 @@ const Skills = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className="w-full max-w-5xl mt-10 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 px-4
-                   bg-gray-900 py-4 rounded-xl relative overflow-hidden
+                   bg-gray-800/20 py-4 rounded-xl relative overflow-hidden
                    cursor-crosshair transition-all duration-300"
       >
         {/* Glow Cursor - only visible on hover */}

@@ -11,9 +11,7 @@ function Home() {
         {/* LEFT SIDE */}
         <div className="flex flex-col gap-4 justify-center items-center lg:w-1/2 w-full pl-3 pr-3">
           <div className="flex flex-col items-start gap-6 md:pl-5 lg:pl-10 w-full">
-            {/* <span className="text-blue-500 text-xs sm:text-sm font-medium rounded-lg px-3 py-2 border backdrop-blur-md border-gray-800 shadow-sm mb-2 flex items-center gap-2">
-                <Pin size={14} /> Looking for internship
-            </span> */}
+            
 
 
             <h1 className="text-4xl sm:text-5xl font-semibold">Hi, I'm Arafat Man</h1>

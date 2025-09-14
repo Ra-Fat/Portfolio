@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Home, Mail, Info, Code, FolderKanban, Menu, X } from 'lucide-react';
+import { Home, Mail, Info, Code, FolderKanban, Menu, X, Briefcase } from 'lucide-react';
 
 function Navbar() {
   
@@ -12,6 +12,7 @@ function Navbar() {
     { id: 'home', icon: <Home size={20} />, label: 'Home' },
     { id: 'about', icon: <Info size={20} />, label: 'About' },
     { id: 'skills', icon: <Code size={20} />, label: 'Skills' },
+    { id: 'experiences', icon: <Briefcase size={20} />, label: 'Experiences' },
     { id: 'projects', icon: <FolderKanban size={20} />, label: 'Projects' },
     { id: 'contact', icon: <Mail size={20} />, label: 'Contact' },
   ];

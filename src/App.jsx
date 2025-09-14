@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Overview from './components/Overview';
 import Projects from './components/Projects';
 import Skills from './components/Skill';
+import Experiences from './components/Experiences';
 import StarsCanvas from './canvas/Stars';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <section className="w-full" id="about"><Overview /></section>
         <section className='w-full' id="skills"><Skills /></section>
         {/* <section id="projects"><Projects /></section> */}
+        {/* <section className="w-full" id="experiences"><Experiences /></section> */}
         <section className="w-full" id="contact"><Contact /></section>
         <section className='w-full' id="footer"><Footer /></section>
       </main>    
