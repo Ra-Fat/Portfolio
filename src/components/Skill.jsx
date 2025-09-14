@@ -52,7 +52,7 @@ const Skills = () => {
                        transition-transform duration-300"
             style={{
               animation: `bounceSmooth 1.2s ease-in-out infinite`,
-              animationDelay: `${idx * 0.15}s`, // stagger delay per item
+              animationDelay: `${idx * 0.55}s`, // stagger delay per item
             }}
           >
             <img

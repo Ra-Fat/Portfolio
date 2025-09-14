@@ -18,10 +18,10 @@ function App() {
         <section className="w-full" id="home"><Home /></section>
         <section className="w-full" id="about"><Overview /></section>
         <section className='w-full' id="skills"><Skills /></section>
-        {/* <section id="projects"><Projects /></section>
-        <section id="contact"><Contact /></section> */}
-      </main>
-      {/* <footer id="footer"><Footer /></footer> */}
+        {/* <section id="projects"><Projects /></section> */}
+        <section className="w-full" id="contact"><Contact /></section>
+        <section className='w-full' id="footer"><Footer /></section>
+      </main>    
     </div>
   );
 }
