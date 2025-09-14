@@ -72,7 +72,7 @@ function Navbar() {
   };
 
   return (
-    <div className="px-6 py-3 rounded-4xl bg-gray-800/60 backdrop-blur-md border border-white/10 shadow-lg sticky top-0 z-50 max-[800px]:w-full">
+    <div data-aos="fade-down" data-aos-duration="1300" className="px-6 py-3 rounded-4xl bg-gray-800/60 backdrop-blur-md border border-white/10 shadow-lg sticky top-0 z-50 max-[800px]:w-full">
       <nav className="flex items-center justify-between">
         <div className="text-white font-semibold text-lg sm:text-xl md:hidden">Man Arafat</div>
 

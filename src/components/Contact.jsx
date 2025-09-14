@@ -25,7 +25,7 @@ const Contact = () => {
   return (
     <div className='mt-10 flex flex-col items-center justify-center w-full lg:px-0 xl:px-10 '>
 
-       <div className="flex flex-col items-center justify-center gap-4 ">
+       <div data-aos="fade-down" data-aos-duration="1300" className="flex flex-col items-center justify-center gap-4 ">
         <h1 className="font-bold text-4xl">Get In Touch</h1>
         <p className="text-[15px] sm:text-sm lg:text-base  flex flex-col items-center">
           Ready to bring your ideas to life? Let's discuss your next project and create 
@@ -37,7 +37,7 @@ const Contact = () => {
 
       <div className='flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-10 mt-15 w-full '>
             
-            <div className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xs p-4">
+            <div data-aos="fade-right" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xs p-4">
                 <div className="w-full">
                     <div className='flex flex-col gap-3 w-full'>
                         <h2 className='flex items-center gap-3 text-xl font-bold'><MdChat size={20} /> Connect With Me</h2>
@@ -61,7 +61,7 @@ const Contact = () => {
             </div>
           
           
-          <div className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xs p-4">
+          <div data-aos="fade-left" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xs p-4">
                 <div className="w-full">
                     <div className='flex flex-col gap-3 w-full'>
                         <h2 className='flex items-center gap-3 text-xl font-bold'><Mail size={20} />Contact Form</h2>

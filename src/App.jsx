@@ -7,8 +7,20 @@ import Projects from './components/Projects';
 import Skills from './components/Skill';
 import Experiences from './components/Experiences';
 import StarsCanvas from './canvas/Stars';
+import AOS from 'aos';  
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
+  
   return (
     <div className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white min-h-screen flex flex-col gap-10 sm:gap-15 px-5 py-5 sm:px-7 sm:py-7">
       <StarsCanvas />

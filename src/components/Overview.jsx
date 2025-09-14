@@ -15,7 +15,7 @@ const Overview = () => {
   return (
     <div className="mt-10 flex flex-col items-center justify-center w-full lg:px-0 xl:px-10">
       
-      <div className="flex flex-col items-center justify-center gap-4 ">
+      <div data-aos="fade-down" data-aos-duration="1300" className="flex flex-col items-center justify-center gap-4 ">
         <h1 className="font-bold text-4xl">About Me</h1>
         <span className="text-[15px] sm:text-sm lg:text-base block text-center sm:text-left">
           Passionate about creating innovative solutions through technology
@@ -24,13 +24,13 @@ const Overview = () => {
 
       <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 mt-15 w-full">
         
-        <div className="w-full lg:w-[45%] flex justify-center">
+        <div data-aos="fade-right" data-aos-duration="1300" className="w-full lg:w-[45%] flex justify-center">
           <div className="w-[260px] h-[340px] sm:w-[300px] sm:h-[400px] md:w-[320px] md:h-[420px] lg:w-[350px] lg:h-[450px]">
             <EarthCanvas />
           </div>
         </div>
 
-        <div className="w-full lg:w-[55%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xl">
+        <div data-aos="fade-left" data-aos-duration="1300" className="w-full lg:w-[55%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xl">
           <div className="flex flex-col items-start rounded-xl p-4 pl-5 gap-2 relative overflow-hidden">
             <div className="flex flex-col gap-3">
               <h1 className="font-semibold text-2xl">Hello There!</h1>

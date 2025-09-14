@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <div className='w-full flex flex-col gap-3 '>
+    <div data-aos="fade-up" data-aos-duration="1300" className='w-full flex flex-col gap-3 '>
         <span className='w-full h-[1px] bg-gray-800'></span>
         <div className='grid gap-10 p-5
                         grid-cols-1
