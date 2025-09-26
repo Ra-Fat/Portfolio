@@ -25,14 +25,11 @@ const Contact = () => {
   return (
     <div className='mt-10 flex flex-col items-center justify-center w-full lg:px-0 xl:px-10 '>
 
-       <div data-aos="fade-down" data-aos-duration="1300" className="flex flex-col items-center justify-center gap-4 ">
+      <div data-aos="fade-down" data-aos-duration="1300" className="flex flex-col items-center justify-center gap-4 ">
         <h1 className="font-bold text-4xl">Get In Touch</h1>
-        <p className="text-[15px] sm:text-sm lg:text-base  flex flex-col items-center">
-          Ready to bring your ideas to life? Let's discuss your next project and create 
-          <span className="text-center">
-            something amazing together
-          </span>
-        </p>
+        <span className="text-[15px] sm:text-sm lg:text-base block text-center sm:text-left max-w-3xl">
+          Ready to bring your ideas to life? Let's discuss your next project and create something amazing together
+        </span>
       </div>
 
       <div className='flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-10 mt-15 w-full '>
@@ -49,9 +46,9 @@ const Contact = () => {
                                   <div className='flex flex-col'>
                                       <div className='flex gap-2 items-center'>
                                           <p className='font-bold'>{item.ContactName}</p>
-                                          <p className='text-gray-400'>{item.Username}</p>
+                                          <p className='text-gray-300'>{item.Username}</p>
                                       </div>
-                                      <p className='text-gray-400'>{item.label}</p>            
+                                      <p className='text-gray-300'>{item.label}</p>            
                                   </div>
                               </a>
                             ))}

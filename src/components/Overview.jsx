@@ -13,7 +13,7 @@ const infoDetails = [
 
 const Overview = () => {
   return (
-    <div className="mt-10 flex flex-col items-center justify-center w-full lg:px-0 xl:px-10">
+    <div className="mt-10 flex flex-col items-center justify-center w-full lg:px-0 xl:px-10 ">
       
       <div data-aos="fade-down" data-aos-duration="1300" className="flex flex-col items-center justify-center gap-4 ">
         <h1 className="font-bold text-4xl">About Me</h1>
@@ -22,7 +22,7 @@ const Overview = () => {
         </span>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 mt-15 w-full">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 mt-15 w-full ">
         
         <div data-aos="fade-right" data-aos-duration="1300" className="w-full lg:w-[45%] flex justify-center">
           <div className="w-[260px] h-[340px] sm:w-[300px] sm:h-[400px] md:w-[320px] md:h-[420px] lg:w-[350px] lg:h-[450px]">

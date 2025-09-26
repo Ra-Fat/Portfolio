@@ -16,6 +16,10 @@ import java from './java.webp';
 import c from './c.png';
 import cplus from './c++.png';
 import bootstrap from './bootstrap.png';
+import angkorwat from './angkorwat.webp';
+import aspireoverview from './aspireoverview.png';
+import aspirepic from './aspirepic.png';
+
 
 
 export {
@@ -36,5 +40,8 @@ export {
   java, 
   c,
   cplus,
-  bootstrap
+  bootstrap,
+  angkorwat,
+  aspireoverview,
+  aspirepic
 };
