@@ -26,14 +26,14 @@ const Footer = () => {
                 <h3 className='font-bold text-xl'>Quick Links</h3>
                 <div className='flex flex-wrap gap-15 text-gray-300'>
                     <div className='flex flex-col gap-5'>
-                        <a className='flex items-center gap-3' href="#home"><Home size={18}/> Home</a>
-                        <a className='flex items-center gap-3' href="#about"><Info size={18}/> About</a>
-                        <a className='flex items-center gap-3' href="#skills"><Code size={18}/> Skills</a>
+                        <a className='flex items-center gap-3 hover:text-white' href="#home"><Home size={18}/> Home</a>
+                        <a className='flex items-center gap-3 hover:text-white' href="#about"><Info size={18}/> About</a>
+                        <a className='flex items-center gap-3 hover:text-white' href="#skills"><Code size={18}/> Skills</a>
                     </div>
                     <div className='flex flex-col gap-5'>
-                        <a className='flex items-center gap-3' href="#experience"><Briefcase size={18}/> Experience</a>
-                        <a className='flex items-center gap-3' href="#projects"><FolderKanban size={18}/> Projects</a>
-                        <a className='flex items-center gap-3' href="#contact"><Mail size={18}/> Contact</a>
+                        <a className='flex items-center gap-3 hover:text-white' href="#experiences"><Briefcase size={18}/> Experience</a>
+                        <a className='flex items-center gap-3 hover:text-white' href="#projects"><FolderKanban size={18}/> Projects</a>
+                        <a className='flex items-center gap-3 hover:text-white' href="#contact"><Mail size={18}/> Contact</a>
                     </div>
                 </div>
             </div>
@@ -42,9 +42,9 @@ const Footer = () => {
                 <h3 className='font-bold text-xl'>Get In Touch</h3>
                 <p className='flex items-center gap-3 text-gray-200'><Mail size={18}/> manrafat2006@gmail.com</p>
                 <p className='flex items-center gap-3 text-gray-200'><Pin size={18}/> Available For Internship</p>
-                <button className='flex items-center gap-2 w-[60%] justify-center bg-gray-800 cursor-pointer font-bold p-1.5 rounded-xs hover:bg-gray-800/70'>
+                <a href='#contact' className='flex items-center gap-2 w-[60%] justify-center bg-gray-800 cursor-pointer font-bold p-1.5 rounded-xs hover:bg-gray-800/70'>
                     Follow Me <Send size={16} />
-                </button>                                        
+                </a>
             </div>
 
         </div>

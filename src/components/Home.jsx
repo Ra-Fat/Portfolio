@@ -12,7 +12,7 @@ function Home() {
   const [reverse, setReverse] = useState(false)
 
   // Words to cycle
-  const words = ["Web Developer", "Frontend Developer", "Backend Developer"]
+  const words = ["Web Developer", "Frontend Developer", "Backend Developer", "Fullstack Developer"]
 
   // Typing effect
   useEffect(() => {
@@ -57,7 +57,7 @@ function Home() {
       <div className="flex flex-col custom-flex w-full">
         
         {/* LEFT SIDE */}
-        <div data-aos="fade-right" data-aos-duration="1300" className="flex flex-col gap-4 justify-center items-center lg:w-1/2 w-full pl-3 pr-3">
+        <div data-aos="fade-left" data-aos-duration="1300" className="flex flex-col gap-4 justify-center items-center lg:w-1/2 w-full pl-3 pr-3">
           <div className="flex flex-col items-start gap-6 md:pl-5 lg:pl-10 w-full">
 
             <h1 className="text-4xl sm:text-5xl font-semibold">Hi, I'm Arafat Man</h1>
@@ -68,7 +68,7 @@ function Home() {
               <span className="border-r-2 border-white animate-pulse ml-1"></span>
             </h3>
 
-            <p className="text-base">
+            <p className="text-base text-gray-200">
               I'm a sophomore Computer Science student passionate about coding and creative problem-solving. I enjoy building meaningful projects that make a difference. Always eager to learn, grow, and explore new technologies.
             </p>
 
@@ -104,17 +104,17 @@ function Home() {
             <div className="flex gap-4 items-center mt-2">
               <span className="font-semibold">Follow me:</span>
               <div className="flex gap-4 items-center">
-                <a href="https://web.facebook.com/ra.fat.626421/" target="_blank" rel="noopener noreferrer"><FaFacebook size={20} /></a>
-                <a href="https://www.instagram.com/l4stdance_" target="_blank" rel="noopener noreferrer"><FaInstagram size={20} /></a>
-                <a href="https://www.linkedin.com/in/arafat-man/" target="_blank" rel="noopener noreferrer"><FaLinkedin size={20} /></a>
-                <a href="https://github.com/Ra-Fat" target="_blank" rel="noopener noreferrer"><FaGithub size={20} /></a>
+                <a className='hover:text-[#1877F2]' href="https://web.facebook.com/ra.fat.626421/" target="_blank" rel="noopener noreferrer"><FaFacebook size={20} /></a>
+                <a className='hover:text-[#E4405F]' href="https://www.instagram.com/l4stdance_" target="_blank" rel="noopener noreferrer"><FaInstagram size={20} /></a>
+                <a className='hover:text-[#0A66C2]' href="https://www.linkedin.com/in/arafat-man/" target="_blank" rel="noopener noreferrer"><FaLinkedin size={20} /></a>
+                <a className='hover:text-[#6e5494]' href="https://github.com/Ra-Fat" target="_blank" rel="noopener noreferrer"><FaGithub size={20} /></a>
               </div>
             </div>
           </div>
         </div>
 
         {/* RIGHT SIDE */}
-        <div data-aos="fade-left" data-aos-duration="1300" className="flex justify-center items-center mt-10 lg:mt-0 lg:w-1/2 w-full">
+        <div data-aos="fade-right" data-aos-duration="1300" className="flex justify-center items-center mt-10 lg:mt-0 lg:w-1/2 w-full">
           <div className="w-[260px] h-[340px] sm:w-[300px] sm:h-[400px] md:w-[320px] md:h-[420px] lg:w-[350px] lg:h-[450px]">
             <FloatingImageCanvas />
           </div>
