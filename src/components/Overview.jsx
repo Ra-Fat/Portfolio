@@ -24,13 +24,13 @@ const Overview = () => {
 
       <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 mt-15 w-full ">
         
-        <div data-aos="fade-left" data-aos-duration="1300" className="w-full lg:w-[45%] flex justify-center">
+        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[45%] flex justify-center">
           <div className="w-[260px] h-[340px] sm:w-[300px] sm:h-[400px] md:w-[320px] md:h-[420px] lg:w-[350px] lg:h-[450px]">
             <EarthCanvas />
           </div>
         </div>
 
-        <div data-aos="fade-right" data-aos-duration="1300" className="w-full lg:w-[55%] flex flex-col gap-5 bg-gray-800/30 backdrop-blur-md rounded-xl">
+        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[55%] flex flex-col gap-5 bg-gray-800/30 backdrop-blur-md rounded-xl">
           <div className="flex flex-col items-start rounded-xl p-4 pl-5 gap-2 relative overflow-hidden">
             <div className="flex flex-col gap-3">
               <h1 className="font-semibold text-2xl">Hello There!</h1>

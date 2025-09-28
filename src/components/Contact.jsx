@@ -69,7 +69,7 @@ const Contact = () => {
 
       <div className='flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-10 mt-15 w-full'>
         {/* Left Contact Links */}
-        <div data-aos="fade-left" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xs p-4">
+        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xs p-4">
           <h2 className='flex items-center gap-3 text-xl font-bold'><MdChat size={20} /> Connect With Me</h2>
           <p className='text-gray-300 text-[15px] sm:text-sm lg:text-base'>
             Follow me on social media to stay updated with my latest project, tech insight and development journey. Let's connect and build something great together !!
@@ -91,7 +91,7 @@ const Contact = () => {
         </div>
 
         {/* Contact Form */}
-        <div data-aos="fade-right" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xs p-4">
+        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xs p-4">
           <h2 className='flex items-center gap-3 text-xl font-bold'><Mail size={20} />Contact Form</h2>
           <p className='text-gray-300 text-[15px] sm:text-sm lg:text-base'>
             Have any questions or want to get in touch? Feel free to send me a message, and I will get back to you as soon as possible!
