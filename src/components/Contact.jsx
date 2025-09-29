@@ -46,7 +46,7 @@ const Contact = () => {
   }
 
   return (
-    <div className='mt-10 flex flex-col items-center justify-center w-full lg:px-0 xl:px-10 relative'>
+    <div className='flex flex-col items-center justify-center w-full lg:px-0 xl:px-10 relative'>
       <ToastContainer 
         position="top-right" 
         autoClose={3000} 

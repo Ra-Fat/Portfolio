@@ -19,7 +19,7 @@ const Skills = () => {
   const handleMouseLeave = () => setIsHovering(false);
 
   return (
-    <div  className="mt-10 flex flex-col items-center justify-center w-full lg:px-0 xl:px-10 ">
+    <div  className="flex flex-col items-center justify-center w-full lg:px-0 xl:px-10 ">
       
       <div data-aos="fade-down" data-aos-duration="1300" className="flex flex-col items-center justify-center gap-4">
         <h1 className="font-bold text-4xl">My Skills</h1>

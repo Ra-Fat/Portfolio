@@ -1,4 +1,4 @@
-import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c, cplus, bootstrap , angkorwat, aspireoverview, aspirepic } from "../assets";
+import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c, cplus, bootstrap , teaching, aspireoverview, aspirepic } from "../assets";
 
 
 
@@ -80,18 +80,18 @@ const technologies = [
 const ExperiencesContext = [
   {
     title: "Next-Gen Engagement Program ",
-    picture: angkorwat,
+    picture: teaching,
     year: "2025",
     description: "lorem",
     tag:  [
-      "Web Design",
+      "Teaching",
       "Trainer",
     ],
     pdf: "/aspireprogram.pdf"
   },
   {
     title: "Project Competition",
-    picture: angkorwat,
+    picture: teaching,
     year: "2025",
     description: "lorem",
     tag:  [
@@ -109,7 +109,7 @@ const ExperiencesContext = [
       "Soft Skill",
       "Short Program",
     ],
-    pdf: "/aspireprogram.pdf"
+    pdf: "/cfaspireprogram.pdf"
   },
   {
     title: "Aspire Program",

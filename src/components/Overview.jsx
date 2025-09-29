@@ -13,7 +13,7 @@ const infoDetails = [
 
 const Overview = () => {
   return (
-    <div className="mt-10 flex flex-col items-center justify-center w-full lg:px-0 xl:px-10 ">
+    <div className="flex flex-col items-center justify-center w-full lg:px-0 xl:px-10 ">
       
       <div data-aos="fade-down" data-aos-duration="1300" className="flex flex-col items-center justify-center gap-4 ">
         <h1 className="font-bold text-4xl">About Me</h1>
@@ -66,8 +66,8 @@ const Overview = () => {
               <div className="w-full h-[1px] bg-gray-800 mt-4" />
               <span className="font-semibold text-sm">Interests & Focus</span>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full">
-                {['Frontend', 'Backend', 'Technologies', 'Gaming'].map((text, i) => (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full font-semibold">
+                {['Coding', 'Music', 'Technologies', 'Gaming'].map((text, i) => (
                   <span key={i} className="text-xs cursor-crosshair p-2 bg-gray-800/30 backdrop-blur-md rounded-xl text-center transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-gray/10 duration-200">
                     {text}
                   </span>
@@ -78,8 +78,8 @@ const Overview = () => {
                 <a href="#projects" className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 px-4 py-2.5 rounded-xl font-semibold text-xs transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-blue-500/20 duration-200" >
                   <Download size={14} className="font-bold" /> Download Resume
                 </a>
-                <a href="#work" className="flex items-center gap-2 border-2 border-gray-800 bg-gray-800/10 hover:bg-gray-800/60 px-5 py-2.5 rounded-xl font-semibold text-xs transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-gray/10 duration-200" >
-                  <Mail size={14} /> Hire Me Now
+                <a href="#contact" className="flex items-center gap-2 border-2 border-gray-800 bg-gray-800/10 hover:bg-gray-800/60 px-5 py-2.5 rounded-xl font-semibold text-xs transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-gray/10 duration-200" >
+                  <Mail size={14} /> Make Contact
                 </a>
               </div>
             </div>

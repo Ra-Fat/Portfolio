@@ -87,7 +87,7 @@ function Home() {
                 onClick={handleToggleMusic}
                 className={`flex cursor-crosshair items-center gap-1.5 px-3 py-2 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-[1.05] 
                 ${isPlaying 
-                  ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white shadow-lg shadow-red-500/40 animate-pulse' 
+                  ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white shadow-lg py-2 shadow-red-500/40 animate-pulse' 
                   : 'border-2 border-gray-800 hover:bg-gray-800/60'}`}
               >
                 <Music size={16} className={isPlaying ? 'animate-bounce' : ''} />
