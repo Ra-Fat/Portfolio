@@ -72,9 +72,13 @@ const Experiences = () => {
                 <div className="relative w-50 h-35 overflow-hidden rounded-md">
                   <img
                     src={exp.picture}
-                    className="w-full h-full object-cover transition-opacity duration-300"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 flex justify-center items-center opacity-100">
+                  <div
+                    className={`absolute inset-0 flex justify-center items-center transition-opacity duration-500 ${
+                      expandedIndex === index ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -87,7 +91,9 @@ const Experiences = () => {
                   </div>
                 </div>
               </div>
-          )}
+            )}
+
+
 
 
 
