@@ -19,6 +19,12 @@ import bootstrap from './bootstrap.png';
 import teaching from './teaching.jpg';
 import aspireoverview from './aspireoverview.png';
 import aspirepic from './aspirepic.png';
+import hotelProject from './projecthotel.png';
+import komplexProject from './komplexProject.png';
+import grandcineplex from './grandcineplex.png';
+import portfolio from './portfolio.png';
+
+
 
 
 
@@ -43,5 +49,9 @@ export {
   bootstrap,
   teaching,
   aspireoverview,
-  aspirepic
+  aspirepic,
+  hotelProject,
+  komplexProject,
+  grandcineplex,
+  portfolio
 };

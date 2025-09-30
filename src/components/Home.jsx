@@ -105,7 +105,7 @@ function Home() {
               <span className="font-semibold">Follow me:</span>
               <div className="flex gap-4 items-center">
                 <a className='hover:text-[#1877F2]' href="https://web.facebook.com/ra.fat.626421/" target="_blank" rel="noopener noreferrer"><FaFacebook size={20} /></a>
-                <a className='hover:text-[#E4405F]' href="https://www.instagram.com/l4stdance_" target="_blank" rel="noopener noreferrer"><FaInstagram size={20} /></a>
+                <a className='hover:text-[#E4405F]' href="https://www.instagram.com/urj4zz_/" target="_blank" rel="noopener noreferrer"><FaInstagram size={20} /></a>
                 <a className='hover:text-[#0A66C2]' href="https://www.linkedin.com/in/arafat-man/" target="_blank" rel="noopener noreferrer"><FaLinkedin size={20} /></a>
                 <a className='hover:text-[#6e5494]' href="https://github.com/Ra-Fat" target="_blank" rel="noopener noreferrer"><FaGithub size={20} /></a>
               </div>

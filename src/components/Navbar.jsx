@@ -76,9 +76,9 @@ function Navbar() {
       className="px-6 py-3 rounded-4xl bg-gray-800/60 backdrop-blur-md border border-white/10 shadow-lg sticky top-0 z-50 max-[930px]:w-full"
     >
       <nav className="flex items-center justify-between">
-        <div className="text-white font-semibold text-lg sm:text-xl max-[940px]:block hidden">
+        <a href='#home' className="text-white font-semibold text-lg sm:text-xl max-[940px]:block hidden">
           Man Arafat
-        </div>
+        </a>
 
         {/* Desktop nav → only shows above 930px */}
         <ul className="hidden min-[941px]:flex gap-10 items-center">

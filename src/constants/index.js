@@ -1,4 +1,5 @@
-import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c, cplus, bootstrap , teaching, aspireoverview, aspirepic } from "../assets";
+import { Languages } from "lucide-react";
+import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c, cplus, bootstrap , teaching, aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio } from "../assets";
 
 
 
@@ -125,5 +126,72 @@ const ExperiencesContext = [
 ]
 
 
+const ProjectsContext = [
+  {
+    name: "KOMPLEX",
+    description: "Educational high school platform for khmer students to enhance their learning experience through interactive content, quizzes, and progress tracking.",
+    languages:[
+      "typescript",
+      "nextjs",
+      "tailwind",
+      "expressjs",
+      "docker",
+      "PostgreSQL",
+      "Firebase",
+    ],
+    source_code_link: "https://github.com/KOMPLEX-KH/KOMPLEX.git",
+    hostlink: "https://komplex.app/",
+    image: komplexProject,
+    videodemo: "",
+    year: "2025"
+  },
+  {
+    name: "Grand Cineplex",
+    description: "A website for Grand Cineplex, a leading cinema chain in Cambodia, providing movie listings, showtimes, and online ticket booking.",
+    languages:[
+      "typescript",
+      "nextjs",
+      "tailwind",
+      "expressjs",
+      "PostgreSQL",
+    ],
+    source_code_link: "https://github.com/RaksaOC/Grand-Cineplex.git",
+    hostlink: "https://github.com/RaksaOC/Grand-Cineplex.git",
+    image: grandcineplex,
+    videodemo: "",
+    year: "2025"
+  },
+  {
+    name: "Hotel Clone",
+    description: "",
+    languages:[
+      "reactjs",
+      "css",
+      "vercel",
+    ],
+    source_code_link: "https://github.com/Ra-Fat/Hotel-Clone.git",
+    hostlink: "https://hotel-clone-rosy.vercel.app/",
+    image: hotelProject,
+    videodemo: "",
+    year: "2024"
+  },
+  {
+    name: "Current Portfolio",
+    description: "My personal portfolio website showcasing my skills, projects, and experiences as a budding software developer.",
+    languages:[
+      "reactjs",
+      "tailwind",
+      "vercel",
+      "3D Model",
+    ],
+    source_code_link: "https://github.com/Ra-Fat/Portfolio.git",
+    hostlink: "https://rafat21.vercel.app/",
+    image: portfolio,
+    videodemo: "",
+    year: "2025"
+  },
+]
 
-export { technologies, ExperiencesContext};
+
+
+export { technologies, ExperiencesContext , ProjectsContext};

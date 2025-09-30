@@ -10,7 +10,7 @@ const ContactDetail = [
   { icon: <FaLinkedin size={22} color="#0A66C2" />, ContactName: 'LinkedIn', Username: '@arafat-man', label:"Connect with me professionally and see my career journey", href: "https://www.linkedin.com/in/arafat-man/"},
   { icon: <FaGithub size={22} color="#6e5494"/>, ContactName: 'GitHub', Username: '@Ra-Fat', label:"Check out my latest projects and open source contributions", href: "https://github.com/Ra-Fat"},
   { icon: <FaFacebook size={22} color="#1877F2" />, ContactName: 'Facebook', Username: '@Ra-Fat', label:"Behind the scenes of my development journey", href: "https://web.facebook.com/ra.fat.626421/"},
-  { icon: <FaInstagram size={22} color="#E4405F" />, ContactName: 'Instagram', Username: '@L4stDance_', label:"Behind the scenes of my development journey", href: "https://www.instagram.com/l4stdance_"},
+  { icon: <FaInstagram size={22} color="#E4405F" />, ContactName: 'Instagram', Username: '@urj4zz_', label:"Behind the scenes of my development journey", href: "https://www.instagram.com/urj4zz_/"},
 ]
 
 const Contact = () => {

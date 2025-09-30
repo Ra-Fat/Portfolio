@@ -15,10 +15,10 @@ const Footer = () => {
                 <h3 className='font-bold text-xl'>Portfolio</h3>
                 <p className='text-gray-300'>Passionate developer creating innovative solution and beautiful experiences. Let's build something amazing together.</p>
                 <div className='flex items-center gap-8'>
-                    <FaLinkedin size={18}/>
-                    <FaGithub size={18}/>
-                    <FaFacebook size={18}/>
-                    <FaInstagram size={18}/>
+                    <a className='hover:text-[#1877F2]' href="https://web.facebook.com/ra.fat.626421/" target="_blank" rel="noopener noreferrer"><FaFacebook size={18} /></a>
+                                    <a className='hover:text-[#E4405F]' href="https://www.instagram.com/urj4zz_/" target="_blank" rel="noopener noreferrer"><FaInstagram size={18} /></a>
+                                    <a className='hover:text-[#0A66C2]' href="https://www.linkedin.com/in/arafat-man/" target="_blank" rel="noopener noreferrer"><FaLinkedin size={18} /></a>
+                                    <a className='hover:text-[#6e5494]' href="https://github.com/Ra-Fat" target="_blank" rel="noopener noreferrer"><FaGithub size={18} /></a>
                 </div>
             </div>
 
