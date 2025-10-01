@@ -163,7 +163,7 @@ const ProjectsContext = [
   },
   {
     name: "Hotel Clone",
-    description: "",
+    description: "A hotel booking website clone that allows users to browse rooms, view details, and explore accommodation options with a modern responsive design. Built with React.js and custom CSS, and deployed on Vercel for seamless access.",
     languages:[
       "reactjs",
       "css",
