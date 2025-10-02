@@ -1,5 +1,5 @@
 import { Languages } from "lucide-react";
-import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c, cplus, bootstrap , teaching, aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio, grandvdo, hotelvdo, portvdo } from "../assets";
+import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c, cplus, bootstrap , teaching, aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio } from "../assets";
 
 
 
@@ -142,7 +142,7 @@ const ProjectsContext = [
     source_code_link: "https://github.com/KOMPLEX-KH/KOMPLEX.git",
     hostlink: "https://komplex.app/",
     image: komplexProject,
-    videodemo: hotelvdo,
+    videodemo: "hotelvdo",
     year: "2025"
   },
   {
@@ -158,7 +158,7 @@ const ProjectsContext = [
     source_code_link: "https://github.com/RaksaOC/Grand-Cineplex.git",
     hostlink: "https://github.com/RaksaOC/Grand-Cineplex.git",
     image: grandcineplex,
-    videodemo: grandvdo,
+    videodemo: "grandvdo",
     year: "2025"
   },
   {
@@ -172,7 +172,7 @@ const ProjectsContext = [
     source_code_link: "https://github.com/Ra-Fat/Hotel-Clone.git",
     hostlink: "https://hotel-clone-rosy.vercel.app/",
     image: hotelProject,
-    videodemo: hotelvdo,
+    videodemo: "hotelvdo",
     year: "2024"
   },
   {
@@ -187,7 +187,7 @@ const ProjectsContext = [
     source_code_link: "https://github.com/Ra-Fat/Portfolio.git",
     hostlink: "https://rafat21.vercel.app/",
     image: portfolio,
-    videodemo: portvdo,
+    videodemo: "portvdo",
     year: "2025"
   },
 ]

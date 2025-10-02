@@ -23,9 +23,7 @@ import hotelProject from './projecthotel.png';
 import komplexProject from './komplexProject.png';
 import grandcineplex from './grandcineplex.png';
 import portfolio from './portfolio.png';
-import grandvdo from './grandvdo.mp4';
-import hotelvdo from './hotelvdo.mp4';
-import portvdo from './portvdo.mp4';
+
 
 
 
@@ -57,7 +55,4 @@ export {
   komplexProject,
   grandcineplex,
   portfolio,
-  grandvdo,
-  hotelvdo,
-  portvdo,
 };

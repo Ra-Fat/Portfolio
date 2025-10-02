@@ -68,8 +68,9 @@ const Projects = () => {
             {expandedIndex === index && (
               <div className=' w-full items-center justify-center flex flex-col gap-3 grow-1'>
                   <div className='w-70 h-45'>
-                    <video className="bg-cover rounded-xs pb-2 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40"
-                      src={pro.videodemo} autoPlay loop muted playsInline/>
+                    {/* <video className="bg-cover rounded-xs pb-2 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40"
+                      src={pro.videodemo} autoPlay loop muted playsInline/> */}
+                      {/* <img className='bg-cover rounded-xs pb-2 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40' src={pro.image} alt="" /> */}
                   </div>
                   <p className='text-center px-5'>{pro.description}</p>
 
