@@ -26,7 +26,6 @@ import portfolio from './portfolio.png';
 import grandvdo from './grandvdo.mp4';
 import hotelvdo from './hotelvdo.mp4';
 import portvdo from './portvdo.mp4';
-import komvdo from './komvdo.mp4';
 
 
 
@@ -61,5 +60,4 @@ export {
   grandvdo,
   hotelvdo,
   portvdo,
-  komvdo
 };

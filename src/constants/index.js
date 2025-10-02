@@ -1,5 +1,5 @@
 import { Languages } from "lucide-react";
-import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c, cplus, bootstrap , teaching, aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio, grandvdo, hotelvdo, portvdo,komvdo } from "../assets";
+import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c, cplus, bootstrap , teaching, aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio, grandvdo, hotelvdo, portvdo } from "../assets";
 
 
 
@@ -142,7 +142,7 @@ const ProjectsContext = [
     source_code_link: "https://github.com/KOMPLEX-KH/KOMPLEX.git",
     hostlink: "https://komplex.app/",
     image: komplexProject,
-    videodemo: komvdo,
+    videodemo: hotelvdo,
     year: "2025"
   },
   {
