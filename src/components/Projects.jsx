@@ -1,6 +1,7 @@
 import { Eye, ChevronDown } from 'lucide-react';
 import { ProjectsContext } from '../constants';
 import React, { useState } from 'react';
+import { Github,Play } from 'lucide-react';
 import { span } from 'framer-motion/client';
 
 const Projects = () => {
@@ -26,7 +27,7 @@ const Projects = () => {
             onClick={() => toggleExpand(index)}
             className={`w-full relative bg-gray-800/30 p-4 shadow-inner cursor-pointer rounded-[8px] 
               transition-all duration-500 transform hover:scale-[1.02] hover:shadow-md hover:shadow-gray/10
-              ${expandedIndex === index ? "h-110 flex flex-col gap-5 max-[780px]:h-140" : "h-55 max-[780px]:h-40 flex flex-row items-start gap-10"}`}
+              ${expandedIndex === index ? "h-110 flex flex-col gap-5 max-[780px]:h-125" : "h-55 max-[780px]:h-40 flex flex-row items-start gap-10"}`}
             key={index}
           >
             {/* Image (hidden when expanded) */}
@@ -66,14 +67,15 @@ const Projects = () => {
 
             {expandedIndex === index && (
               <div className=' w-full items-center justify-center flex flex-col gap-3 grow-1'>
-                  <div className='w-80 h-50'>
-                    <img className="bg-cover rounded-xs pb-2 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40" src={pro.image} alt=""/>
+                  <div className='w-70 h-45'>
+                    <video className="bg-cover rounded-xs pb-2 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40"
+                      src={pro.videodemo} autoPlay loop muted playsInline/>
                   </div>
                   <p className='text-center px-5'>{pro.description}</p>
 
                   <div className='flex items-center gap-5 justify-center'>
-                      <a className='text-gray-300 px-2 py-1 border-1 text-[13px] rounded-xl border-gray-600' href={pro.hostlink} target="_blank" rel="noopener noreferrer"> Demo</a>
-                      <a className='text-gray-300 px-2 py-1 border-1 text-[13px] rounded-xl border-gray-600' href={pro.source_code_link} target="_blank" rel="noopener noreferrer">Source Code</a>
+                      <a className='text-gray-300 px-3 py-2 border-1 text-[13px] cursor-crosshair rounded-xl border-gray-600 flex items-center justify-center gap-1 bg-gradient-to-br from-gray-900 via-black to-gray-900' href={pro.hostlink} target="_blank" rel="noopener noreferrer"><Play size={15} /> Demo</a>
+                      <a className='text-gray-300 px-2 py-2 border-1 text-[13px] cursor-crosshair flex items-center justify-center gap-1 rounded-xl border-gray-600 bg-gradient-to-br from-gray-900 via-black to-gray-900' href={pro.source_code_link} target="_blank" rel="noopener noreferrer"><Github size={15} /> Source Code</a>
                   </div> 
               </div>
             )}

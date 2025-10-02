@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import { Mail, Send } from 'lucide-react'
+import { Mail, Send, CheckCircle, XCircle } from 'lucide-react'
 import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { MdChat } from 'react-icons/md'
 import emailjs from '@emailjs/browser'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 const ContactDetail = [
   { icon: <FaLinkedin size={22} color="#0A66C2" />, ContactName: 'LinkedIn', Username: '@arafat-man', label:"Connect with me professionally and see my career journey", href: "https://www.linkedin.com/in/arafat-man/"},
@@ -15,7 +13,20 @@ const ContactDetail = [
 
 const Contact = () => {
   const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', message: '' })
-  const [loading, setLoading] = useState(false) // loading state
+  const [loading, setLoading] = useState(false)
+  const [successModal, setSuccessModal] = useState(false)
+  const [errorModal, setErrorModal] = useState(false)
+
+  // Auto-close modals after 3s
+  React.useEffect(() => {
+    if (successModal || errorModal) {
+      const timer = setTimeout(() => {
+        setSuccessModal(false)
+        setErrorModal(false)
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [successModal, errorModal])
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -37,29 +48,42 @@ const Contact = () => {
       'J1YYVQo0cdMoz8_DR'
     ).then(() => {
       setFormData({ firstName: '', lastName: '', email: '', message: '' })
-      toast.success('Message sent successfully!', { position: "top-right", autoClose: 3000 })
       setLoading(false)
+      setSuccessModal(true)
     }, () => {
-      toast.error('Failed to send message. Please try again.', { position: "top-right", autoClose: 3000 })
       setLoading(false)
+      setErrorModal(true)
     })
   }
 
   return (
     <div className='flex flex-col items-center justify-center w-full lg:px-0 xl:px-10 relative'>
-      <ToastContainer 
-        position="top-right" 
-        autoClose={3000} 
-        hideProgressBar={false} 
-        newestOnTop={false} 
-        closeOnClick 
-        rtl={false} 
-        pauseOnFocusLoss 
-        draggable 
-        pauseOnHover 
-        style={{ top: '90px' }}
-      />
 
+      {/* Success Modal */}
+      {successModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+          <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg flex flex-col items-center gap-4 w-[90%] sm:w-[400px] animate-fade-in">
+            <CheckCircle size={40} className="text-green-500" />
+            <h2 className="text-xl font-bold">Message Sent!</h2>
+            <p className="text-center text-gray-600 dark:text-gray-300">Thank you for reaching out. I’ll get back to you soon.</p>
+          </div>
+        </div>
+      )}
+
+      {/* Error Modal */}
+      {errorModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+          <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg flex flex-col items-center gap-4 w-[90%] sm:w-[400px] animate-fade-in">
+            <XCircle size={40} className="text-red-500" />
+            <h2 className="text-xl font-bold">Message Failed</h2>
+            <p className="text-center text-gray-600 dark:text-gray-300">
+              Oops! Something went wrong. Please try again later.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Title */}
       <div data-aos="fade-down" data-aos-duration="1300" className="flex flex-col items-center justify-center gap-4 ">
         <h1 className="font-bold text-4xl">Get In Touch</h1>
         <span className="text-[15px] sm:text-sm lg:text-base block text-center sm:text-left max-w-3xl">
@@ -67,13 +91,13 @@ const Contact = () => {
         </span>
       </div>
 
+      {/* Contact Section */}
       <div className='flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-10 mt-15 w-full'>
+
         {/* Left Contact Links */}
         <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xs p-4">
           <h2 className='flex items-center gap-3 text-xl font-bold'><MdChat size={20} /> Connect With Me</h2>
-          <p className='text-gray-300 text-[15px] sm:text-sm lg:text-base'>
-            Follow me on social media to stay updated with my latest project, tech insight and development journey. Let's connect and build something great together !!
-          </p>
+          <p className='text-gray-300 text-[15px] sm:text-sm lg:text-base'>Follow me on social media to stay updated with my latest project, tech insight and development journey. Let's connect and build something great together !!</p>
           <div className='flex flex-col w-full gap-5 '>
             {ContactDetail.map((item,index)=>(
               <a target="_blank" rel="noopener noreferrer" href={item.href} key={index} className='flex gap-5 items-center text-[14px] bg-gray-800/20 pl-5 p-4 round-xs shadow-inner cursor-pointer transition-transform transform hover:scale-[1.02] hover:shadow-md hover:shadow-gray/10 duration-200'>
@@ -115,9 +139,7 @@ const Contact = () => {
               <label>Message*</label>
               <textarea name="message" value={formData.message} onChange={handleChange} required className='border border-gray-500 p-2 rounded resize-y h-20' />
             </div>
-            <button 
-              type='submit' 
-              disabled={loading} 
+            <button type='submit' disabled={loading} 
               className={`flex items-center gap-2 w-full justify-center bg-gray-800/50 cursor-pointer font-bold p-3 rounded-xs hover:bg-gray-800/70 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
               {loading ? (
