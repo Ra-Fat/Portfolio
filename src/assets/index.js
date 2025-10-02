@@ -23,7 +23,7 @@ import hotelProject from './projecthotel.png';
 import komplexProject from './komplexProject.png';
 import grandcineplex from './grandcineplex.png';
 import portfolio from './portfolio.png';
-import grandvdo from './grand.mp4';
+import grandvdo from './grandvdo.mp4';
 import hotelvdo from './hotelvdo.mp4';
 import portvdo from './portvdo.mp4';
 import komvdo from './komvdo.mp4';
