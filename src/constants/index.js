@@ -1,5 +1,5 @@
 import { Languages } from "lucide-react";
-import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c, cplus, bootstrap , teaching, aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio,komvdo } from "../assets";
+import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c, cplus, bootstrap , teaching, aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio,komvdo,hotel } from "../assets";
 
 
 
@@ -172,7 +172,7 @@ const ProjectsContext = [
     source_code_link: "https://github.com/Ra-Fat/Hotel-Clone.git",
     hostlink: "https://hotel-clone-rosy.vercel.app/",
     image: hotelProject,
-    videodemo: komvdo,
+    videodemo: hotel,
     year: "2024"
   },
   {
