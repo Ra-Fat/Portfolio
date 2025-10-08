@@ -1,5 +1,5 @@
 import { Languages } from "lucide-react";
-import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c, cplus, bootstrap , teaching, aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio } from "../assets";
+import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c,komplexcertificate, cplus, bootstrap , teaching, aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio } from "../assets";
 
 
 
@@ -81,14 +81,14 @@ const technologies = [
 const ExperiencesContext = [
   {
     title: "Next-Gen Engagement Program ",
-    picture: teaching,
+    picture: komplexcertificate,
     year: "2025",
     description: "lorem",
     tag:  [
       "Teaching",
       "Trainer",
     ],
-    pdf: "/aspireprogram.pdf"
+    pdf: "/Komplex.pdf"
   },
   {
     title: "Project Competition",
@@ -99,7 +99,7 @@ const ExperiencesContext = [
       "Komplex",
       "Khmer Education",
     ],
-    pdf: "/aspireprogram.pdf"
+    pdf: "/Certi.pdf"
   },
   {
     title: "Aspire Program",

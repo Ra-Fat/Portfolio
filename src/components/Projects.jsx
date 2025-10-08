@@ -71,29 +71,18 @@ const Projects = () => {
                   <iframe
                     className="rounded-xs pb-2 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40"
                     src={`${pro.videodemo.replace("youtu.be", "www.youtube.com/embed")}?autoplay=1&mute=1`}
-                    title={pro.name}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
+                    title={pro.name} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen
                   ></iframe>
                 </div>
                 <p className='text-center px-5'>{pro.description}</p>
 
                 <div className='flex items-center gap-5 justify-center'>
                   <a
-                    className='text-gray-300 px-3 py-2 border-1 text-[13px] cursor-crosshair rounded-xl border-gray-600 flex items-center justify-center gap-1 bg-gradient-to-br from-gray-900 via-black to-gray-900'
-                    href={pro.hostlink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                    className='text-gray-300 px-3 py-2 border-1 text-[13px] cursor-crosshair rounded-xl border-gray-600 flex items-center justify-center gap-1 bg-gradient-to-br from-gray-900 via-black to-gray-900' href={pro.hostlink} target="_blank" rel="noopener noreferrer">
                     <Play size={15} /> Demo
                   </a>
                   <a
-                    className='text-gray-300 px-2 py-2 border-1 text-[13px] cursor-crosshair flex items-center justify-center gap-1 rounded-xl border-gray-600 bg-gradient-to-br from-gray-900 via-black to-gray-900'
-                    href={pro.source_code_link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                    className='text-gray-300 px-2 py-2 border-1 text-[13px] cursor-crosshair flex items-center justify-center gap-1 rounded-xl border-gray-600 bg-gradient-to-br from-gray-900 via-black to-gray-900' href={pro.source_code_link} target="_blank" rel="noopener noreferrer" >
                     <Github size={15} /> Source Code
                   </a>
                 </div>

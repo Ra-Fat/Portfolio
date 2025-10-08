@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Code, Monitor, Server, Wrench } from 'lucide-react';
 import { technologies } from '../constants';
 
+
 const Skills = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
