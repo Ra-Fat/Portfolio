@@ -25,6 +25,7 @@
     "react-tilt": "^1.0.2",
     "react-toastify": "^11.0.5",
     "react-vertical-timeline-component": "^3.5.3",
+    "styled-components": "^6.1.19",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {

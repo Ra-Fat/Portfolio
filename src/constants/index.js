@@ -81,7 +81,7 @@ const technologies = [
 const ExperiencesContext = [
   {
     title: "Next-Gen Engagement Program ",
-    picture: komplexcertificate,
+    picture: teaching,
     year: "2025",
     description: "lorem",
     tag:  [
@@ -92,7 +92,7 @@ const ExperiencesContext = [
   },
   {
     title: "Project Competition",
-    picture: teaching,
+    picture: komplexcertificate,
     year: "2025",
     description: "lorem",
     tag:  [
