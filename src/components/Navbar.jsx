@@ -81,7 +81,7 @@ function Navbar() {
         </a>
 
         {/* Desktop nav → only shows above 930px */}
-        <ul className="hidden min-[941px]:flex gap-10 items-center">
+        <ul className="hidden min-[941px]:flex gap-5 items-center">
           {Navbarlinks.map(({ id, icon, label }) => (
             <li key={id}>
               <a

@@ -21,9 +21,13 @@ import aspireoverview from './aspireoverview.png';
 import aspirepic from './aspirepic.png';
 import hotelProject from './projecthotel.png';
 import komplexProject from './komplexProject.png';
+import komplexcertificate from './komplexcertificate.jpg';
 import grandcineplex from './grandcineplex.png';
 import portfolio from './portfolio.png';
-import komplexcertificate from './komplexcertificate.jpg';
+import csharp from './csharp.png';
+import fluttter from './fluttter.png';
+import vercel from './vercel.webp';
+import vite from './vite.png';
 
 
 
@@ -59,5 +63,9 @@ export {
   komplexProject,
   grandcineplex,
   portfolio,
-  komplexcertificate
+  komplexcertificate,
+  fluttter,
+  vercel,
+  vite,
+  csharp
 };

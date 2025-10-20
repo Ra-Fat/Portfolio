@@ -1,5 +1,8 @@
 import { Languages } from "lucide-react";
-import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, postgres, mysql, nextjs, github, java, c,komplexcertificate, cplus, bootstrap , teaching, aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio } from "../assets";
+import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, 
+  postgres, mysql, nextjs, github, java, c, komplexcertificate, cplus, bootstrap , teaching, 
+  aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio,
+fluttter,csharp,vercel, vite } from "../assets";
 
 
 
@@ -7,76 +10,106 @@ const technologies = [
   {
     name: "HTML",
     icon: html,
+    tag: "Language"
   },
   {
     name: "CSS",
     icon: css,
+    tag: "Language"
   },
   {
     name: "JavaScript",
     icon: javascript,
+    tag: "Language"
   },
   {
     name: "TypeScript",
     icon: typescript,
+    tag: "Language"
   },
   {
     name: "React JS",
     icon: reactjs,
+    tag: "Framework"
   },
   {
-    name: "Tailwind CSS",
+    name: "Tailwind",
     icon: tailwind,
+    tag: "Framework"
   },
   {
     name: "Node JS",
     icon: nodejs,
+    tag: "Runtime"
   },
   {
     name: "MongoDB",
     icon: mongodb,
+    tag: "Database"
   },
   {
-    name: "figma",
+    name: "Figma",
     icon: figma,
+    tag: "Tool"
   },
   {
-    name: "git",
+    name: "Git",
     icon: git,
+    tag: "Tool"
   },
   {
-    name: "github",
+    name: "GitHub",
     icon: github,
+    tag: "Platform"
   },
   {
-    name: "nextjs",
+    name: "Next.js",
     icon: nextjs,
+    tag: "Framework"
   },
   {
     name: "PostgreSQL",
     icon: postgres,
+    tag: "Database"
   },
   {
     name: "MySQL",
     icon: mysql,
+    tag: "Database"
   },
   {
     name: "Java",
     icon: java,
+    tag: "Language"
   },
   {
     name: "C",
     icon: c,
+    tag: "Language"
   },
   {
     name: "C++",
     icon: cplus,
+    tag: "Language"
   },
   {
     name: "Bootstrap",
     icon: bootstrap,
-  }
+    tag: "Framework"
+  },
+  {
+    name: "Flutter",
+    icon: fluttter,
+    tag: "Framework"
+  },
+  {
+    name: "Vite",
+    icon: vite,
+    tag: "Tool"
+  },
+  
 ];
+
 
 const ExperiencesContext = [
   {

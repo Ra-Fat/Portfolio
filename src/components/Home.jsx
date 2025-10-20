@@ -68,7 +68,7 @@ function Home() {
               <span className="border-r-2 border-white animate-pulse ml-1"></span>
             </h3>
 
-            <p className="text-base text-gray-200">
+            <p ata-aos="fade-right" data-aos-duration="1500" className="text-base text-gray-200">
               I'm a sophomore Computer Science student passionate about coding and creative problem-solving. I enjoy building meaningful projects that make a difference. Always eager to learn, grow, and explore new technologies.
             </p>
 
