@@ -77,11 +77,11 @@ function Navbar() {
     >
       <nav className="flex items-center justify-between">
         <a href='#home' className="text-white font-semibold text-lg sm:text-xl max-[940px]:block hidden">
-          Man Arafat
+           Arafat Man
         </a>
 
         {/* Desktop nav → only shows above 930px */}
-        <ul className="hidden min-[941px]:flex gap-5 items-center">
+        <ul className="hidden min-[941px]:flex gap-3 items-center">
           {Navbarlinks.map(({ id, icon, label }) => (
             <li key={id}>
               <a

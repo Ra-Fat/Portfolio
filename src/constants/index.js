@@ -121,7 +121,7 @@ const ExperiencesContext = [
       "Teaching",
       "Trainer",
     ],
-    pdf: "/Komplex.pdf"
+    pdf: "/Certi.pdf"
   },
   {
     title: "Project Competition",
@@ -132,7 +132,7 @@ const ExperiencesContext = [
       "Komplex",
       "Khmer Education",
     ],
-    pdf: "/Certi.pdf"
+    pdf: "/Komplex.pdf"
   },
   {
     title: "Aspire Program",
@@ -164,10 +164,11 @@ const ProjectsContext = [
     name: "KOMPLEX",
     description: "Educational high school platform for khmer students to enhance their learning experience through interactive content, quizzes, and progress tracking.",
     languages:[
-      "typescript",
-      "nextjs",
-      "tailwind",
+      "PostgreSQL",
+      "nextjs",     
       "expressjs",
+      "tailwind",
+      "typescript",
       "docker",
       "PostgreSQL",
       "Firebase",
@@ -182,11 +183,12 @@ const ProjectsContext = [
     name: "Grand Cineplex",
     description: "A website for Grand Cineplex, a leading cinema chain in Cambodia, providing movie listings, showtimes, and online ticket booking.",
     languages:[
-      "typescript",
-      "nextjs",
-      "tailwind",
       "expressjs",
       "PostgreSQL",
+      "nextjs",
+      "typescript",  
+      "tailwind",
+      
     ],
     source_code_link: "https://github.com/RaksaOC/Grand-Cineplex.git",
     hostlink: "https://github.com/RaksaOC/Grand-Cineplex.git",
@@ -200,7 +202,7 @@ const ProjectsContext = [
     languages:[
       "reactjs",
       "css",
-      "vercel",
+      "vite",
     ],
     source_code_link: "https://github.com/Ra-Fat/Hotel-Clone.git",
     hostlink: "https://hotel-clone-rosy.vercel.app/",

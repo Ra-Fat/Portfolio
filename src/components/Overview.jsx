@@ -34,19 +34,19 @@ const Overview = () => {
           <div className="flex flex-col items-start rounded-xl p-4 pl-5 gap-2 relative overflow-hidden">
             <div className="flex flex-col gap-3">
               <h1 className="font-semibold text-2xl">Hello There!</h1>
-              <p className="text-sm leading-relaxed text-gray-200 flex-wrap mt-2">
+              <p data-aos="fade-up" data-aos-duration="1350" className="text-sm leading-relaxed text-gray-200 flex-wrap mt-2">
                 I’m a passionate developer who enjoys solving problems and turning ideas into real
                 applications. My focus is on building efficient, user-friendly solutions while
                 continuously improving my technical and creative skills. My goal is to grow into a
                 strong full-stack developer who can contribute to impactful projects and work with
                 purpose-driven teams.
               </p>
-              <div className="w-full h-[1px] bg-gray-800 mt-4" />
+              <div data-aos="fade-up" data-aos-duration="1355" className="w-full h-[1px] bg-gray-800 mt-4" />
             </div>
 
             <div className="flex flex-col gap-2 items-start w-full mt-3">
               {Array.from({ length: 3 }).map((_, rowIndex) => (
-                <div key={rowIndex} className="flex flex-col sm:flex-row items-center w-full gap-4">
+                <div data-aos="fade-up" data-aos-duration="1360" key={rowIndex} className="flex flex-col sm:flex-row items-center w-full gap-4">
                   {infoDetails
                     .slice(rowIndex * 2, rowIndex * 2 + 2)
                     .map((item, index) => (
@@ -64,17 +64,17 @@ const Overview = () => {
 
             <div className="flex flex-col gap-2 items-start w-full">
               <div className="w-full h-[1px] bg-gray-800 mt-4" />
-              <span className="font-semibold text-sm">Interests & Focus</span>
+              <span data-aos="fade-up" data-aos-duration="1365" className="font-semibold text-sm">Interests & Focus</span>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full font-semibold">
                 {['Coding', 'Music', 'Technologies', 'Gaming'].map((text, i) => (
-                  <span key={i} className="text-xs cursor-crosshair p-2 bg-gray-800/30 backdrop-blur-md rounded-xl text-center transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-gray/10 duration-200">
+                  <span data-aos="fade-up" data-aos-duration="1370" key={i} className="text-xs cursor-crosshair p-2 bg-gray-800/30 backdrop-blur-md rounded-xl text-center transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-gray/10 duration-200">
                     {text}
                   </span>
                 ))}
               </div>
 
-              <div className="flex items-start sm:items-center gap-2 mt-1 w-full">
+              <div data-aos="fade-up" data-aos-duration="1375" className="flex items-start sm:items-center gap-2 mt-1 w-full">
                 <a href="#projects" className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 px-4 py-2.5 rounded-xl font-semibold text-xs transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-blue-500/20 duration-200" >
                   <Download size={14} className="font-bold" /> Download Resume
                 </a>
