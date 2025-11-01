@@ -20,7 +20,7 @@ function FloatingImage() {
   });
 
   return (
-    <group ref={meshRef} scale={[1.5, 1.5, 1.5]}>
+    <group ref={meshRef} scale={[1.6, 1.6, 1.6]}>
       {/* Border Circle */}
       <mesh>
         <circleGeometry args={[1.05, 64]} /> {/* slightly bigger radius for border */}

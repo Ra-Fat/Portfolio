@@ -80,7 +80,8 @@ function Home() {
 
   return (
     <div className="flex flex-col w-full h-full justify-center items-center lg:px-0 xl:px-16">
-      <div className="flex flex-col custom-flex w-full ">
+      
+      <div className="flex-col lg:flex-row w-full hidden lg:flex">
 
         {/* LEFT SIDE */}
         <div data-aos="fade-up" data-aos-duration="1300" className="flex flex-col gap-4 justify-center items-center lg:w-1/2 w-full pl-3 pr-3">
@@ -94,14 +95,9 @@ function Home() {
             </h3>
 
             <p className="text-base text-gray-200 leading-relaxed">
-              I'm a sophomore Computer Science student passionate about coding and creative problem-solving.
-              I enjoy building meaningful projects that make a difference and learning new technologies.
+              Passionate about coding and creative problem-solving
+              which enjoy building meaningful projects that make a difference and learning new technologies.
             </p>
-
-            {/* <div className="flex flex-wrap gap-5 text-gray-400 text-sm">
-              <span className="flex gap-2 items-center"><MapPin size={17} /> Phnom Penh, Cambodia</span>
-              <span className="flex gap-2 items-center"><Calendar size={17} />Looking for internship</span>
-            </div> */}
 
             <div data-aos="fade-up" data-aos-duration="1400" className="grid grid-cols-3 gap-5 mt-4 w-full text-center items-start">
               <div className="flex flex-col items-start justify-start">
@@ -132,12 +128,60 @@ function Home() {
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
-        <div data-aos="fade-up" data-aos-duration="1300" className="flex justify-center items-center mt-10 lg:mt-0 lg:w-1/2 w-full">
-          <div className="w-[260px] h-[340px] sm:w-[300px] sm:h-[400px] md:w-[320px] md:h-[420px] lg:w-[350px] lg:h-[450px]">
+        {/* RIGHT SIDE (Image Section) */}
+        <div data-aos="fade-left" data-aos-duration="100" className="flex justify-center items-center mt-10 lg:mt-0 lg:w-1/2 w-full ">
+          <div className=" h-[340px] sm:h-[400px] md:h-[420px] lg:w-[390px] lg:h-[450px] lg:block md:hidden sm:hidden">
             <FloatingImageCanvas />
           </div>
         </div>
+      </div>
+
+      {/* Mobile and Tablet Image above Description */}
+      <div className="lg:hidden md:flex flex-col items-center justify-center w-full">
+        <div className="w-full h-[360px]">
+          <FloatingImageCanvas />
+        </div>
+
+        <div className="text-center mt-6">
+          <h1 className="text-4xl sm:text-5xl font-semibold">
+            I'm <span className="text-blue-800">Arafat</span> Man
+          </h1>
+          <h3 className="text-xl sm:text-2xl mt-3 font-semibold">
+            {text}
+            <span className="border-r-2 border-white animate-pulse ml-1"></span>
+          </h3>
+
+          <p className="text-base text-gray-200 leading-relaxed mt-4">
+            Passionate about coding and creative problem-solving
+            which enjoy building meaningful projects that make a difference and learning new technologies.
+          </p>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1400" className="grid grid-cols-3 gap-5 mt-5 w-full text-center items-start">
+              <div className="flex flex-col items-center justify-start">
+                <div className="text-blue-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
+                  <GitBranch size="100%" />
+                </div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayCommits}</h2>
+                <p className="text-xs sm:text-sm md:text-base text-gray-400">Commits</p>
+              </div>
+
+              <div className="flex flex-col items-center justify-start">
+                <div className="text-green-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
+                  <FolderGit2 size="100%" />
+                </div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayProjects} +</h2>
+                <p className="text-xs sm:text-sm md:text-base text-gray-400">Projects</p>
+              </div>
+
+              <div className="flex flex-col items-center justify-start">
+                <div className="text-yellow-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
+                  <Code size="100%" />
+                </div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayExperience} Years</h2>
+                <p className="text-xs sm:text-sm md:text-base text-gray-400">Experience</p>
+              </div>
+
+            </div>
       </div>
     </div>
   )
