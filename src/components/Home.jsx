@@ -142,7 +142,7 @@ function Home() {
           <FloatingImageCanvas />
         </div>
 
-        <div className="text-center mt-6">
+        <div data-aos="fade-up" data-aos-duration="2000" className="text-center mt-6">
           <h1 className="text-4xl sm:text-5xl font-semibold">
             I'm <span className="text-blue-800">Arafat</span> Man
           </h1>
