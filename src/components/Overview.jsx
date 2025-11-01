@@ -75,7 +75,7 @@ const Overview = () => {
               </div>
 
               <div data-aos="fade-up" data-aos-duration="1375" className="flex items-start sm:items-center gap-2 mt-1 w-full">
-                <a href="#projects" className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 px-4 py-2.5 rounded-xl font-semibold text-xs transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-blue-500/20 duration-200" >
+                <a href="#projects" className="flex items-center gap-2 bg-blue-800 hover:bg-blue-800 px-4 py-2.5 rounded-xl font-semibold text-xs transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-blue-500/20 duration-200" >
                   <Download size={14} className="font-bold" /> Download Resume
                 </a>
                 <a href="#contact" className="flex items-center gap-2 border-2 border-gray-800 bg-gray-800/10 hover:bg-gray-800/60 px-5 py-2.5 rounded-xl font-semibold text-xs transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-gray/10 duration-200" >

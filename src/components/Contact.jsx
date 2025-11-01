@@ -140,7 +140,7 @@ const Contact = () => {
               <textarea name="message" value={formData.message} onChange={handleChange} required className='border border-gray-500 p-2 rounded resize-y h-20' />
             </div>
             <button type='submit' disabled={loading} 
-              className={`flex items-center gap-2 w-full justify-center bg-gray-800/50 cursor-pointer font-bold p-3 rounded-xs hover:bg-gray-800/70 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+              className={`flex items-center gap-2 w-full justify-center bg-gray-900/95 backdrop-blur-md cursor-pointer font-bold p-3 rounded-xs hover:bg-gray-800/70 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
               {loading ? (
                 <>

@@ -28,6 +28,8 @@ import csharp from './csharp.png';
 import fluttter from './fluttter.png';
 import vercel from './vercel.webp';
 import vite from './vite.png';
+import studentClothes from './studentClothes.png';
+
 
 
 
@@ -67,5 +69,6 @@ export {
   fluttter,
   vercel,
   vite,
-  csharp
+  csharp,
+  studentClothes,
 };

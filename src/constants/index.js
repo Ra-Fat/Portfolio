@@ -2,7 +2,7 @@ import { Languages } from "lucide-react";
 import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, 
   postgres, mysql, nextjs, github, java, c, komplexcertificate, cplus, bootstrap , teaching, 
   aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio,
-fluttter,csharp,vercel, vite } from "../assets";
+fluttter,csharp,vercel, vite,  } from "../assets";
 
 
 
@@ -119,7 +119,7 @@ const ExperiencesContext = [
     description: "lorem",
     tag:  [
       "Teaching",
-      "Trainer",
+      "Web Design",
     ],
     pdf: "/Certi.pdf"
   },
@@ -141,7 +141,8 @@ const ExperiencesContext = [
     description: "lorem",
     tag:  [
       "Soft Skill",
-      "Short Program",
+      "Leadership",
+      
     ],
     pdf: "/cfaspireprogram.pdf"
   },

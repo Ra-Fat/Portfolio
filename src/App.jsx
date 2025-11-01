@@ -22,13 +22,13 @@ function App() {
 
 
   return (
-    <div className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white min-h-screen flex flex-col gap-10 sm:gap-15 px-5 py-5 sm:px-7 sm:py-7">
+    <div id="home" className="relative bg-back text-white min-h-screen flex flex-col gap-10 sm:gap-15 px-5 py-5 sm:px-7 sm:py-7">
       <StarsCanvas />
-      <section className="flex items-center justify-center sticky top-5 z-50">
+      <section className="flex items-center justify-center sticky top-7 z-50">
         <Navbar />
       </section>
-      <main className="relative z-10 flex flex-col justify-center gap-20 sm:gap-30 items-center sm:mx-5 xl:mx-20">
-        <section className="w-full" id="home"><Home /></section>
+      <main className="relative z-10 flex flex-col justify-center gap-20 sm:gap-25 items-center sm:mx-5 xl:mx-20">
+        <section className="w-full"><Home /></section>
         <section className="w-full" id="about"><Overview /></section>
         <section className='w-full' id="skills"><Skills /></section>
         <section className="w-full" id="experiences"><Experiences /></section>

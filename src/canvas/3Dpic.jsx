@@ -24,7 +24,7 @@ function FloatingImage() {
       {/* Border Circle */}
       <mesh>
         <circleGeometry args={[1.05, 64]} /> {/* slightly bigger radius for border */}
-        <meshBasicMaterial color="#1F2937" /> {/* border color */}
+        <meshBasicMaterial color="#000000" /> {/* border color */}
       </mesh>
 
       {/* Main Image Circle */}

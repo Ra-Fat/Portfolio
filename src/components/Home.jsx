@@ -1,38 +1,42 @@
-import React, { useRef, useState, useEffect } from 'react'
-import { MapPin, Calendar, Star, Music } from 'lucide-react'
-import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa'
+import React, { useState, useEffect } from 'react'
+import { MapPin, Calendar, GitBranch, FolderGit2, Code } from 'lucide-react'
 import FloatingImageCanvas from '../canvas/3Dpic'
+import axios from 'axios'
 
 function Home() {
-  const audioRef = useRef(null)
-  const [isPlaying, setIsPlaying] = useState(false)
   const [text, setText] = useState('')
   const [index, setIndex] = useState(0)
   const [subIndex, setSubIndex] = useState(0)
   const [reverse, setReverse] = useState(false)
 
-  // Words to cycle
+  // Stats
+  const [repos, setRepos] = useState(0)
+  const [projects, setProjects] = useState(0)
+  const [commits, setCommits] = useState(0)
+  const [experience, setExperience] = useState(0)
+
+  const [displayRepos, setDisplayRepos] = useState(0)
+  const [displayProjects, setDisplayProjects] = useState(0)
+  const [displayCommits, setDisplayCommits] = useState(0)
+  const [displayExperience, setDisplayExperience] = useState(0)
+
   const words = ["Web Developer", "Frontend Developer", "Backend Developer", "Fullstack Developer"]
 
-  // Typing effect
+  // Typing animation
   useEffect(() => {
     if (index === words.length) return
-
     if (subIndex === words[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 1000) // pause before deleting
+      setTimeout(() => setReverse(true), 1000)
       return
     }
-
     if (subIndex === 0 && reverse) {
       setReverse(false)
       setIndex((prev) => (prev + 1) % words.length)
       return
     }
-
     const timeout = setTimeout(() => {
       setSubIndex((prev) => prev + (reverse ? -1 : 1))
     }, reverse ? 50 : 120)
-
     return () => clearTimeout(timeout)
   }, [subIndex, index, reverse])
 
@@ -40,75 +44,90 @@ function Home() {
     setText(words[index].substring(0, subIndex))
   }, [subIndex, index])
 
-  const handleToggleMusic = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause()
-        setIsPlaying(false)
-      } else {
-        audioRef.current.play()
-        setIsPlaying(true)
-      }
+  // Fetch GitHub data
+  useEffect(() => {
+    const username = 'Ra-Fat'
+    axios.get(`https://api.github.com/users/${username}`)
+      .then(res => {
+        setRepos(res.data.public_repos)
+        setProjects(20)
+        setCommits(400)
+        setExperience(3)
+      })
+      .catch(err => console.error(err))
+  }, [])
+
+  // Animate numbers
+  useEffect(() => {
+    const animateValue = (target, setter, duration = 1200) => {
+      let start = 0
+      const increment = target / (duration / 16)
+      const timer = setInterval(() => {
+        start += increment
+        if (start >= target) {
+          start = target
+          clearInterval(timer)
+        }
+        setter(Math.floor(start))
+      }, 16)
     }
-  }
+
+    animateValue(repos, setDisplayRepos)
+    animateValue(projects, setDisplayProjects)
+    animateValue(commits, setDisplayCommits)
+    animateValue(experience, setDisplayExperience)
+  }, [repos, projects, commits, experience])
 
   return (
     <div className="flex flex-col w-full h-full justify-center items-center lg:px-0 xl:px-16">
-      <div className="flex flex-col custom-flex w-full">
-        
+      <div className="flex flex-col custom-flex w-full ">
+
         {/* LEFT SIDE */}
         <div data-aos="fade-up" data-aos-duration="1300" className="flex flex-col gap-4 justify-center items-center lg:w-1/2 w-full pl-3 pr-3">
           <div className="flex flex-col items-start gap-6 md:pl-5 lg:pl-10 w-full">
-
-            <h1 className="text-4xl sm:text-5xl font-semibold">Hi, I'm Arafat Man</h1>
-            
-            {/* 🔥 Typing Animation */}
+            <h1 className="text-4xl sm:text-5xl font-semibold">
+              Hi, I'm <span className="text-blue-800">Arafat</span> Man
+            </h1>
             <h3 className="text-2xl font-semibold">
               {text}
               <span className="border-r-2 border-white animate-pulse ml-1"></span>
             </h3>
 
-            <p ata-aos="fade-right" data-aos-duration="1500" className="text-base text-gray-200">
-              I'm a sophomore Computer Science student passionate about coding and creative problem-solving. I enjoy building meaningful projects that make a difference. Always eager to learn, grow, and explore new technologies.
+            <p className="text-base text-gray-200 leading-relaxed">
+              I'm a sophomore Computer Science student passionate about coding and creative problem-solving.
+              I enjoy building meaningful projects that make a difference and learning new technologies.
             </p>
 
-            <div className="flex flex-wrap gap-4 text-gray-300 text-sm">
+            {/* <div className="flex flex-wrap gap-5 text-gray-400 text-sm">
               <span className="flex gap-2 items-center"><MapPin size={17} /> Phnom Penh, Cambodia</span>
-              <span className="flex gap-2 items-center"><Calendar size={17} /> Available Now</span>
-            </div>
+              <span className="flex gap-2 items-center"><Calendar size={17} />Looking for internship</span>
+            </div> */}
 
-            <div className="flex flex-wrap gap-3 mt-3">
-              <a href="#projects" className="flex items-center gap-1.5 bg-blue-800 hover:bg-blue-950 px-3 py-2 rounded-xl font-semibold text-sm transition-transform transform hover:scale-[1.05] hover:shadow-md hover:shadow-blue-500/20 duration-200">
-                <Star size={14} /> View Projects
-              </a>
-
-              {/* 🔥 Music Toggle Button */}
-              <button
-                onClick={handleToggleMusic}
-                className={`flex cursor-crosshair items-center gap-1.5 px-3 py-2 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-[1.05] 
-                ${isPlaying 
-                  ? 'bg-gradient-to-r from-orange-500 to-red-600 text-white shadow-lg py-2 shadow-red-500/40 animate-pulse' 
-                  : 'border-2 border-gray-800 hover:bg-gray-800/60'}`}
-              >
-                <Music size={16} className={isPlaying ? 'animate-bounce' : ''} />
-                {isPlaying ? 'Now Playing' : 'Music Mode'}
-              </button>
-            </div>
-
-            {/* Audio element */}
-            <audio ref={audioRef} loop>
-              <source src="/yiruma.mp3" type="audio/mpeg" />
-            </audio>
-
-            <div className="w-full h-[1px] bg-gray-800 mt-4" />
-            <div className="flex gap-4 items-center mt-2">
-              <span className="font-semibold">Follow me:</span>
-              <div className="flex gap-4 items-center">
-                <a className='hover:text-[#1877F2]' href="https://web.facebook.com/ra.fat.626421/" target="_blank" rel="noopener noreferrer"><FaFacebook size={20} /></a>
-                <a className='hover:text-[#E4405F]' href="https://www.instagram.com/urj4zz_/" target="_blank" rel="noopener noreferrer"><FaInstagram size={20} /></a>
-                <a className='hover:text-[#0A66C2]' href="https://www.linkedin.com/in/arafat-man/" target="_blank" rel="noopener noreferrer"><FaLinkedin size={20} /></a>
-                <a className='hover:text-[#6e5494]' href="https://github.com/Ra-Fat" target="_blank" rel="noopener noreferrer"><FaGithub size={20} /></a>
+            <div data-aos="fade-up" data-aos-duration="1400" className="grid grid-cols-3 gap-5 mt-4 w-full text-center items-start">
+              <div className="flex flex-col items-start justify-start">
+                <div className="text-blue-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
+                  <GitBranch size="100%" />
+                </div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayCommits}</h2>
+                <p className="text-xs sm:text-sm md:text-base text-gray-400">Commits</p>
               </div>
+
+              <div className="flex flex-col items-start justify-start">
+                <div className="text-green-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
+                  <FolderGit2 size="100%" />
+                </div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayProjects} +</h2>
+                <p className="text-xs sm:text-sm md:text-base text-gray-400">Projects</p>
+              </div>
+
+              <div className="flex flex-col items-start justify-start">
+                <div className="text-yellow-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
+                  <Code size="100%" />
+                </div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayExperience} Years</h2>
+                <p className="text-xs sm:text-sm md:text-base text-gray-400">Experience</p>
+              </div>
+
             </div>
           </div>
         </div>

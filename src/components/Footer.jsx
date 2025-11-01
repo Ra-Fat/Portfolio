@@ -42,7 +42,7 @@ const Footer = () => {
                 <h3 className='font-bold text-xl'>Get In Touch</h3>
                 <p className='flex items-center gap-3 text-gray-200'><Mail size={18}/> manrafat2006@gmail.com</p>
                 <p className='flex items-center gap-3 text-gray-200'><Pin size={18}/> Available For Internship</p>
-                <a href='#contact' className='flex items-center gap-2 w-[60%] justify-center bg-gray-800 cursor-pointer font-bold p-1.5 rounded-xs hover:bg-gray-800/70'>
+                <a href='#contact' className='flex items-center gap-2 w-[60%] justify-center bg-gray-900/95 backdrop-blur-md cursor-pointer font-bold p-1.5 rounded-xs hover:bg-gray-800/70'>
                     Follow Me <Send size={16} />
                 </a>
             </div>

@@ -113,7 +113,7 @@ function Navbar() {
       {menuOpen && (
         <ul
           ref={menuRef}
-          className="max-[940px]:flex hidden fixed top-[80px] right-4 w-48 bg-gray-900/95 backdrop-blur-md rounded-xl border border-white/20 shadow-xl flex-col gap-4 p-4 z-[9999]"
+          className="max-[940px]:flex hidden fixed top-[80px] right-4 w-45 bg-gray-900/95 backdrop-blur-md rounded-xl border border-white/10 shadow-xl flex-col p-2 z-[9999]"
         >
           {Navbarlinks.map(({ id, icon, label }) => (
             <li key={id}>
