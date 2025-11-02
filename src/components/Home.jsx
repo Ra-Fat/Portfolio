@@ -84,7 +84,7 @@ function Home() {
       <div className="flex-col lg:flex-row w-full hidden lg:flex">
 
         {/* LEFT SIDE */}
-        <div data-aos="fade-up" data-aos-duration="1300" className="flex flex-col gap-4 justify-center items-center lg:w-1/2 w-full pl-3 pr-3">
+        <div data-aos="fade-right" data-aos-duration="1300" className="flex flex-col gap-4 justify-center items-center lg:w-1/2 w-full pl-3 pr-3">
           <div className="flex flex-col items-start gap-6 md:pl-5 lg:pl-10 w-full">
             <h1 className="text-4xl sm:text-5xl font-semibold">
               Hi, I'm <span className="text-blue-800">Arafat</span> Man
@@ -129,7 +129,7 @@ function Home() {
         </div>
 
         {/* RIGHT SIDE (Image Section) */}
-        <div data-aos="fade-up" data-aos-duration="2000" className="flex justify-center items-center mt-10 lg:mt-0 lg:w-1/2 w-full ">
+        <div data-aos="fade-left" data-aos-duration="1200" className="flex justify-center items-center mt-10 lg:mt-0 lg:w-1/2 w-full ">
           <div className=" h-[340px] sm:h-[400px] md:h-[420px] lg:w-[390px] lg:h-[450px] lg:block md:hidden sm:hidden">
             <FloatingImageCanvas />
           </div>
@@ -138,11 +138,11 @@ function Home() {
 
       {/* Mobile and Tablet Image above Description */}
       <div className="lg:hidden md:flex flex-col items-center justify-center w-full">
-        <div data-aos="fade-up" data-aos-duration="1300" className="w-full h-[360px]">
+        <div data-aos="fade-left" data-aos-duration="1300" className="w-full h-[360px]">
           <FloatingImageCanvas />
         </div>
 
-        <div data-aos="fade-up" data-aos-duration="2000" className="text-center mt-6">
+        <div data-aos="fade-right" data-aos-duration="2000" className="text-center mt-6">
           <h1 className="text-4xl sm:text-5xl font-semibold">
             I'm <span className="text-blue-800">Arafat</span> Man
           </h1>
