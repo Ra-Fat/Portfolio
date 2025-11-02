@@ -63,9 +63,14 @@ function Navbar() {
     userClickedRef.current = true;
     setActive(id);
     setMenuOpen(false);
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+
+    if (id === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -76,9 +81,14 @@ function Navbar() {
       className="px-6 py-3 rounded-4xl bg-gray-800/60 backdrop-blur-md border border-white/10 shadow-lg sticky top-0 z-50 max-[930px]:w-full"
     >
       <nav className="flex items-center justify-between">
-        <a href='#home' className="text-white font-semibold text-lg sm:text-xl max-[940px]:block hidden">
-           Arafat Man
-        </a>
+        {/* Updated: Use button for smooth scroll to top */}
+        <button
+          type="button"
+          onClick={() => handleLinkClick('home')}
+          className="text-white font-semibold text-lg sm:text-xl max-[940px]:block hidden cursor-pointer bg-transparent border-0 p-0"
+        >
+          Arafat Man
+        </button>
 
         {/* Desktop nav → only shows above 930px */}
         <ul className="hidden min-[941px]:flex gap-3 items-center">
@@ -100,13 +110,14 @@ function Navbar() {
         </ul>
 
         {/* Mobile menu toggle → shows at 940px and below */}
-        <a
-          className="max-[940px]:block hidden text-white p-2 focus:outline-none cursor-pointer"
+        <button
+          type="button"
+          className="max-[940px]:block hidden text-white p-2 focus:outline-none cursor-pointer bg-transparent border-0"
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
-        </a>
+        </button>
       </nav>
 
       {/* Mobile dropdown menu */}
