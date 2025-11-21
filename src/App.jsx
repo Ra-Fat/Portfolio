@@ -10,7 +10,6 @@ import Projects from './components/Projects';
 import Skills from './components/Skill';
 import Experiences from './components/Experiences';
 import StarsCanvas from './canvas/Stars';
-import background from './assets/hill.jpg';
 
 function App() {
 
@@ -21,18 +20,10 @@ function App() {
     });
   }, []);
 
+
   return (
-    <div
-      className="relative text-white min-h-screen flex flex-col gap-10 sm:gap-15 px-5 py-5 sm:px-7 sm:py-7"
-      style={{
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed"
-      }}
-    >
-      {/* <StarsCanvas /> */}
+    <div className="relative bg-back text-white min-h-screen flex flex-col gap-10 sm:gap-15 px-5 py-5 sm:px-7 sm:py-7">
+      <StarsCanvas />
       <section className="flex items-center justify-center sticky top-7 z-50">
         <Navbar />
       </section>
