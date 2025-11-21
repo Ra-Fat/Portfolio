@@ -29,6 +29,7 @@ import fluttter from './fluttter.png';
 import vercel from './vercel.webp';
 import vite from './vite.png';
 import studentClothes from './studentClothes.png';
+import background from './background.jpg';
 
 
 

@@ -3,6 +3,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import firstsubpic from '../assets/profile.jpg';
+import studentClothes from '../assets/studentClothes.png';
+
 
 function FloatingImage({ texture }) {
   const meshRef = useRef();
@@ -16,24 +18,20 @@ function FloatingImage({ texture }) {
   });
 
   return (
-    <group ref={meshRef} scale={[1.6, 1.6, 1.6]}>
-      {/* Border Circle */}
-      <mesh>
-        <circleGeometry args={[1.05, 64]} />
-        <meshBasicMaterial color="#000000" />
-      </mesh>
+  <group ref={meshRef} scale={[1.6, 1.6, 1.6]}>
 
-      {/* Main Image Circle */}
-      <mesh>
-        <circleGeometry args={[1, 64]} />
-        <meshStandardMaterial
-          map={texture}
-          side={THREE.DoubleSide}
-          toneMapped={false}
-        />
-      </mesh>
-    </group>
-  );
+    {/* Main Image Circle */}
+    <mesh>
+      <circleGeometry args={[1, 64]} />
+      <meshStandardMaterial
+        map={texture}
+        side={THREE.DoubleSide}
+        toneMapped={false}
+      />
+    </mesh>
+  </group>
+);
+
 }
 
 const FloatingImageCanvas = () => {
