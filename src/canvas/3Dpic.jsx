@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import firstsubpic from '../assets/profile.jpg';
-import studentClothes from '../assets/studentClothes.png';
+import studentClothes from '../assets/whitecloth.png';
 
 
 function FloatingImage({ texture }) {

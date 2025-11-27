@@ -150,7 +150,7 @@ const Experiences = () => {
           onClick={() => setOpenImage(null)}
         >
           <div
-            className="relative bg-transparent rounded-lg shadow-lg max-w-[70vw] max-h-[70vh] overflow-hidden"
+            className="relative bg-transparent rounded-lg shadow-lg max-w-[80vw] max-h-[80vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -164,7 +164,7 @@ const Experiences = () => {
             <img
               src={openImage || ''}
               alt="Experience full"
-              className="max-w-full max-h-[70vh] rounded-md"
+              className="max-w-full max-h-[100vh] rounded-md"
             />
           </div>
         </div>

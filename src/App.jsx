@@ -10,6 +10,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skill';
 import Experiences from './components/Experiences';
 import StarsCanvas from './canvas/Stars';
+import background from './assets/backgroundd.jpg'
 
 function App() {
 
