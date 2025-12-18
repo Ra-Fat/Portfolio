@@ -5,8 +5,8 @@ import { ExperiencesContext } from '../constants';
 const Experiences = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const [openImage, setOpenImage] = useState<string | null>(null); // track open image URL
-  const [isVisible, setIsVisible] = useState(false); // controls modal presence for animation
+  const [openImage, setOpenImage] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -56,7 +56,7 @@ const Experiences = () => {
             <div
               key={index}
               onClick={() => toggleExpand(index)}
-              className={`w-full relative bg-gray-800/30 p-4 flex items-start gap-10 shadow-inner cursor-crosshair rounded-[8px]
+              className={`w-full relative bg-gray-800/30 p-4 flex items-start gap-10 shadow-inner rounded-[8px]
               transition-all duration-300 transform hover:scale-[1.02] hover:shadow-md hover:shadow-gray/10
               ${
                 expandedIndex === index && windowWidth <= 780
@@ -74,7 +74,7 @@ const Experiences = () => {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setOpenImage(exp.picture); // open modal with image
+                      setOpenImage(exp.picture);
                     }}
                     className="bg-white/80 cursor-pointer hover:bg-white p-3 rounded-full shadow-lg transition"
                   >
@@ -114,7 +114,7 @@ const Experiences = () => {
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          setOpenImage(exp.picture); // open modal with image
+                          setOpenImage(exp.picture);
                         }}
                         className="bg-white/80 cursor-pointer hover:bg-white p-3 rounded-full shadow-lg transition"
                       >
@@ -125,7 +125,7 @@ const Experiences = () => {
                 </div>
               )}
 
-              {/* Mobile Chevron (only show ≤780px) */}
+              {/* Mobile*/}
               {windowWidth <= 780 && (
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
                   <ChevronDown
@@ -150,7 +150,7 @@ const Experiences = () => {
           onClick={() => setOpenImage(null)}
         >
           <div
-            className="relative bg-transparent rounded-lg shadow-lg max-w-[80vw] max-h-[80vh] overflow-hidden"
+            className="relative bg-transparent rounded-lg shadow-lg max-w-[50vw] max-h-[70vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <button

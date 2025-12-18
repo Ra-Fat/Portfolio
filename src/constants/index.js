@@ -161,42 +161,42 @@ const ExperiencesContext = [
 
 
 const ProjectsContext = [
-  {
-    name: "KOMPLEX",
-    description: "Educational high school platform for khmer students to enhance their learning experience through interactive content, quizzes, and progress tracking.",
-    languages:[
-      "PostgreSQL",
-      "nextjs",     
-      "expressjs",
-      "tailwind",
-      "typescript",
-      "docker",
-      "PostgreSQL",
-      "Firebase",
-    ],
-    source_code_link: "https://github.com/KOMPLEX-KH/KOMPLEX.git",
-    hostlink: "https://komplex.app/",
-    image: komplexProject,
-    videodemo: "https://youtu.be/7lELfMt81No",
-    year: "2025"
-  },
-  {
-    name: "Grand Cineplex",
-    description: "A website for Grand Cineplex, a leading cinema chain in Cambodia, providing movie listings, showtimes, and online ticket booking.",
-    languages:[
-      "expressjs",
-      "PostgreSQL",
-      "nextjs",
-      "typescript",  
-      "tailwind",
-      
-    ],
-    source_code_link: "https://github.com/RaksaOC/Grand-Cineplex.git",
-    hostlink: "https://github.com/RaksaOC/Grand-Cineplex.git",
-    image: grandcineplex,
-    videodemo: "https://youtu.be/ENPb3mJ1BhM",
-    year: "2025"
-  },
+{
+  name: "KOMPLEX",
+  description: "KOMPLEX is a free, interactive STEM learning platform for Cambodian high school students, offering curriculum-aligned lessons to improve understanding through engaging visuals and self-paced study.",
+  languages: [
+    "PostgreSQL",
+    "Next.js",
+    "Express.js",
+    "Tailwind CSS",
+    "TypeScript",
+    "Docker",
+    "Firebase"
+  ],
+  source_code_link: "https://github.com/KOMPLEX-KH/KOMPLEX.git",
+  hostlink: "https://komplex.app/",
+  image: komplexProject,
+  videodemo: "https://youtu.be/7lELfMt81No",
+  year: "2025"
+}
+,
+{
+  name: "Grand Cineplex",
+  description: "A comprehensive full-stack cinema management system for Cambodia's leading cinema chain. It features multi-role interfaces for customers, cashiers, and managers, enabling online bookings, seat selection, in-person transactions, and administrative management.",
+  languages: [
+    "Express.js",
+    "PostgreSQL",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS"
+  ],
+  source_code_link: "https://github.com/RaksaOC/Grand-Cineplex.git",
+  hostlink: "https://github.com/RaksaOC/Grand-Cineplex.git",
+  image: grandcineplex,
+  videodemo: "https://youtu.be/ENPb3mJ1BhM",
+  year: "2025"
+}
+,
   {
     name: "Hotel Clone",
     description: "A hotel booking website clone that allows users to browse rooms, view details, and explore accommodation options with a modern responsive design.",

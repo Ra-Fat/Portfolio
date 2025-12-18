@@ -27,7 +27,7 @@ const Projects = () => {
             onClick={() => toggleExpand(index)}
             className={`w-full relative bg-gray-800/30 p-4 shadow-inner cursor-pointer rounded-[8px] 
               transition-all duration-500 transform hover:scale-[1.02] hover:shadow-md hover:shadow-gray/10
-              ${expandedIndex === index ? "h-110 flex flex-col gap-5 max-[780px]:h-125" : "h-55 max-[780px]:h-40 flex flex-row items-start gap-10"}`}
+              ${expandedIndex === index ? "h-115 flex flex-col gap-5 max-[780px]:h-125" : "h-55 max-[780px]:h-40 flex flex-row items-start gap-10"}`}
             key={index}
           >
             {/* Image (hidden when expanded) */}
@@ -67,7 +67,7 @@ const Projects = () => {
 
             {expandedIndex === index && (
               <div className='w-full items-center justify-center flex flex-col gap-3 grow-1'>
-                <div className='w-70 h-45'>
+                <div className='w-70 h-50'>
                   <iframe
                     className="rounded-xs pb-2 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40"
                     src={`${pro.videodemo.replace("youtu.be", "www.youtube.com/embed")}?autoplay=1&mute=1`}

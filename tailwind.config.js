@@ -11,6 +11,9 @@ module.exports = {
       animation: {
         bounceSmooth: 'bounceSmooth 1.2s ease-in-out infinite',
       },
+      fontFamily: {
+        headline: ['Bebas Neue', 'sans-serif'],
+      },
     },
   },
 }

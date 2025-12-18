@@ -13,7 +13,7 @@ const Skills = () => {
 
       <div className="w-full max-w-5xl mt-10 grid gap-4 
              grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
-              rounded-xl relative overflow-hidden cursor-crosshair transition-all duration-300">
+              rounded-xl relative overflow-hidden transition-all duration-300">
 
         <div className="pointer-events-none absolute w-40 h-40 rounded-full z-10 transition-opacity duration-300" />
 
@@ -22,7 +22,7 @@ const Skills = () => {
             key={name}
             data-aos="fade-up"
             data-aos-duration="1500"
-            className="flex justify-start cursor-crosshair  transition-transform transform hover:scale-[1.02] hover:shadow-md hover:shadow-gray/10 duration-200 items-center gap-4 border border-gray-800/50 p-2 rounded-lg"
+            className="flex justify-start  transition-transform transform hover:scale-[1.02] hover:shadow-md hover:shadow-gray/10 duration-200 items-center gap-4 border border-gray-800/50 p-2 rounded-lg"
           >
             <img
               className="w-13 h-13 bg-gray-800/40 p-2 rounded-md"
