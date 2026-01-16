@@ -57,9 +57,9 @@ const Contact = () => {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center w-full lg:px-0 xl:px-10 relative'>
-
-      {/* Success Modal */}
+    <div className=' w-full lg:px-0 xl:px-16 relative'>
+      <div className='flex flex-col items-center justify-center xl:px-10'>
+        {/* Success Modal */}
       {successModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
           <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg flex flex-col items-center gap-4 w-[90%] sm:w-[400px] animate-fade-in">
@@ -85,10 +85,10 @@ const Contact = () => {
 
       {/* Title */}
       <div data-aos="fade-down" data-aos-duration="1300" className="flex flex-col items-center justify-center gap-4 ">
-        <h1 className="font-bold text-4xl">Get In Touch</h1>
-        <span className="text-[15px] sm:text-sm lg:text-base block text-center sm:text-left max-w-3xl">
-          Ready to bring your ideas to life? Let's discuss your next project and create something amazing together
-        </span>
+        <span className="text-2xl md:text-4xl font-moderniz font-bold leading-tight select-none" style={{ display: 'block', color: "#000754", textShadow: `0.5px 0.5px 0 #00d9ff, -0.5px -0.5px 0 #00d9ff, 0.5px -0.5px 0 #00d9ff, -0.5px 0.5px 0 #00d9ff` }}>Get In Touch</span>
+          <span className="text-base font-cascadia sm:text-sm text-gray-300 lg:text-base block text-center sm:text-left">
+            Let's discuss your next project and create something amazing together
+          </span>
       </div>
 
       {/* Contact Section */}
@@ -124,20 +124,20 @@ const Contact = () => {
             <div className='flex items-center gap-4 sm:flex-row flex-col'>
               <div className='flex flex-col gap-2 sm:w-[50%] w-full'>
                 <label>First Name</label>
-                <input name="firstName" type="text" value={formData.firstName} onChange={handleChange} required className='border-1 pl-2 border-gray-500 p-1 rounded-xs bg-none' />
+                <input name="firstName" type="text" value={formData.firstName} onChange={handleChange} required className='border-1 pl-2 border-gray-500 p-1.5 rounded-xs bg-none' />
               </div>
               <div className='flex flex-col gap-2 sm:w-[50%] w-full'>
                 <label>Last Name</label>
-                <input name="lastName" type="text" value={formData.lastName} onChange={handleChange} required className='border-1 pl-2 border-gray-500 p-1 rounded-xs' />
+                <input name="lastName" type="text" value={formData.lastName} onChange={handleChange} required className='border-1 pl-2 border-gray-500 p-1.5 rounded-xs' />
               </div>
             </div>
             <div className='flex flex-col gap-2 w-full'>
               <label>Email</label>
-              <input name="email" type="email" value={formData.email} onChange={handleChange} required className='border-1 pl-2 border-gray-500 p-1 rounded-xs' />
+              <input name="email" type="email" value={formData.email} onChange={handleChange} required className='border-1 pl-2 border-gray-500 p-1.5 rounded-xs' />
             </div>
             <div className='flex flex-col gap-2 w-full'>
               <label>Message*</label>
-              <textarea name="message" value={formData.message} onChange={handleChange} required className='border border-gray-500 p-2 rounded resize-y h-20' />
+              <textarea name="message" value={formData.message} onChange={handleChange} required className='border border-gray-500 p-2 rounded resize-y h-24' />
             </div>
             <button type='submit' disabled={loading} 
               className={`flex items-center gap-2 w-full justify-center bg-gray-900/95 backdrop-blur-md cursor-pointer font-bold p-3 rounded-xs hover:bg-gray-900/70 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
@@ -156,6 +156,7 @@ const Contact = () => {
             </button>
           </form>
         </div>
+      </div>
       </div>
     </div>
   )

@@ -1,57 +1,134 @@
+import React, { useState, useEffect } from 'react';
 import { Home, Mail, Info, Code, FolderKanban, Briefcase, Pin, Send } from 'lucide-react';
-import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { ArrowUp } from 'lucide-react';
 
 const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const links = [
+    { label: 'Home', id: null },
+    { label: 'About', id: 'about' },
+    { label: 'Skills', id: 'skills' },
+    { label: 'Projects', id: 'projects' },
+    { label: 'Contact', id: 'contact' },
+  ];
+
+  useEffect(() => {
+    // Trigger animation on mount
+    const timeout = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
-    <div data-aos="fade-down" data-aos-duration="1300" className='w-full flex flex-col gap-3 '>
-        <span className='w-full h-[1px] bg-gray-800'></span>
-        <div className='grid gap-10 p-5
-                        grid-cols-1
-                        sm:grid-cols-1
-                        md:grid-cols-2 md:grid-rows-[auto_auto]
-                        lg:grid-cols-3 lg:grid-rows-1'>
-
-            <div className='flex flex-col gap-5 items-start p-2'>
-                <h3 className='font-bold text-xl'>Portfolio</h3>
-                <p className='text-gray-300'>Passionate developer creating innovative solution and beautiful experiences. Let's build something amazing together.</p>
-                <div className='flex items-center gap-8'>
-                    <a className='hover:text-[#1877F2]' href="https://web.facebook.com/ra.fat.626421/" target="_blank" rel="noopener noreferrer"><FaFacebook size={18} /></a>
-                                    <a className='hover:text-[#E4405F]' href="https://www.instagram.com/urj4zz_/" target="_blank" rel="noopener noreferrer"><FaInstagram size={18} /></a>
-                                    <a className='hover:text-[#0A66C2]' href="https://www.linkedin.com/in/arafat-man/" target="_blank" rel="noopener noreferrer"><FaLinkedin size={18} /></a>
-                                    <a className='hover:text-[#6e5494]' href="https://github.com/Ra-Fat" target="_blank" rel="noopener noreferrer"><FaGithub size={18} /></a>
-                </div>
-            </div>
-
-            <div className='flex flex-col gap-5 items-start p-2'>
-                <h3 className='font-bold text-xl'>Quick Links</h3>
-                <div className='flex flex-wrap gap-15 text-gray-300'>
-                    <div className='flex flex-col gap-5'>
-                        <a className='flex items-center gap-3 hover:text-white' href="#home"><Home size={18}/> Home</a>
-                        <a className='flex items-center gap-3 hover:text-white' href="#about"><Info size={18}/> About</a>
-                        <a className='flex items-center gap-3 hover:text-white' href="#skills"><Code size={18}/> Skills</a>
-                    </div>
-                    <div className='flex flex-col gap-5'>
-                        <a className='flex items-center gap-3 hover:text-white' href="#experiences"><Briefcase size={18}/> Experience</a>
-                        <a className='flex items-center gap-3 hover:text-white' href="#projects"><FolderKanban size={18}/> Projects</a>
-                        <a className='flex items-center gap-3 hover:text-white' href="#contact"><Mail size={18}/> Contact</a>
-                    </div>
-                </div>
-            </div>
-
-            <div className='flex flex-col gap-5 items-start p-2'>
-                <h3 className='font-bold text-xl'>Get In Touch</h3>
-                <p className='flex items-center gap-3 text-gray-200'><Mail size={18}/> manrafat2006@gmail.com</p>
-                <p className='flex items-center gap-3 text-gray-200'><Pin size={18}/> Available For Internship</p>
-            </div>
-
+    <div className="w-full px-5 md:px-10 lg:px-15 xl:px-30">
+      <div className="w-full flex flex-col items-center">
+        <div
+          className={`flex flex-col items-center justify-center pt-15 transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <h1
+            className="text-2xl lg:text-3xl xl:text-4xl font-moderniz font-bold leading-tight select-none"
+            style={{
+              color: '#000754',
+              textShadow:
+                '0.5px 0.5px 0 #00d9ff, -0.5px -0.5px 0 #00d9ff, 0.5px -0.5px 0 #00d9ff, -0.5px 0.5px 0 #00d9ff',
+            }}
+          >
+            Let's build something
+          </h1>
+          <h1
+            className={`text-2xl lg:text-3xl xl:text-4xl font-moderniz font-bold leading-tight select-none transition-all duration-700 ease-out ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+            style={{
+              color: '#000754',
+              textShadow:
+                '0.5px 0.5px 0 #00d9ff, -0.5px -0.5px 0 #00d9ff, 0.5px -0.5px 0 #00d9ff, -0.5px 0.5px 0 #00d9ff',
+              transitionDelay: '150ms'
+            }}
+          >
+            legendary together
+          </h1>
+          <div
+            className={`group flex items-center gap-2 mt-3 cursor-pointer transition-all duration-700 ease-out ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+            style={{ transitionDelay: '300ms' }}
+          >
+            <a
+              href="mailto:manrafat2006@gmail.com"
+              className="underline underline-offset-4 group-hover:text-cyan-400 transition"
+            >
+              manrafat2006@gmail.com
+            </a>
+            <ArrowUp className="rotate-45 transition group-hover:translate-x-1 group-hover:-translate-y-1 text-cyan-400" size={18} />
+          </div>
         </div>
-        <span className='w-full h-[1px] bg-gray-800'></span>
-        <p className='text-sm text-gray-200 flex justify-center items-center'>
-          &copy; 2025 Portfolio. Made with ❤️ and lots of coffee
-        </p>
 
+        <span className="w-full h-[1px] bg-gray-700 mb-3 mt-8"></span>
+
+        <div
+          className={`flex flex-col md:flex-row items-center justify-between w-full gap-6 mt-5 mb-8 transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{ transitionDelay: '450ms' }}
+        >
+          <section className="flex flex-wrap justify-center gap-5 text-gray-400">
+            {links.map((item, index) => (
+              <button
+                key={index}
+                onClick={() =>
+                  item.id
+                    ? document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })
+                    : window.scrollTo({ top: 0, behavior: 'smooth' })
+                }
+                className="flex items-center cursor-pointer gap-3 font-semibold hover:text-white transition"
+              >
+                {item.label}
+              </button>
+            ))}
+          </section>
+
+          <section className="flex items-center gap-3">
+            <a
+              className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
+              href="https://web.facebook.com/ra.fat.626421/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook className="h-4 w-4 text-slate-400 transition-all duration-300" />
+            </a>
+            <a
+              className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
+              href="https://www.instagram.com/urj4zz_/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="h-4 w-4 text-slate-400 transition-all duration-300" />
+            </a>
+            <a
+              className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
+              href="https://www.linkedin.com/in/arafat-man/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="h-4 w-4 text-slate-400 transition-all duration-300" />
+            </a>
+            <a
+              className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
+              href="https://github.com/Ra-Fat"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="h-4 w-4 text-slate-400 transition-all duration-300" />
+            </a>
+          </section>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

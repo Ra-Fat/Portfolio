@@ -1,19 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Home, Mail, Info, Code, FolderKanban, Menu, X, Briefcase } from 'lucide-react';
+import { FaShieldAlt } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../../assets/images/logo/logo.png';
 
 function Navbar() {
   const [active, setActive] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef(null);
   const userClickedRef = useRef(false);
 
   const Navbarlinks = [
-    { id: 'home', icon: <Home size={20} />, label: 'Home' },
-    { id: 'about', icon: <Info size={20} />, label: 'About' },
-    { id: 'skills', icon: <Code size={20} />, label: 'Skills' },
-    { id: 'experiences', icon: <Briefcase size={20} />, label: 'Experiences' },
-    { id: 'projects', icon: <FolderKanban size={20} />, label: 'Projects' },
-    { id: 'contact', icon: <Mail size={20} />, label: 'Contact' },
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   useEffect(() => {
@@ -58,6 +61,37 @@ function Navbar() {
       clearTimeout(timeoutId);
     };
   }, [active, Navbarlinks]);
+  useEffect(() => {
+  if (!menuOpen) return;
+
+  const handleScrollCloseMenu = () => {
+    setMenuOpen(false);
+  };
+
+  window.addEventListener('scroll', handleScrollCloseMenu, { passive: true });
+
+  return () => {
+    window.removeEventListener('scroll', handleScrollCloseMenu);
+  };
+}, [menuOpen]);
+
+
+  // useEffect(() => {
+  //   if (menuOpen) {
+  //     document.body.classList.add('overflow-hidden');
+  //   } else {
+  //     document.body.classList.remove('overflow-hidden');
+  //   }
+  // }, [menuOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleLinkClick = (id) => {
     userClickedRef.current = true;
@@ -74,77 +108,131 @@ function Navbar() {
     }
   };
 
+  // Variants for navbar fade + slide on mount
+  const navbarVariants = {
+    hidden: { opacity: 0, y: -15 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  };
+
+  // Variants for mobile menu container
+  const menuVariants = {
+    hidden: { opacity: 0, y: -20, pointerEvents: 'none' },
+    visible: {
+      opacity: 1,
+      y: 0,
+      pointerEvents: 'auto',
+      transition: {
+        duration: 0.35,
+        when: 'beforeChildren',
+        staggerChildren: 0.1,
+        ease: 'easeOut',
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
+      pointerEvents: 'none',
+      transition: { duration: 0.3, ease: 'easeIn' },
+    },
+  };
+
+  // Variants for each menu item
+  const menuItemVariants = {
+    hidden: { opacity: 0, x: -15 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+  };
+
   return (
-    <div
-      data-aos="fade-up"
-      data-aos-duration="1300"
-      className="px-6 py-3 rounded-4xl bg-gray-800/60 backdrop-blur-md border border-white/10 shadow-lg sticky top-0 z-50 max-[930px]:w-full"
+    <motion.div
+      variants={navbarVariants}
+      initial="hidden"
+      animate="visible"
+      className={`py-3 sticky top-0 z-50 w-full px-5 md:px-10 lg:px-15 xl:px-30`}
     >
-      <nav className="flex items-center justify-between">
-        {/* Updated: Use button for smooth scroll to top */}
+      <div className="flex items-center justify-between">
+        {/* left side */}
         <button
           type="button"
           onClick={() => handleLinkClick('home')}
-          className="text-white font-semibold text-lg sm:text-xl max-[940px]:block hidden cursor-pointer bg-transparent border-0 p-0"
+          className="text-white archivo-black font-semibold text-xl sm:text-2xl cursor-pointer border-0 p-0"
         >
-          Arafat Man
+          <h1 style={{ fontFamily: 'Moderniz, sans-serif' }} className="text-[15px] text-white ">
+            Man Arafat
+          </h1>
         </button>
 
-        {/* Desktop nav → only shows above 930px */}
-        <ul className="hidden min-[941px]:flex gap-3 items-center">
-          {Navbarlinks.map(({ id, icon, label }) => (
-            <li key={id}>
-              <a
-                onClick={() => handleLinkClick(id)}
-                className={`flex items-center gap-2 cursor-pointer rounded-2xl px-4 py-2 text-sm sm:text-base transition-colors duration-200 ease-in-out
-                ${
-                  active === id
-                    ? 'bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white'
-                    : 'bg-transparent text-gray-300 hover:bg-gray-700/50 hover:text-white'
-                }`}
-              >
-                {icon} <span className="select-none">{label}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
+        {/* right side desktop */}
+        <nav className="hidden min-[910px]:block">
+          <ul className="flex justify-center gap-9 items-center">
+            {Navbarlinks.map(({ id, label }) => (
+              <li key={id}>
+                <a
+                  onClick={() => handleLinkClick(id)}
+                  className={`flex items-center gap-1 cursor-pointer rounded-xl py-2 text-sm sm:text-base transition-colors duration-200 ease-in-out
+                    ${
+                      label === 'Contact'
+                        ? 'bg-blue-800 font-bold hover:bg-blue-700 transition text-white px-5'
+                        : active === id
+                        ? 'text-white font-semibold'
+                        : 'text-gray-400 hover:text-white'
+                    }
+                  `}
+                >
+                  <span className="select-none">{label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-        {/* Mobile menu toggle → shows at 940px and below */}
+        {/* hamburger bar */}
         <button
           type="button"
-          className="max-[940px]:block hidden text-white p-2 focus:outline-none cursor-pointer bg-transparent border-0"
+          className="block min-[910px]:hidden text-white p-2 focus:outline-none cursor-pointer bg-transparent border-0"
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          <motion.div
+            key={menuOpen ? 'open' : 'closed'}
+            initial={{ rotate: 0, opacity: 1 }}
+            animate={{ rotate: menuOpen ? 90 : 0, opacity: menuOpen ? 0.7 : 1 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          </motion.div>
         </button>
-      </nav>
+      </div>
 
       {/* Mobile dropdown menu */}
-      {menuOpen && (
-        <ul
-          ref={menuRef}
-          className="max-[940px]:flex hidden fixed top-[80px] right-4 w-45 bg-gray-900/95 backdrop-blur-md rounded-xl gap-3 border border-white/10 shadow-xl flex-col p-2 z-[9999]"
-        >
-          {Navbarlinks.map(({ id, icon, label }) => (
-            <li key={id}>
-              <a
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.ul
+            ref={menuRef}
+            className="max-[940px]:flex fixed top-[80px] right-4 w-45 bg-gray-900/95 backdrop-blur-md rounded-xl gap-3 border border-white/10 shadow-xl flex-col p-2 z-[9999]"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={menuVariants}
+          >
+            {Navbarlinks.map(({ id, label }) => (
+              <motion.li
+                key={id}
                 onClick={() => handleLinkClick(id)}
-                className={`flex items-center justify-start gap-3 cursor-pointer rounded-lg px-4 py-3 text-base w-full transition-colors duration-200 ease-in-out
-                ${
-                  active === id
-                    ? 'bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white'
-                    : 'bg-transparent text-gray-300 hover:bg-gray-700/50 hover:text-white'
-                }`}
+                className={`flex items-center justify-start gap-2 cursor-pointer rounded-lg px-3 py-2 text-base w-full transition-colors duration-200 ease-in-out
+                  ${
+                    active === id
+                      ? 'bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white'
+                      : 'bg-transparent text-gray-300 hover:bg-gray-700/50 hover:text-white'
+                  }`}
+                variants={menuItemVariants}
               >
-                {icon}
                 <span className="select-none">{label}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+              </motion.li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 

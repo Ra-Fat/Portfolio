@@ -1,96 +1,156 @@
-import { Eye, ChevronDown } from 'lucide-react';
-import { ProjectsContext } from '../constants';
-import React, { useState } from 'react';
-import { Github,Play } from 'lucide-react';
-import { span } from 'framer-motion/client';
+import React, { useState, useEffect, useRef } from 'react';
+import { Play, ExternalLink } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
+import { ProjectsContext } from '../utils/constants';
 
 const Projects = () => {
-  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  // Track visibility per card (index => boolean)
+  const [visibleIndexes, setVisibleIndexes] = useState(new Set());
 
-  const toggleExpand = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
+  // Create refs array for each card
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    cardRefs.current = cardRefs.current.slice(0, ProjectsContext.length);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number(entry.target.getAttribute('data-index'));
+          if (entry.isIntersecting) {
+            setVisibleIndexes((prev) => new Set(prev).add(index));
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    cardRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      cardRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
 
   return (
-    <div className="flex flex-col gap-8 items-center justify-center w-full lg:px-0 xl:px-10">
-      <div data-aos="fade-down" data-aos-duration="1300" className="flex flex-col items-center justify-center gap-4 ">
-        <h1 className="font-bold text-4xl">Projects</h1>
-        <span className="text-[15px] sm:text-sm lg:text-base block text-center sm:text-left max-w-3xl">
-          Overview of my professional growth and learning experiences
-        </span>
-      </div>
-
-      <div data-aos="fade-up" data-aos-duration="1300" className="w-full max-w-5xl mt-5 flex gap-10 flex-col">
-
-        {ProjectsContext.map((pro, index) => (
-          <div
-            onClick={() => toggleExpand(index)}
-            className={`w-full relative bg-gray-800/30 p-4 shadow-inner cursor-pointer rounded-[8px] 
-              transition-all duration-500 transform hover:scale-[1.02] hover:shadow-md hover:shadow-gray/10
-              ${expandedIndex === index ? "h-115 flex flex-col gap-5 max-[780px]:h-125" : "h-55 max-[780px]:h-40 flex flex-row items-start gap-10"}`}
-            key={index}
+    <div className="w-full lg:px-10 xl:px-16">
+      <div className="flex flex-col items-center justify-center w-full xl:px-10">
+        {/* Header */}
+        <div className="flex flex-col items-center text-center gap-4 max-w-[800px]">
+          <span
+            className="text-2xl md:text-4xl font-moderniz font-bold leading-tight select-none"
+            style={{
+              display: 'block',
+              color: '#000754',
+              textShadow:
+                '0.5px 0.5px 0 #00d9ff, -0.5px -0.5px 0 #00d9ff, 0.5px -0.5px 0 #00d9ff, -0.5px 0.5px 0 #00d9ff',
+            }}
           >
-            {/* Image (hidden when expanded) */}
-            <div
-              className={`relative w-70 h-50 group overflow-hidden rounded-md max-[780px]:hidden transition-opacity duration-300 ${expandedIndex === index ? "opacity-0 hidden" : "opacity-100"}`}>
-              <img className="bg-cover rounded-xs pb-2 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40" src={pro.image} alt=""/>
-            </div>
+            Projects
+          </span>
+          <span className="text-base font-cascadia sm:text-sm text-gray-300 lg:text-base block text-center sm:text-left">
+            Overview of my professional growth and learning experiences
+          </span>
+        </div>
 
-            <div className="flex flex-col items-start gap-5 grow-0">
-              <h2 className="text-2xl font-medium max-[780px]:text-xl">{pro.name}</h2>
-              <div className="flex items-center gap-3">
-                <span className="text-gray-300 px-2 py-1 border-1 text-[13px] rounded-xl border-gray-600">
-                  {pro.languages[0]}
-                </span>
-                <span className="text-gray-300 px-2 py-1 border-1 text-[13px] rounded-xl border-gray-600">
-                  {pro.languages[1]}
-                </span>
-                <span className="text-gray-300 px-2 py-1 border-1 text-[13px] rounded-xl border-gray-600">
-                  {pro.languages[2]}
-                </span>
-              </div>
-            </div>
+        {/* Projects List */}
+        <div className="w-full max-w-6xl flex flex-col gap-10 mt-10">
+          {ProjectsContext.map((project, index) => {
+            const isEven = index % 2 === 0;
+            const isVisible = visibleIndexes.has(index);
 
-           {expandedIndex !== index && (
-              <div className="h-full flex justify-end items-center grow-1">
-                {pro.year}
-              </div>
-           )}
-
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
-              <ChevronDown
-                className={`transition-transform duration-300 animate-bounce ${
-                  expandedIndex === index ? "hidden" : ""
-                }`}
-              />
-            </div>
-
-            {expandedIndex === index && (
-              <div className='w-full items-center justify-center flex flex-col gap-3 grow-1'>
-                <div className='w-70 h-50'>
-                  <iframe
-                    className="rounded-xs pb-2 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40"
-                    src={`${pro.videodemo.replace("youtu.be", "www.youtube.com/embed")}?autoplay=1&mute=1`}
-                    title={pro.name} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen
-                  ></iframe>
+            return (
+              <div
+                key={index}
+                data-index={index}
+                ref={(el) => (cardRefs.current[index] = el)}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className={`project-card grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0 items-center border bg-gray-800/30 backdrop-blur-md border-b border-white/10 rounded-2xl p-5
+                  transform transition-all duration-700 ease-out
+                  ${
+                    isVisible
+                      ? 'opacity-100 translate-y-0 scale-100 w-full'
+                      : 'opacity-0 translate-y-12 scale-90 w-11/12'
+                  }
+                `}
+                style={{ transitionDelay: `${150 + index * 100}ms` }}
+              >
+                {/* Image */}
+                <div
+                  className={`relative overflow-hidden flex justify-center items-center ${
+                    isEven ? 'md:order-1' : 'md:order-2'
+                  }`}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-[68%] h-[68%] object-contain transition-transform duration-300 hover:scale-105"
+                  />
                 </div>
-                <p className='text-center px-5'>{pro.description}</p>
 
-                <div className='flex items-center gap-5 justify-center'>
-                  <a
-                    className='text-gray-300 px-3 py-2 border-1 text-[13px] cursor-crosshair rounded-xl border-gray-600 flex items-center justify-center gap-1 bg-gradient-to-br from-gray-900 via-black to-gray-900' href={pro.hostlink} target="_blank" rel="noopener noreferrer">
-                    <Play size={15} /> Demo
-                  </a>
-                  <a
-                    className='text-gray-300 px-2 py-2 border-1 text-[13px] cursor-crosshair flex items-center justify-center gap-1 rounded-xl border-gray-600 bg-gradient-to-br from-gray-900 via-black to-gray-900' href={pro.source_code_link} target="_blank" rel="noopener noreferrer" >
-                    <Github size={15} /> Source Code
-                  </a>
+                {/* Content */}
+                <div
+                  className={`flex flex-col gap-4 ${
+                    isEven ? 'md:order-2' : 'md:order-1 pl-4'
+                  }`}
+                >
+                  <h2 className="text-xl font-bold">{project.name}</h2>
+
+                  <p className="text-gray-400 leading-relaxed text-[14px]">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-3">
+                    {project.languages.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1.5 rounded-full text-[11px] font-medium border border-cyan-400/30 bg-cyan-400/10 text-gray-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex flex-wrap gap-4">
+                    {project.hostlink && project.hostlink.trim() !== '' && (
+                      <a href={project.hostlink} target="_blank" rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-6 bg-blue-700 rounded-lg font-bold text-sm transition hover:-translate-y-1"
+                      >
+                        <ExternalLink size={15} />Live Demo
+                      </a>
+                   )}
+
+                    <a
+                      href={project.source_code_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
+                    >
+                      <FaGithub className="h-4 w-4 text-slate-400 transition-all duration-300" />
+                    </a>
+
+                    <a
+                      href={project.videodemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
+                    >
+                      <Play className="h-4 w-4 text-slate-400 transition-all duration-300" />
+                    </a>
+                  </div>
                 </div>
               </div>
-              )}
-
-          </div>
-        ))}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

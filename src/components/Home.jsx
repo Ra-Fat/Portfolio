@@ -1,187 +1,115 @@
 import React, { useState, useEffect } from 'react'
-import { MapPin, Calendar, GitBranch, FolderGit2, Code } from 'lucide-react'
-import FloatingImageCanvas from '../canvas/3Dpic'
-import axios from 'axios'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import FloatingImageCanvas from '../utils/canvas/3Dpic'
 
 function Home() {
-  const [text, setText] = useState('')
-  const [index, setIndex] = useState(0)
-  const [subIndex, setSubIndex] = useState(0)
-  const [reverse, setReverse] = useState(false)
-
-  // Stats
-  const [repos, setRepos] = useState(0)
-  const [projects, setProjects] = useState(0)
-  const [commits, setCommits] = useState(0)
-  const [experience, setExperience] = useState(0)
-
-  const [displayRepos, setDisplayRepos] = useState(0)
-  const [displayProjects, setDisplayProjects] = useState(0)
-  const [displayCommits, setDisplayCommits] = useState(0)
-  const [displayExperience, setDisplayExperience] = useState(0)
-
-  const words = ["Web Developer", "Frontend Developer", "Backend Developer", "Fullstack Developer"]
-
-  // Typing animation
-  useEffect(() => {
-    if (index === words.length) return
-    if (subIndex === words[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 1000)
-      return
-    }
-    if (subIndex === 0 && reverse) {
-      setReverse(false)
-      setIndex((prev) => (prev + 1) % words.length)
-      return
-    }
-    const timeout = setTimeout(() => {
-      setSubIndex((prev) => prev + (reverse ? -1 : 1))
-    }, reverse ? 50 : 120)
-    return () => clearTimeout(timeout)
-  }, [subIndex, index, reverse])
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    setText(words[index].substring(0, subIndex))
-  }, [subIndex, index])
-
-  // Fetch GitHub data
-  useEffect(() => {
-    const username = 'Ra-Fat'
-    axios.get(`https://api.github.com/users/${username}`)
-      .then(res => {
-        setRepos(res.data.public_repos)
-        setProjects(20)
-        setCommits(400)
-        setExperience(3)
-      })
-      .catch(err => console.error(err))
+    // Trigger animations after component mounts
+    setIsVisible(true)
   }, [])
 
-  // Animate numbers
-  useEffect(() => {
-    const animateValue = (target, setter, duration = 1200) => {
-      let start = 0
-      const increment = target / (duration / 16)
-      const timer = setInterval(() => {
-        start += increment
-        if (start >= target) {
-          start = target
-          clearInterval(timer)
-        }
-        setter(Math.floor(start))
-      }, 16)
-    }
-
-    animateValue(repos, setDisplayRepos)
-    animateValue(projects, setDisplayProjects)
-    animateValue(commits, setDisplayCommits)
-    animateValue(experience, setDisplayExperience)
-  }, [repos, projects, commits, experience])
-
   return (
-    <div className="flex flex-col w-full h-full justify-center items-center lg:px-0 xl:px-16">
-      
-      <div className="flex-col lg:flex-row w-full hidden lg:flex">
+    <div className="w-full h-full lg:px-10 xl:px-16">
+      <div className="flex w-full min-[910px]:flex-row flex-col-reverse">
 
         {/* LEFT SIDE */}
-        <div data-aos="fade-right" data-aos-duration="1300" className="flex flex-col gap-4 justify-center items-center lg:w-1/2 w-full pl-3 pr-3">
-          <div className="flex flex-col items-start gap-6 md:pl-5 lg:pl-10 w-full">
-            <h1 className="text-4xl sm:text-5xl font-semibold">
-              Hi, I'm <span className="text-blue-800">Arafat</span> Man
-            </h1>
-            <h3 className="text-2xl font-semibold">
-              {text}
-              <span className="border-r-2 border-white animate-pulse ml-1"></span>
-            </h3>
+        <div className="flex justify-center items-center lg:w-1/2 w-full">
+          <div className="flex flex-col items-center min-[910px]:items-start gap-6 lg:pl-0 xl:pl-10 w-full">
 
-            <p className="text-base text-gray-200 leading-relaxed">
-              Passionate about coding and creative problem-solving
-              which enjoy building meaningful projects that make a difference and learning new technologies.
+            {/* Animated Title */}
+            <div
+              className={`flex flex-col items-center min-[910px]:items-start transition-all duration-1000 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+              }`}
+              style={{ transitionDelay: '100ms' }}
+            >
+              <h1
+                style={{
+                  color: '#000754',
+                  textShadow:
+                    '0.5px 0.5px 0 #00d9ff, -0.5px -0.5px 0 #00d9ff, 0.5px -0.5px 0 #00d9ff, -0.5px 0.5px 0 #00d9ff',
+                }}
+                className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-moderniz font-bold leading-tight select-none"
+              >
+                Man Arafat
+              </h1>
+              <span
+                className="text-2xl md:text-3xl lg:text-4xl font-moderniz font-bold leading-tight select-none"
+                style={{
+                  display: 'block',
+                  color: '#000754',
+                  textShadow:
+                    '0.5px 0.5px 0 #00d9ff, -0.5px -0.5px 0 #00d9ff, 0.5px -0.5px 0 #00d9ff, -0.5px 0.5px 0 #00d9ff',
+                }}
+              >
+                Software Engineer
+              </span>
+            </div>
+
+            {/* Animated Description */}
+            <p
+              className={`text-base font-cascadia text-gray-300 leading-relaxed text-center min-[910px]:text-left transition-all duration-1000 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: '300ms' }}
+            >
+              Passionate about coding and creative problem-solving which enjoy building meaningful projects
+              that make a difference and learning new technologies.
             </p>
 
-            <div data-aos="fade-up" data-aos-duration="1400" className="grid grid-cols-3 gap-5 mt-4 w-full text-center items-start">
-              <div className="flex flex-col items-start justify-start">
-                <div className="text-blue-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
-                  <GitBranch size="100%" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayCommits}</h2>
-                <p className="text-xs sm:text-sm md:text-base text-gray-400">Commits</p>
+            {/* Animated Buttons */}
+            <div
+              className={`flex items-center justify-center gap-5 transition-all duration-1000 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: '500ms' }}
+            >
+              <div>
+                <button className="cursor-pointer relative flex px-5 rounded-xl py-3 items-center justify-center border border-slate-700 bg-slate-900/[0.8] text-white transition-all duration-300 hover:bg-slate-800">
+                  Download Resume
+                </button>
               </div>
-
-              <div className="flex flex-col items-start justify-start">
-                <div className="text-green-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
-                  <FolderGit2 size="100%" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayProjects} +</h2>
-                <p className="text-xs sm:text-sm md:text-base text-gray-400">Projects</p>
+              <div className="flex flex-row gap-4">
+                <a
+                  href="https://github.com/Ra-Fat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
+                  className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/[0.8] text-white transition-all duration-300 hover:bg-slate-800"
+                >
+                  <FaGithub className="h-6 w-6 text-slate-400 transition-all duration-300" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/arafat-man"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/[0.8] text-white transition-all duration-300 hover:bg-slate-800"
+                >
+                  <FaLinkedin className="h-6 w-6 text-slate-400 transition-all duration-300" />
+                </a>
               </div>
-
-              <div className="flex flex-col items-start justify-start">
-                <div className="text-yellow-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
-                  <Code size="100%" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayExperience} Years</h2>
-                <p className="text-xs sm:text-sm md:text-base text-gray-400">Experience</p>
-              </div>
-
             </div>
           </div>
         </div>
 
         {/* RIGHT SIDE (Image Section) */}
-        <div data-aos="fade-left" data-aos-duration="1200" className="flex justify-center items-center mt-10 lg:mt-0 lg:w-1/2 w-full ">
-          <div className=" h-[340px] sm:h-[400px] md:h-[420px] lg:w-[390px] lg:h-[450px] lg:block md:hidden sm:hidden">
+        <div className="flex justify-center items-center mt-10 lg:mt-0 lg:w-1/2 w-full">
+          <div
+            className={`h-[340px] sm:h-[400px] md:h-[420px] lg:w-[390px] lg:h-[450px] transition-all duration-1200 ${
+  isVisible ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-100 rotate-0'
+}`}
+
+
+
+            style={{ transitionDelay: '200ms' }}
+          >
             <FloatingImageCanvas />
           </div>
         </div>
-      </div>
 
-      {/* Mobile and Tablet Image above Description */}
-      <div className="lg:hidden md:flex flex-col items-center justify-center w-full">
-        <div data-aos="fade-left" data-aos-duration="1300" className="w-full h-[360px]">
-          <FloatingImageCanvas />
-        </div>
-
-        <div data-aos="fade-right" data-aos-duration="2000" className="text-center mt-6">
-          <h1 className="text-4xl sm:text-5xl font-semibold">
-            I'm <span className="text-blue-800">Arafat</span> Man
-          </h1>
-          <h3 className="text-xl sm:text-2xl mt-3 font-semibold">
-            {text}
-            <span className="border-r-2 border-white animate-pulse ml-1"></span>
-          </h3>
-
-          <p className="text-base text-gray-200 leading-relaxed mt-4">
-            Passionate about coding and creative problem-solving
-            which enjoy building meaningful projects that make a difference and learning new technologies.
-          </p>
-        </div>
-        <div data-aos="fade-up" data-aos-duration="1400" className="grid grid-cols-3 gap-5 mt-5 w-full text-center items-start">
-              <div className="flex flex-col items-center justify-start">
-                <div className="text-blue-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
-                  <GitBranch size="100%" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayCommits}</h2>
-                <p className="text-xs sm:text-sm md:text-base text-gray-400">Commits</p>
-              </div>
-
-              <div className="flex flex-col items-center justify-start">
-                <div className="text-green-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
-                  <FolderGit2 size="100%" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayProjects} +</h2>
-                <p className="text-xs sm:text-sm md:text-base text-gray-400">Projects</p>
-              </div>
-
-              <div className="flex flex-col items-center justify-start">
-                <div className="text-yellow-400 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8">
-                  <Code size="100%" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-2">{displayExperience} Years</h2>
-                <p className="text-xs sm:text-sm md:text-base text-gray-400">Experience</p>
-              </div>
-
-            </div>
       </div>
     </div>
   )
