@@ -26,15 +26,6 @@ function App() {
 
   const [enableBackground, setEnableBackground] = useState(true);
 
-  // useEffect(() => {
-  //   const isMobile =
-  //     /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ||
-  //     window.innerWidth < 1024;
-
-  //   setEnableBackground(!isMobile);
-  // }, []);
-
-
   return (
     <div className="relative bg-back text-white min-h-screen flex flex-col gap-0 sm:gap-18">
       {enableBackground && (

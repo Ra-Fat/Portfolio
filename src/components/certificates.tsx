@@ -127,7 +127,7 @@ const Experiences = () => {
           onClick={() => setOpenImage(null)}
         >
           <div
-            className="relative bg-gray-800/30 bg-opacity-80 rounded-xl border border-white/30 shadow-lg p-4 max-w-[50vw] max-h-[50vh]"
+            className="relative bg-gray-800/30 bg-opacity-80 rounded-xl border border-white/30 shadow-lg p-4 "
             onClick={(e) => e.stopPropagation()} // Prevent modal close on image click
           >
             <button
@@ -137,11 +137,20 @@ const Experiences = () => {
             >
               <X size={24} />
             </button>
-            <img
-              src={openImage}
-              alt="Certificate"
-              className="max-w-full max-h-[45vh] rounded-lg shadow-md"
+            <img src={openImage} alt="Certificate"
+              className="
+                w-[80vw]
+                sm:w-[80vw]
+                lg:w-auto
+                max-h-[75vh] 
+                sm:max-h-[70vh] 
+                lg:max-h-[45vh]
+                object-contain
+                rounded-lg
+                shadow-md
+              "
             />
+
           </div>
         </div>
       )}

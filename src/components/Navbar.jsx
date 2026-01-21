@@ -56,33 +56,26 @@ function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timeoutId);
-    };
-  }, [active, Navbarlinks]);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        clearTimeout(timeoutId);
+      };
+    }, [active, Navbarlinks]);
+  
   useEffect(() => {
-  if (!menuOpen) return;
+    if (!menuOpen) return;
 
-  const handleScrollCloseMenu = () => {
-    setMenuOpen(false);
-  };
+    const handleScrollCloseMenu = () => {
+      setMenuOpen(false);
+    };
 
-  window.addEventListener('scroll', handleScrollCloseMenu, { passive: true });
+    window.addEventListener('scroll', handleScrollCloseMenu, { passive: true });
 
-  return () => {
-    window.removeEventListener('scroll', handleScrollCloseMenu);
-  };
-}, [menuOpen]);
+    return () => {
+      window.removeEventListener('scroll', handleScrollCloseMenu);
+    };
+  }, [menuOpen]);
 
-
-  // useEffect(() => {
-  //   if (menuOpen) {
-  //     document.body.classList.add('overflow-hidden');
-  //   } else {
-  //     document.body.classList.remove('overflow-hidden');
-  //   }
-  // }, [menuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,6 +86,7 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  
   const handleLinkClick = (id) => {
     userClickedRef.current = true;
     setActive(id);
@@ -143,19 +137,15 @@ function Navbar() {
   };
 
   return (
-    <motion.div
-      variants={navbarVariants}
-      initial="hidden"
-      animate="visible"
+    <motion.div variants={navbarVariants}
+      initial="hidden" animate="visible"
       className={`py-3 sticky top-0 z-50 w-full px-5 md:px-10 lg:px-15 xl:px-30`}
     >
       <div className="flex items-center justify-between">
+        
         {/* left side */}
-        <button
-          type="button"
-          onClick={() => handleLinkClick('home')}
-          className="text-white archivo-black font-semibold text-xl sm:text-2xl cursor-pointer border-0 p-0"
-        >
+        <button type="button" onClick={() => handleLinkClick('home')}
+          className="text-white archivo-black font-semibold text-xl sm:text-2xl cursor-pointer border-0 p-0">
           <h1 style={{ fontFamily: 'Moderniz, sans-serif' }} className="text-[15px] text-white ">
             Man Arafat
           </h1>
@@ -166,8 +156,7 @@ function Navbar() {
           <ul className="flex justify-center gap-9 items-center">
             {Navbarlinks.map(({ id, label }) => (
               <li key={id}>
-                <a
-                  onClick={() => handleLinkClick(id)}
+                <a onClick={() => handleLinkClick(id)}
                   className={`flex items-center gap-1 cursor-pointer rounded-xl py-2 text-sm sm:text-base transition-colors duration-200 ease-in-out
                     ${
                       label === 'Contact'

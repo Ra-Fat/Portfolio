@@ -19,8 +19,17 @@
 
 /* Then @layer directives */
 @layer base {
+  :root {
+    --color-primary: #000754;       /* Dark Blue */
+    --color-secondary: #00d9ff;     /* Cyan Glow */
+    --color-bg: #060010;            /* Background */
+    --color-text-primary: #f9fafb;  /* Light Text */
+    --color-button-bg: #1f2937;     /* Button bg (gray-800) */
+    --color-button-hover-bg: #374151; /* Button hover (gray-700) */
+  }
+
   body {
-    background-color: #060010;
+    background-color: var(--color-bg);
   }
   
   .font-poppins {
@@ -36,10 +45,10 @@
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   textarea:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px #1f2937 inset !important;
-    box-shadow: 0 0 0px 1000px #1f2937 inset !important;
-    -webkit-text-fill-color: #f9fafb !important;
-    caret-color: #f9fafb !important;
+    -webkit-box-shadow: 0 0 0px 1000px var(--color-button-bg) inset !important;
+    box-shadow: 0 0 0px 1000px var(--color-button-bg) inset !important;
+    -webkit-text-fill-color: var(--color-text-primary) !important;
+    caret-color: var(--color-text-primary) !important;
     transition: background-color 5000s ease-in-out 0s;
   }
 }
@@ -128,3 +137,54 @@ div.w-full.h-full.fixed.inset-0.z-0 {
   animation: fadeIn 1s ease-in-out forwards;
 }
 
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-blue-primary {
+  background-color: var(--color-blue-primary);
+}
+
+.bg-blue-hover:hover {
+  background-color: var(--color-blue-hover);
+}
+
+.custom-scrollbar {
+  padding-bottom: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar:horizontal {
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar:vertical {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

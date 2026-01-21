@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, ExternalLink } from 'lucide-react';
+import { Play, ExternalLink, Eye, ArrowRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { ProjectsContext } from '../utils/constants';
+import { ImageGalleryModal } from '../utils/ImageGallery';
 
 const Projects = () => {
+  
+  
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  // Track visibility per card (index => boolean)
   const [visibleIndexes, setVisibleIndexes] = useState(new Set());
+  const [selectedProject, setSelectedProject] = useState(null);
 
-  // Create refs array for each card
   const cardRefs = useRef([]);
 
   useEffect(() => {
@@ -42,8 +44,7 @@ const Projects = () => {
       <div className="flex flex-col items-center justify-center w-full xl:px-10">
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4 max-w-[800px]">
-          <span
-            className="text-2xl md:text-4xl font-moderniz font-bold leading-tight select-none"
+          <span className="text-2xl md:text-4xl font-moderniz font-bold leading-tight select-none"
             style={{
               display: 'block',
               color: '#000754',
@@ -59,7 +60,7 @@ const Projects = () => {
         </div>
 
         {/* Projects List */}
-        <div className="w-full max-w-6xl flex flex-col gap-10 mt-10">
+        <div className="w-full max-w-6xl flex flex-col gap-5 mt-10">
           {ProjectsContext.map((project, index) => {
             const isEven = index % 2 === 0;
             const isVisible = visibleIndexes.has(index);
@@ -82,8 +83,7 @@ const Projects = () => {
                 style={{ transitionDelay: `${150 + index * 100}ms` }}
               >
                 {/* Image */}
-                <div
-                  className={`relative overflow-hidden flex justify-center items-center ${
+                <div className={`relative overflow-hidden flex justify-center items-center ${
                     isEven ? 'md:order-1' : 'md:order-2'
                   }`}
                 >
@@ -117,34 +117,15 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-
+                  <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
                   {/* Buttons */}
-                  <div className="flex flex-wrap gap-4">
-                    {project.hostlink && project.hostlink.trim() !== '' && (
-                      <a href={project.hostlink} target="_blank" rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 bg-blue-700 rounded-lg font-bold text-sm transition hover:-translate-y-1"
-                      >
-                        <ExternalLink size={15} />Live Demo
-                      </a>
-                   )}
-
-                    <a
-                      href={project.source_code_link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
-                    >
-                      <FaGithub className="h-4 w-4 text-slate-400 transition-all duration-300" />
-                    </a>
-
-                    <a
-                      href={project.videodemo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
-                    >
-                      <Play className="h-4 w-4 text-slate-400 transition-all duration-300" />
-                    </a>
+                  <div className="flex items-center justify-between">
+                   <p className="text-gray-300 text-sm leading-relaxed flex-1 line-clamp-3">{project.date}</p>
+                   <button  onClick={() => setSelectedProject(project)}
+                     className="cursor-pointer text-sm gap-2 relative flex px-5 rounded-xl py-2 items-center justify-center border border-slate-700 bg-slate-900/[0.8] text-white transition-all duration-300 hover:bg-slate-800">
+                     View <ArrowRight size={16} />
+                   </button>
+                    
                   </div>
                 </div>
               </div>
@@ -152,6 +133,12 @@ const Projects = () => {
           })}
         </div>
       </div>
+      {selectedProject && (
+        <ImageGalleryModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import firstsubpic from '../../../assets/images/profiles/profile.jpg';
 
 
+
 function FloatingImage({ texture }) {
   const meshRef = useRef();
 

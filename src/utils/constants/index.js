@@ -1,8 +1,14 @@
 import { Languages } from "lucide-react";
 import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, 
   postgres, mysql, nextjs, github, java, c, komplexcertificate, cplus, bootstrap , teaching, 
-  aspireoverview, aspirepic, komplexProject, grandcineplex, hotelProject, portfolio,
-fluttter,csharp,vercel, vite, game, komplexF, gameF, grandcineplexF, unifinder  } from "../../../assets";
+  aspireoverview, aspirepic, komplexProject, grandcineplex,
+fluttter,csharp,vercel, vite, game, komplexF, gameF, grandcineplexF, unifinder,
+  firstImageKomplex, secondImageKomplex, thirdImageKomplex, fourthImageKomplex, fifthImageKomplex, sixthImageKomplex,
+  firstImageGrandcineplex, secondImageGrandcineplex, thirdImageGrandcineplex, fourthImageGrandcineplex,
+  fifthImageGrandcineplex, sixthImageGrandcineplex,
+  firstImageUnifinder, secondImageUnifinder, thirdImageUnifinder, fourthImageUnifinder, fifthImageUnifinder,
+  sixthImageUnifinder, seventhImageUnifinder, eighthImageUnifinder, ninthImageUnifinder, tenthImageUnifinder,
+  eleventhImageUnifinder, twelfthImageUnifinder, firstImageGame, secondImageGame, thirdImageGame, fourthImageGame, fifthImageGame } from '../../../assets';
 
 
 
@@ -171,7 +177,15 @@ const ProjectsContext = [
     hostlink: "https://komplex.app/",
     image: komplexF,
     videodemo: "https://youtu.be/7lELfMt81No",
-    year: "2025"
+    date: "Sep 2025",
+    gallery: [
+      firstImageKomplex,
+      secondImageKomplex,
+      thirdImageKomplex,
+      fourthImageKomplex,
+      fifthImageKomplex,
+      sixthImageKomplex,
+    ]
   },
   {
     name: "Grand Cineplex",
@@ -187,22 +201,15 @@ const ProjectsContext = [
     hostlink: "",
     image: grandcineplexF,
     videodemo: "https://youtu.be/ENPb3mJ1BhM",
-    year: "2025"
-  },
-  {
-    name: "Frost-Guard",
-    description: "The Winter Siege is a tower defense strategy game where players defend their castle from waves of enemies in a magical, endless winter world. Players place and upgrade towers, manage resources, and plan strategically to survive increasingly difficult enemy waves.",
-    languages:[
-      "unity",
-      "csharp",
-      "animation",
-
-    ],
-    source_code_link: "https://github.com/Ra-Fat/Frost-Guard.git",
-    hostlink: "",
-    image: gameF,
-    videodemo: "https://youtu.be/mIUvftuUees?si=D_0kMtdTyFWALKiv",
-    year: "2025"
+    date: "July 2025",
+    gallery: [
+      firstImageGrandcineplex,
+      secondImageGrandcineplex,
+      thirdImageGrandcineplex,
+      fourthImageGrandcineplex,
+      fifthImageGrandcineplex,
+      sixthImageGrandcineplex,
+    ]
   },
   {
     name: "UniFinder",
@@ -218,7 +225,43 @@ const ProjectsContext = [
     hostlink: "",
     image: unifinder,
     videodemo: "https://youtu.be/luuqpryOJ3g",
-    year: "2026"
+    date: "Jan 2026",
+    gallery: [
+      firstImageUnifinder,
+      secondImageUnifinder,
+      thirdImageUnifinder,
+      fourthImageUnifinder,
+      fifthImageUnifinder,
+      sixthImageUnifinder,
+      seventhImageUnifinder,
+      eighthImageUnifinder,
+      ninthImageUnifinder,
+      tenthImageUnifinder,
+      eleventhImageUnifinder,
+      twelfthImageUnifinder,
+    ]
+  },
+  {
+    name: "Frost-Guard",
+    description: "The Winter Siege is a tower defense strategy game where players defend their castle from waves of enemies in a magical, endless winter world. Players place and upgrade towers, manage resources, and plan strategically to survive increasingly difficult enemy waves.",
+    languages:[
+      "unity",
+      "csharp",
+      "animation",
+
+    ],
+    source_code_link: "https://github.com/Ra-Fat/Frost-Guard.git",
+    hostlink: "",
+    image: gameF,
+    videodemo: "https://youtu.be/mIUvftuUees?si=o4scTwVXMq5XJlVO",
+    date: "Dec 2025",
+    gallery: [
+      firstImageGame,
+      secondImageGame,
+      thirdImageGame,
+      fourthImageGame,
+      fifthImageGame
+    ]
   },
 ]
 
