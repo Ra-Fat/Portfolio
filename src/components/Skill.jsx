@@ -1,6 +1,9 @@
 import { technologies } from '../utils/constants';
 import React, { useState, useEffect, useRef } from 'react';
-
+import { motion } from 'framer-motion';
+import { containerVariants } from '../utils/animation';
+import { headerVariants } from '../utils/animation';
+import { itemVariants } from '../utils/animation';
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,68 +33,49 @@ const Skills = () => {
     };
   }, []);
 
+
+
+
+
   return (
     <div className="w-full lg:px-10 xl:px-16" ref={sectionRef}>
-      <div className="w-full flex flex-col items-center justify-center">
+      <motion.div 
+        className="flex flex-col w-full justify-center items-center"
+        initial="hidden"
+        animate={isVisible ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
         
         {/* Title */}
-        <div 
-          className={`flex flex-col items-center justify-center gap-4 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
-          }`}
-          style={{ transitionDelay: '100ms' }}
+        <motion.div 
+          className='flex items-center gap-3 w-full px-6 justify-center'
+          variants={headerVariants}
         >
-          <span
-            className="text-2xl md:text-4xl font-bold leading-tight select-none"
-            style={{
-              display: 'block',
-              color: "#000754",
-              textShadow: `0.5px 0.5px 0 #00d9ff, -0.5px -0.5px 0 #00d9ff,
-                           0.5px -0.5px 0 #00d9ff, -0.5px 0.5px 0 #00d9ff`
-            }}
-          >
-            TechStacks
+          <span className="text-xl md:text-3xl font-bold uppercase">
+            PROFICIENCIES
           </span>
-          <span className="text-base font-cascadia sm:text-sm text-gray-300 lg:text-base block text-center sm:text-left">
-            Technical expertise and proficiency across different domains
+          <span className="text-lg md:text-3xl font-black text-gray-300">/</span>
+          <span className="text-xl md:text-3xl font-bold uppercase text-gray-500">
+            BUILD STACK
           </span>
-        </div>
+        </motion.div>
 
-        {/* Skills Grid */}
-        <div
-          className="w-full max-w-5xl mt-10 grid gap-4
-                     grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
-                     rounded-xl relative overflow-hidden"
+        {/* Skills Grid - Icon Only Display */}
+        <motion.div 
+          className="w-full max-w-5xl mt-10 flex gap-5 flex-wrap justify-center items-center rounded-2xl p-0 md:p-5"
+          variants={containerVariants}
         >
-          {technologies.map(({ name, icon, tag }, index) => (
-            <div
-              key={name}
-              className={`flex justify-start items-center gap-4
-                         border border-gray-800 p-2 rounded-lg
-                         transition-all duration-700
-                         hover:scale-[1.05] hover:border-slate-700
-                         hover:shadow-md hover:shadow-gray/10 ${
-                           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                         }`}
-              style={{ transitionDelay: `${200 + (index * 80)}ms` }}
+          {technologies.map(({ name, icon }, index) => (
+            <motion.div 
+              key={name} 
+              className="flex flex-col justify-center items-center bg-gray-900/50 rounded-xl p-3 border border-gray-800"
+              variants={itemVariants}
             >
-              <img
-                className="w-13 h-13 bg-gray-800/40 p-2 rounded-md
-                           transition-transform duration-300
-                           hover:scale-110"
-                src={icon}
-                alt={name}
-              />
-              <div className="flex flex-col items-start gap-1">
-                <h4 className="text-xs font-bold text-white">{name}</h4>
-                <span className="text-gray-400 text-[11px] font-bold">
-                  {tag}
-                </span>
-              </div>
-            </div>
+              <img className="w-10 h-10" src={icon} alt={name}/>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

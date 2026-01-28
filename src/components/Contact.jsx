@@ -7,8 +7,7 @@ import emailjs from '@emailjs/browser'
 const ContactDetail = [
   { icon: <FaLinkedin size={22} color="#0A66C2" />, ContactName: 'LinkedIn', Username: '@arafat-man', label:"Connect with me professionally and see my career journey", href: "https://www.linkedin.com/in/arafat-man/"},
   { icon: <FaGithub size={22} color="#6e5494"/>, ContactName: 'GitHub', Username: '@Ra-Fat', label:"Check out my latest projects and open source contributions", href: "https://github.com/Ra-Fat"},
-  { icon: <FaFacebook size={22} color="#1877F2" />, ContactName: 'Facebook', Username: '@Ra-Fat', label:"Behind the scenes of my development journey", href: "https://web.facebook.com/ra.fat.626421/"},
-  { icon: <FaInstagram size={22} color="#E4405F" />, ContactName: 'Instagram', Username: '@urj4zz_', label:"Behind the scenes of my development journey", href: "https://www.instagram.com/urj4zz_/"},
+  { icon: <FaFacebook size={22} color="#1877F2" />, ContactName: 'Facebook', Username: '@Arafat Man', label:"Behind the scenes of my development journey", href: "https://web.facebook.com/urj4zz/"},
 ]
 
 const Contact = () => {
@@ -84,11 +83,14 @@ const Contact = () => {
       )}
 
       {/* Title */}
-      <div data-aos="fade-down" data-aos-duration="1300" className="flex flex-col items-center justify-center gap-4 ">
-        <span className="text-2xl md:text-4xl font-moderniz font-bold leading-tight select-none" style={{ display: 'block', color: "#000754", textShadow: `0.5px 0.5px 0 #00d9ff, -0.5px -0.5px 0 #00d9ff, 0.5px -0.5px 0 #00d9ff, -0.5px 0.5px 0 #00d9ff` }}>Get In Touch</span>
-          <span className="text-base font-cascadia sm:text-sm text-gray-300 lg:text-base block text-center sm:text-left">
-            Let's discuss your next project and create something amazing together
-          </span>
+      <div className='flex items-center gap-3 w-full px-6 justify-center'>
+        <span className="text-xl md:text-3xl font-bold uppercase">
+          CONNECT
+        </span>
+        <span class="text-lg md:text-3xl font-black text-gray-300">/</span>
+        <span className="text-xl md:text-3xl font-bold uppercase text-gray-500">
+          GET IN TOUCH
+        </span>
       </div>
 
       {/* Contact Section */}
@@ -121,23 +123,16 @@ const Contact = () => {
             Have any questions or want to get in touch? Feel free to send me a message, and I will get back to you as soon as possible!
           </p>
           <form onSubmit={handleSubmit} className='flex flex-col w-full gap-5'>
-            <div className='flex items-center gap-4 sm:flex-row flex-col'>
-              <div className='flex flex-col gap-2 sm:w-[50%] w-full'>
-                <label>First Name</label>
-                <input name="firstName" type="text" value={formData.firstName} onChange={handleChange} required className='border-1 pl-2 border-gray-500 p-1.5 rounded-xs bg-none' />
-              </div>
-              <div className='flex flex-col gap-2 sm:w-[50%] w-full'>
-                <label>Last Name</label>
-                <input name="lastName" type="text" value={formData.lastName} onChange={handleChange} required className='border-1 pl-2 border-gray-500 p-1.5 rounded-xs' />
-              </div>
-            </div>
             <div className='flex flex-col gap-2 w-full'>
               <label>Email</label>
-              <input name="email" type="email" value={formData.email} onChange={handleChange} required className='border-1 pl-2 border-gray-500 p-1.5 rounded-xs' />
+              <input name="email" type="email" value={formData.email} onChange={handleChange} required
+                className="bg-gray-900/60 border border-gray-500 text-gray-100 placeholder-gray-400 pl-2 p-1.5 rounded-xs focus:outline-none focus:border-gray-300 transition"
+              />
+
             </div>
             <div className='flex flex-col gap-2 w-full'>
               <label>Message*</label>
-              <textarea name="message" value={formData.message} onChange={handleChange} required className='border border-gray-500 p-2 rounded resize-y h-24' />
+              <textarea name="message" value={formData.message} onChange={handleChange} required className=' bg-gray-900/60 border border-gray-500 text-gray-100 placeholder-gray-400 p-2 rounded resize-y h-24' />
             </div>
             <button type='submit' disabled={loading} 
               className={`flex items-center gap-2 w-full justify-center bg-gray-900/95 backdrop-blur-md cursor-pointer font-bold p-3 rounded-xs hover:bg-gray-900/70 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}

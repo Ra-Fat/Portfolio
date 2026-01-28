@@ -1,27 +1,23 @@
 import { useState, useEffect, useRef } from 'react';
-import { Home, Mail, Info, Code, FolderKanban, Menu, X, Briefcase } from 'lucide-react';
-import { FaShieldAlt } from 'react-icons/fa';
+import { Sun, Moon} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../../assets/images/logo/logo.png';
+import { links } from '../utils/constants';
+import { navbarVariants } from '../utils/animation';
 
 function Navbar() {
   const [active, setActive] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+
   const menuRef = useRef(null);
   const userClickedRef = useRef(false);
 
-  const Navbarlinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' },
-  ];
 
+  // Close mobile menu when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuOpen && menuRef.current && !menuRef.current.contains(event.target)) {
+    const handleClickOutside = (e) => {
+      if (menuOpen && menuRef.current && !menuRef.current.contains(e.target)) {
         setMenuOpen(false);
       }
     };
@@ -29,6 +25,7 @@ function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [menuOpen]);
 
+  // Scroll spy
   useEffect(() => {
     let timeoutId;
 
@@ -42,51 +39,43 @@ function Navbar() {
       }
 
       const scrollY = window.scrollY + window.innerHeight / 2;
-      for (const { id } of Navbarlinks) {
+
+      for (const { id } of links) {
         const section = document.getElementById(id);
-        if (section) {
-          const top = section.offsetTop;
-          const bottom = top + section.offsetHeight;
-          if (scrollY >= top && scrollY < bottom) {
-            if (active !== id) setActive(id);
-            break;
-          }
+        if (!section) continue;
+
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+
+        if (scrollY >= top && scrollY < bottom) {
+          setActive(id);
+          break;
         }
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-        clearTimeout(timeoutId);
-      };
-    }, [active, Navbarlinks]);
-  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeoutId);
+    };
+  }, [links]);
+
+  // Close menu on scroll
   useEffect(() => {
     if (!menuOpen) return;
-
-    const handleScrollCloseMenu = () => {
-      setMenuOpen(false);
-    };
-
-    window.addEventListener('scroll', handleScrollCloseMenu, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScrollCloseMenu);
-    };
+    const close = () => setMenuOpen(false);
+    window.addEventListener('scroll', close, { passive: true });
+    return () => window.removeEventListener('scroll', close);
   }, [menuOpen]);
 
-
+  // Navbar shadow on scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 0);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  
   const handleLinkClick = (id) => {
     userClickedRef.current = true;
     setActive(id);
@@ -95,134 +84,102 @@ function Navbar() {
     if (id === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  // Variants for navbar fade + slide on mount
-  const navbarVariants = {
-    hidden: { opacity: 0, y: -15 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  };
-
-  // Variants for mobile menu container
-  const menuVariants = {
-    hidden: { opacity: 0, y: -20, pointerEvents: 'none' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      pointerEvents: 'auto',
-      transition: {
-        duration: 0.35,
-        when: 'beforeChildren',
-        staggerChildren: 0.1,
-        ease: 'easeOut',
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -20,
-      pointerEvents: 'none',
-      transition: { duration: 0.3, ease: 'easeIn' },
-    },
-  };
-
-  // Variants for each menu item
-  const menuItemVariants = {
-    hidden: { opacity: 0, x: -15 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
-  };
-
   return (
-    <motion.div variants={navbarVariants}
-      initial="hidden" animate="visible"
-      className={`py-3 sticky top-0 z-50 w-full px-5 md:px-10 lg:px-15 xl:px-30`}
+    <motion.div
+      variants={navbarVariants}
+      initial="hidden"
+      animate="visible"
+      className={`sticky top-0 z-50 w-full px-5 md:px-10 `}
     >
-      <div className="flex items-center justify-between">
-        
-        {/* left side */}
-        <button type="button" onClick={() => handleLinkClick('home')}
-          className="text-white archivo-black font-semibold text-xl sm:text-2xl cursor-pointer border-0 p-0">
-          <h1 style={{ fontFamily: 'Moderniz, sans-serif' }} className="text-[15px] text-white ">
-            Man Arafat
-          </h1>
-        </button>
+      {/* Desktop */}
+      <div className="hidden sm:flex justify-center">
+        <nav className="flex gap-3 rounded-full border border-white/20 bg-black/40 px-3 py-2">
+          {links.map(({ id, label }) => (
+            <button key={id}
+              onClick={() => handleLinkClick(id)}
+              className={`rounded-2xl cursor-pointer px-4 py-2 text-sm transition ${
+                active === id
+                  ? 'bg-white text-black font-semibold'
+                  : 'text-gray-400 hover:bg-white hover:text-black'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </nav>
+      </div>
 
-        {/* right side desktop */}
-        <nav className="hidden min-[910px]:block">
-          <ul className="flex justify-center gap-9 items-center">
-            {Navbarlinks.map(({ id, label }) => (
-              <li key={id}>
-                <a onClick={() => handleLinkClick(id)}
-                  className={`flex items-center gap-1 cursor-pointer rounded-xl py-2 text-sm sm:text-base transition-colors duration-200 ease-in-out
-                    ${
-                      label === 'Contact'
-                        ? 'bg-blue-800 font-bold hover:bg-blue-700 transition text-white px-5'
-                        : active === id
-                        ? 'text-white font-semibold'
-                        : 'text-gray-400 hover:text-white'
-                    }
-                  `}
-                >
-                  <span className="select-none">{label}</span>
-                </a>
+      {/* Mobile */}
+      <div ref={menuRef}
+        className="sm:hidden flex flex-col items-center"
+      >
+        {/* Clickable Header */}
+        <motion.div
+          onClick={() => setMenuOpen((prev) => !prev)}
+          animate={{ width: menuOpen ? '100%' : '260px' }}
+          transition={{ duration: 0.35, ease: 'easeInOut' }}
+          className="cursor-pointer flex items-center justify-between rounded-full
+                     bg-black/40 px-5 py-2 border border-white/20
+                     backdrop-blur-md select-none"
+        >
+        <div className="text-white font-semibold whitespace-nowrap">
+          Arafat Man
+        </div>
+        
+        {/* Color mode */}
+        <button onClick={(e) => {
+            e.stopPropagation();
+            setDarkMode(!darkMode);
+          }}
+          className="rounded-full cursor-pointer bg-[#212121] p-2 border border-white/10"
+        >
+          {darkMode ? (
+          <Sun size={18} className="text-yellow-400" />
+        ) : (
+          <Moon size={18} className="text-blue-400" />
+        )}
+        </button>
+      </motion.div>
+
+    {/* Dropdown Menu */}
+    <AnimatePresence>
+      {menuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.25 }}
+          className="mt-3 w-full rounded-2xl bg-black/40 px-2 py-2 border border-white/20
+                     backdrop-blur-md overflow-hidden"
+        >
+          <ul className="flex flex-col p-2 gap-2">
+            {links.map(({ id, label, icon }) => (
+              <li
+                key={id}
+                onClick={() => handleLinkClick(id)}
+                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl cursor-pointer
+                  ${
+                    active === id
+                      ? 'bg-[#212121] text-white font-medium'
+                      : 'text-gray-400 hover:bg-[#212121] hover:text-white'
+                  }`}
+              >
+                {icon}
+                {label}
               </li>
             ))}
           </ul>
-        </nav>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </  div>
 
-        {/* hamburger bar */}
-        <button
-          type="button"
-          className="block min-[910px]:hidden text-white p-2 focus:outline-none cursor-pointer bg-transparent border-0"
-          onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Toggle menu"
-        >
-          <motion.div
-            key={menuOpen ? 'open' : 'closed'}
-            initial={{ rotate: 0, opacity: 1 }}
-            animate={{ rotate: menuOpen ? 90 : 0, opacity: menuOpen ? 0.7 : 1 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
-          </motion.div>
-        </button>
-      </div>
-
-      {/* Mobile dropdown menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.ul
-            ref={menuRef}
-            className="max-[940px]:flex fixed top-[80px] right-4 w-45 bg-gray-900/95 backdrop-blur-md rounded-xl gap-3 border border-white/10 shadow-xl flex-col p-2 z-[9999]"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={menuVariants}
-          >
-            {Navbarlinks.map(({ id, label }) => (
-              <motion.li
-                key={id}
-                onClick={() => handleLinkClick(id)}
-                className={`flex items-center justify-start gap-2 cursor-pointer rounded-lg px-3 py-2 text-base w-full transition-colors duration-200 ease-in-out
-                  ${
-                    active === id
-                      ? 'bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white'
-                      : 'bg-transparent text-gray-300 hover:bg-gray-700/50 hover:text-white'
-                  }`}
-                variants={menuItemVariants}
-              >
-                <span className="select-none">{label}</span>
-              </motion.li>
-            ))}
-          </motion.ul>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
+      </motion.div>
+    );
 }
 
 export default Navbar;

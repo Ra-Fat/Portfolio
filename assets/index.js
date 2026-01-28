@@ -22,10 +22,17 @@ import aspirepic from './images/certificates/aspirepic.png';
 import komplexcertificate from './images/certificates/komplexcertificate.jpg';
 import csharp from './images/techStack/csharp.png';
 import fluttter from './images/techStack/fluttter.png';
-import vercel from './images/techStack/vercel.webp';
 import vite from './images/techStack/vite.png';
 import studentClothes from './images/profiles/studentClothes.png';
 import logo from './images/logo/logo.png';
+
+import vercel from './images/techStack/vercel.png';
+import unity from './images/techStack/unity.png';
+import threejs from './images/techStack/threejs.png';
+import postman from './images/techStack/postman.png';
+import notion from './images/techStack/notion.png';
+import expressjs from './images/techStack/express.png';
+
 
 // Project Images
 import komplexProject from './images/projects/komplex/komplexProject.png';
@@ -72,6 +79,14 @@ import thirdImageGame from './images/projects/game/3.png';
 import fourthImageGame from './images/projects/game/4.png';
 import fifthImageGame from './images/projects/game/5.png';
 
+import freeStyle from './images/profiles/freestyle.png';
+
+import background from './images/logo/background.png';
+
+import freeStyle1 from './images/profiles/freestyle1.jpg';
+import freeStyle2 from './images/profiles/freestyle2.jpg';
+import freeStyle3 from './images/profiles/freestyle3.jpg';
+
 
 
 
@@ -107,7 +122,6 @@ export {
   grandcineplex,
   komplexcertificate,
   fluttter,
-  vercel,
   vite,
   csharp,
   studentClothes,
@@ -145,5 +159,16 @@ export {
   secondImageGame,
   thirdImageGame,
   fourthImageGame,
-  fifthImageGame
+  fifthImageGame,
+  freeStyle,
+  background,
+  freeStyle1,
+  freeStyle2,
+  freeStyle3,
+  vercel,
+  unity,
+  threejs,
+  postman,
+  notion,
+  expressjs,
 };

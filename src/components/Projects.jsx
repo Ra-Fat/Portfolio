@@ -1,61 +1,60 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, ExternalLink, Eye, ArrowRight } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
+import { ArrowRight } from 'lucide-react';
 import { ProjectsContext } from '../utils/constants';
 import { ImageGalleryModal } from '../utils/ImageGallery';
 
 const Projects = () => {
-  
-  
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [visibleIndexes, setVisibleIndexes] = useState(new Set());
   const [selectedProject, setSelectedProject] = useState(null);
 
   const cardRefs = useRef([]);
 
+  // Keep cardRefs length synced with projects count
   useEffect(() => {
     cardRefs.current = cardRefs.current.slice(0, ProjectsContext.length);
+  }, [ProjectsContext.length]);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = Number(entry.target.getAttribute('data-index'));
-          if (entry.isIntersecting) {
-            setVisibleIndexes((prev) => new Set(prev).add(index));
-          }
-        });
-      },
-      { threshold: 0.25 }
-    );
+  useEffect(() => {
+    const handleScroll = () => {
+      const newVisibleIndexes = new Set();
 
-    cardRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
+      cardRefs.current.forEach((card, index) => {
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        // Consider visible if any part of card is within viewport + 100px margin
+        if (rect.top < window.innerHeight - 100 && rect.bottom > 100) {
+          newVisibleIndexes.add(index);
+        }
+      });
+
+      setVisibleIndexes(prev => {
+        if (
+          prev.size === newVisibleIndexes.size &&
+          [...prev].every(val => newVisibleIndexes.has(val))
+        ) {
+          return prev;
+        }
+        return newVisibleIndexes;
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // initial call
 
     return () => {
-      cardRefs.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
     <div className="w-full lg:px-10 xl:px-16">
       <div className="flex flex-col items-center justify-center w-full xl:px-10">
-        {/* Header */}
-        <div className="flex flex-col items-center text-center gap-4 max-w-[800px]">
-          <span className="text-2xl md:text-4xl font-moderniz font-bold leading-tight select-none"
-            style={{
-              display: 'block',
-              color: '#000754',
-              textShadow:
-                '0.5px 0.5px 0 #00d9ff, -0.5px -0.5px 0 #00d9ff, 0.5px -0.5px 0 #00d9ff, -0.5px 0.5px 0 #00d9ff',
-            }}
-          >
-            Projects
-          </span>
-          <span className="text-base font-cascadia sm:text-sm text-gray-300 lg:text-base block text-center sm:text-left">
-            Overview of my professional growth and learning experiences
+        <div className="flex items-center gap-3 w-full px-6 justify-center">
+          <span className="text-xl md:text-3xl font-bold uppercase">Projects</span>
+          <span className="text-lg md:text-3xl font-black text-gray-300">/</span>
+          <span className="text-xl md:text-3xl font-bold uppercase text-gray-500">
+            Feature work
           </span>
         </div>
 
@@ -69,7 +68,9 @@ const Projects = () => {
               <div
                 key={index}
                 data-index={index}
-                ref={(el) => (cardRefs.current[index] = el)}
+                ref={el => {
+                  cardRefs.current[index] = el;
+                }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={`project-card grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0 items-center border bg-gray-800/30 backdrop-blur-md border-b border-white/10 rounded-2xl p-5
@@ -77,13 +78,14 @@ const Projects = () => {
                   ${
                     isVisible
                       ? 'opacity-100 translate-y-0 scale-100 w-full'
-                      : 'opacity-0 translate-y-12 scale-90 w-11/12'
+                      : 'opacity-0 translate-y-16 scale-90 w-11/12'
                   }
                 `}
                 style={{ transitionDelay: `${150 + index * 100}ms` }}
               >
                 {/* Image */}
-                <div className={`relative overflow-hidden flex justify-center items-center ${
+                <div
+                  className={`relative overflow-hidden flex justify-center items-center ${
                     isEven ? 'md:order-1' : 'md:order-2'
                   }`}
                 >
@@ -111,7 +113,7 @@ const Projects = () => {
                     {project.languages.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1.5 rounded-full text-[11px] font-medium border border-cyan-400/30 bg-cyan-400/10 text-gray-300"
+                        className="px-3 py-1.5 rounded-full text-[11px] font-medium border border-gray-400/30 bg-gray-900 text-gray-300"
                       >
                         {tech}
                       </span>
@@ -120,12 +122,15 @@ const Projects = () => {
                   <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
                   {/* Buttons */}
                   <div className="flex items-center justify-between">
-                   <p className="text-gray-300 text-sm leading-relaxed flex-1 line-clamp-3">{project.date}</p>
-                   <button  onClick={() => setSelectedProject(project)}
-                     className="cursor-pointer text-sm gap-2 relative flex px-5 rounded-xl py-2 items-center justify-center border border-slate-700 bg-slate-900/[0.8] text-white transition-all duration-300 hover:bg-slate-800">
-                     View <ArrowRight size={16} />
-                   </button>
-                    
+                    <p className="text-gray-300 text-sm leading-relaxed flex-1 line-clamp-3">
+                      {project.date}
+                    </p>
+                    <button
+                      onClick={() => setSelectedProject(project)}
+                      className="cursor-pointer text-sm gap-2 relative flex px-5 rounded-xl py-2 items-center justify-center border border-slate-700 bg-slate-900/[0.8] text-white transition-all duration-300 hover:bg-slate-800"
+                    >
+                      View <ArrowRight size={16} />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -134,10 +139,7 @@ const Projects = () => {
         </div>
       </div>
       {selectedProject && (
-        <ImageGalleryModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
+        <ImageGalleryModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       )}
     </div>
   );

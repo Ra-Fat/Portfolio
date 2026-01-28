@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Home, Mail, Info, Code, FolderKanban, Briefcase, Pin, Send } from 'lucide-react';
 import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { ArrowUp } from 'lucide-react';
+import { links } from '../utils/constants';
+
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const links = [
-    { label: 'Home', id: null },
-    { label: 'About', id: 'about' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Contact', id: 'contact' },
-  ];
+
 
   useEffect(() => {
     // Trigger animation on mount
@@ -30,11 +25,6 @@ const Footer = () => {
         >
           <h1
             className="text-2xl lg:text-3xl xl:text-4xl font-moderniz font-bold leading-tight select-none"
-            style={{
-              color: '#000754',
-              textShadow:
-                '0.5px 0.5px 0 #00d9ff, -0.5px -0.5px 0 #00d9ff, 0.5px -0.5px 0 #00d9ff, -0.5px 0.5px 0 #00d9ff',
-            }}
           >
             Let's build something
           </h1>
@@ -42,12 +32,6 @@ const Footer = () => {
             className={`text-2xl lg:text-3xl xl:text-4xl font-moderniz font-bold leading-tight select-none transition-all duration-700 ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
-            style={{
-              color: '#000754',
-              textShadow:
-                '0.5px 0.5px 0 #00d9ff, -0.5px -0.5px 0 #00d9ff, 0.5px -0.5px 0 #00d9ff, -0.5px 0.5px 0 #00d9ff',
-              transitionDelay: '150ms'
-            }}
           >
             legendary together
           </h1>
@@ -63,7 +47,7 @@ const Footer = () => {
             >
               manrafat2006@gmail.com
             </a>
-            <ArrowUp className="rotate-45 transition group-hover:translate-x-1 group-hover:-translate-y-1 text-cyan-400" size={18} />
+            <ArrowUp className="rotate-45 transition group-hover:translate-x-1 group-hover:-translate-y-1 text-white" size={18} />
           </div>
         </div>
 
