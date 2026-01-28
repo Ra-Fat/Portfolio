@@ -213,7 +213,7 @@ const primaryTechStack = [
 const ExperiencesContext = [
   {
     title: "Next-Gen Engagement",
-    Subtitles: "Web design trainner",
+    Subtitles: "Web design trainer",
     picture: teaching,
     date: "June 2025 - Aug 2025",
     description:
