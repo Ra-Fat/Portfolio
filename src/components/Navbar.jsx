@@ -1,8 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
-import { Sun, Moon} from 'lucide-react';
+import {
+  Home,
+  Mail,
+  Code,
+  FolderKanban,
+  Menu,
+  X,
+  Briefcase,
+  User,
+  Sun,
+  Moon
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { links } from '../utils/constants';
-import { navbarVariants } from '../utils/animation';
 
 function Navbar() {
   const [active, setActive] = useState('home');
@@ -13,6 +22,14 @@ function Navbar() {
   const menuRef = useRef(null);
   const userClickedRef = useRef(false);
 
+  const Navbarlinks = [
+    { id: 'home', label: 'Home', icon: <Home size={20} /> },
+    { id: 'about', label: 'About', icon: <User size={20} /> },
+    { id: 'skills', label: 'Skills', icon: <Code size={20} /> },
+    { id: 'experiences', label: 'Experiences', icon: <Briefcase size={20} /> },
+    { id: 'projects', label: 'Projects', icon: <FolderKanban size={20} /> },
+    { id: 'contact', label: 'Contact', icon: <Mail size={20} /> },
+  ];
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -40,7 +57,7 @@ function Navbar() {
 
       const scrollY = window.scrollY + window.innerHeight / 2;
 
-      for (const { id } of links) {
+      for (const { id } of Navbarlinks) {
         const section = document.getElementById(id);
         if (!section) continue;
 
@@ -59,7 +76,7 @@ function Navbar() {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timeoutId);
     };
-  }, [links]);
+  }, [Navbarlinks]);
 
   // Close menu on scroll
   useEffect(() => {
@@ -88,6 +105,30 @@ function Navbar() {
     }
   };
 
+  const navbarVariants = {
+    hidden: { opacity: 0, y: -15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  };
+
+  const mobileMenuVariants = {
+    hidden: { opacity: 0, height: 0 },
+    visible: {
+      opacity: 1,
+      height: 'auto',
+      transition: { duration: 0.4, staggerChildren: 0.05 },
+    },
+    exit: { opacity: 0, height: 0, transition: { duration: 0.3 } },
+  };
+
+  const menuItemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+  };
+
   return (
     <motion.div
       variants={navbarVariants}
@@ -98,7 +139,7 @@ function Navbar() {
       {/* Desktop */}
       <div className="hidden sm:flex justify-center">
         <nav className="flex gap-3 rounded-full border border-white/20 bg-black/40 px-3 py-2">
-          {links.map(({ id, label }) => (
+          {Navbarlinks.map(({ id, label }) => (
             <button key={id}
               onClick={() => handleLinkClick(id)}
               className={`rounded-2xl cursor-pointer px-4 py-2 text-sm transition ${
@@ -157,7 +198,7 @@ function Navbar() {
                      backdrop-blur-md overflow-hidden"
         >
           <ul className="flex flex-col p-2 gap-2">
-            {links.map(({ id, label, icon }) => (
+            {Navbarlinks.map(({ id, label, icon }) => (
               <li
                 key={id}
                 onClick={() => handleLinkClick(id)}
