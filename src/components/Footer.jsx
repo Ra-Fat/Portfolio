@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { ArrowUp } from 'lucide-react';
 import { links } from '../utils/constants';
+import { socialLinks } from '../utils/constants';
 
 
 const Footer = () => {
@@ -76,38 +77,20 @@ const Footer = () => {
           </section>
 
           <section className="flex items-center gap-3">
-            <a
-              className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
-              href="https://web.facebook.com/ra.fat.626421/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebook className="h-4 w-4 text-slate-400 transition-all duration-300" />
-            </a>
-            <a
-              className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
-              href="https://www.instagram.com/urj4zz_/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram className="h-4 w-4 text-slate-400 transition-all duration-300" />
-            </a>
-            <a
-              className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
-              href="https://www.linkedin.com/in/arafat-man/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin className="h-4 w-4 text-slate-400 transition-all duration-300" />
-            </a>
-            <a
-              className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
-              href="https://github.com/Ra-Fat"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub className="h-4 w-4 text-slate-400 transition-all duration-300" />
-            </a>
+              {socialLinks.map((item, index)=>{
+                const Icon = item.icon;
+                
+                return (
+                   <a key={index}
+                      className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Icon className="h-4 w-4 text-slate-400 transition-all duration-300" />
+                    </a>
+                )
+              })}
           </section>
         </div>
       </div>

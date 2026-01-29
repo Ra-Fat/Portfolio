@@ -16,8 +16,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 function Navbar() {
   const [active, setActive] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
 
   const menuRef = useRef(null);
   const userClickedRef = useRef(false);
@@ -114,20 +112,6 @@ function Navbar() {
     },
   };
 
-  const mobileMenuVariants = {
-    hidden: { opacity: 0, height: 0 },
-    visible: {
-      opacity: 1,
-      height: 'auto',
-      transition: { duration: 0.4, staggerChildren: 0.05 },
-    },
-    exit: { opacity: 0, height: 0, transition: { duration: 0.3 } },
-  };
-
-  const menuItemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
-  };
 
   return (
     <motion.div

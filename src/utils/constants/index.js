@@ -11,7 +11,7 @@ fluttter,csharp,vercel, vite, game, komplexF, gameF, grandcineplexF, unifinder,
   eleventhImageUnifinder, twelfthImageUnifinder, firstImageGame, secondImageGame, thirdImageGame, fourthImageGame, fifthImageGame 
 , unity, threejs, postman, notion, expressjs } from '../../../assets';
 
-import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from 'react-icons/fa';
 import { Home, User, Code, Briefcase, FolderKanban, Mail } from 'lucide-react';
 
 const technologies = [
@@ -391,5 +391,25 @@ const links = [
 ];
 
 
+const socialLinks = [
+  {
+    href: "https://web.facebook.com/ra.fat.626421/",
+    icon: FaFacebook,
+  },
+  {
+    href: "https://www.instagram.com/urj4zz_/",
+    icon: FaInstagram,
+  },
+  {
+    href: "https://www.linkedin.com/in/arafat-man/",
+    icon: FaLinkedin,
+  },
+  {
+    href: "https://github.com/Ra-Fat",
+    icon: FaGithub,
+  },
+];
 
-export { technologies, ExperiencesContext , ProjectsContext, primaryTechStack, ContactDetail, links};
+
+
+export { technologies, ExperiencesContext , ProjectsContext, primaryTechStack, ContactDetail, links, socialLinks};
