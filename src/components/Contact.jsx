@@ -11,7 +11,7 @@ const ContactDetail = [
 ]
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', message: '' })
+  const [formData, setFormData] = useState({email: '', message: '' })
   const [loading, setLoading] = useState(false)
   const [successModal, setSuccessModal] = useState(false)
   const [errorModal, setErrorModal] = useState(false)
@@ -39,14 +39,14 @@ const Contact = () => {
       'service_dv10yry',
       'template_ntx1wpn',
       {
-        name: `${formData.firstName} ${formData.lastName}`,
+        name: formData.email,
         email: formData.email,
         message: formData.message,
         time: new Date().toLocaleString()
       },
       'J1YYVQo0cdMoz8_DR'
     ).then(() => {
-      setFormData({ firstName: '', lastName: '', email: '', message: '' })
+      setFormData({email: '', message: '' })
       setLoading(false)
       setSuccessModal(true)
     }, () => {
