@@ -62,11 +62,11 @@ const Overview = () => {
             className='flex items-center gap-3 w-full px-6 justify-center mb-10'
             variants={headerVariants}
           >
-            <span style={{ color: 'var(--color-primary)' }} className="text-2xl md:text-3xl font-bold uppercase">
+            <span className="text-2xl md:text-3xl font-bold uppercase">
               About
             </span>
             <span className="text-lg md:text-3xl font-black text-gray-300">/</span>
-            <span style={{ color: 'var(--color-secondary)' }} className="text-2xl md:text-3xl font-bold uppercase text-gray-500">
+            <span className="text-2xl md:text-3xl font-bold uppercase text-gray-500">
               Profile
             </span>
           </motion.div>
