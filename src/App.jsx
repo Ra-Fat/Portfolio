@@ -52,9 +52,6 @@ function App() {
         <section className="w-full" id="contact"><Contact /></section>
       </main> 
       <section className='mt-8 xl:mt-10 w-full relative z-10 bg-gray-800/30 backdrop-blur-md border-b-1 border-white/10'><Footer /></section>   
-      {/* <button  onClick={() => setIsDark(!isDark)} className=" fixed  bottom-6 cursor-pointer  right-6  z-50  bg-gray-800  hover:bg-gray-700  text-white  p-3  rounded-full  shadow-lg  transition">
-        {isDark ? <Sun size={20} /> : <Moon size={20} />}
-      </button> */}
     </div>
   );
 }

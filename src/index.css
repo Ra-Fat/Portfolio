@@ -17,15 +17,16 @@
   font-display: swap;
 }
 
-/* Root Variables */
+/* ---------------------------- */
+/* Root Variables and Base Styles */
+/* ---------------------------- */
 @layer base {
   :root {
-    --color-primary: #000754;          /* Dark Blue */
-    --color-secondary: #00d9ff;        /* Cyan Glow */
-    --color-bg: #060010;               /* Background */
-    --color-text-primary: #f9fafb;     /* Light Text */
-    --color-button-bg: #1f2937;        /* Button bg (gray-800) */
-    --color-button-hover-bg: #374151;  /* Button hover (gray-700) */
+    --color-primary: #000754;
+    --color-bg: #060010;
+    --color-text-primary: #f9fafb;
+    --color-button-bg: #1f2937;
+    --color-button-hover-bg: #374151;
   }
 
   body {
@@ -51,10 +52,75 @@
     caret-color: var(--color-text-primary) !important;
     transition: background-color 5000s ease-in-out 0s;
   }
+
+  /* Smooth scroll and scrollbar styles */
+  html {
+    scroll-behavior: smooth;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+  }
+
+  /* Chrome, Edge, Safari Scrollbar */
+  html::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  html, body {
+    @apply overflow-x-hidden;
+  }
 }
 
+
+
+/* Dark mode */
+.dark {
+  --background: 0, 0, 0;
+  --border: 107, 114, 128; 
+  --title: 255, 255, 255;    
+  --subtitle: 209, 213, 219;
+  --overview: 107, 114, 128
+}
+
+
+.light {
+  --background: 255, 255, 255;
+  --border: 107, 114, 128; 
+  --title: 0, 0, 0;    
+  --subtitle: 209, 213, 219;
+  --overview: 107, 114, 128
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------- */
 /* Animations and Utility Classes */
+/* ---------------------------- */
 @layer utilities {
+  /* Keyframes */
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
@@ -104,18 +170,18 @@
     }
   }
 
-  /* Scroll animation */
+  /* Scroll animations */
   @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-33.333%); }
   }
 
-  /* Tech scroll animation */
   @keyframes tech-scroll {
     from { transform: translateX(0); }
     to { transform: translateX(calc(-50% - 4px)); }
   }
 
+  /* Animation utilities */
   .animate-blink {
     animation: blink 1s step-end infinite;
   }
@@ -147,50 +213,57 @@
   .animate-scroll {
     animation: scroll 30s linear infinite;
   }
-
   .animate-scroll:hover {
     animation-play-state: paused;
   }
 
+  /* Tech scroll animation */
   .animation-tech-scroll {
     display: flex;
     width: max-content;
     animation: tech-scroll 25s linear infinite;
   }
-
   .animation-tech-scroll:hover {
     animation-play-state: paused;
   }
+
+  /* Custom scrollbar for specific containers */
+  .custom-scrollbar {
+    padding-bottom: 12px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar:horizontal {
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar:vertical {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
 }
 
+/* ---------------------------- */
 /* Regular CSS (outside @layer) */
+/* ---------------------------- */
 
-html {
-  scroll-behavior: smooth;
-
-  /* Scrollbar styles */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.25) rgba(255, 255, 255, 0.06);
-}
-
-/* Chrome, Edge, Safari Scrollbar */
-html::-webkit-scrollbar {
-  width: 8px;
-}
-
-html::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-html::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
-}
-
-html::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
+/* Background gradient animation */
 .bg-animated {
   background: linear-gradient(120deg, #060010 0%, #0a1a2f 40%, #1b2b4b 100%);
   background-size: 200% 200%;
@@ -203,19 +276,19 @@ html::-webkit-scrollbar-thumb:hover {
   100% { background-position: 0% 50%; }
 }
 
-/* Responsive Flex */
+/* Responsive flex helper */
 @media (min-width: 900px) {
   .custom-flex {
     flex-direction: row;
   }
 }
 
-/* Fixed full-screen div pointer-events none */
+/* Fixed full-screen pointer-events none helper */
 div.w-full.h-full.fixed.inset-0.z-0 {
   pointer-events: none;
 }
 
-/* Utility classes for text colors */
+/* Text Color Utilities */
 .text-primary {
   color: var(--color-primary);
 }
@@ -224,59 +297,12 @@ div.w-full.h-full.fixed.inset-0.z-0 {
   color: var(--color-secondary);
 }
 
-.text-white {
-  color: var(--color-text-primary); /* corrected var name */
+/* Rename to avoid confusion: text-white is actually the main text color */
+.text-main {
+  color: var(--color-text-primary);
 }
 
-/* Utility classes for background colors */
+/* Background Color Utilities */
 .bg-primary {
   background-color: var(--color-primary);
-}
-
-/* Assuming these colors exist or define accordingly */
-.bg-blue-primary {
-  background-color: var(--color-blue-primary);
-}
-
-.bg-blue-hover:hover {
-  background-color: var(--color-blue-hover);
-}
-
-/* Custom scrollbar for specific containers */
-.custom-scrollbar {
-  padding-bottom: 12px;
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar:horizontal {
-  height: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar:vertical {
-  width: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Utility: Line clamp */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }

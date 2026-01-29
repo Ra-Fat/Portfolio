@@ -49,7 +49,7 @@ const Overview = () => {
   
 
   return (
-    <div className="w-full lg:px-10 xl:px-16 py-10 lg:py-16" ref={sectionRef}>
+    <div className="w-full lg:px-10 xl:px-16 py-10 lg:py-16 overflow-x-hidden" ref={sectionRef}>
       <motion.div 
         className="flex flex-col w-full"
         initial="hidden"
@@ -62,11 +62,11 @@ const Overview = () => {
             className='flex items-center gap-3 w-full px-6 justify-center mb-10'
             variants={headerVariants}
           >
-            <span className="text-2xl md:text-3xl font-bold uppercase">
+            <span style={{ color: 'var(--color-primary)' }} className="text-2xl md:text-3xl font-bold uppercase">
               About
             </span>
             <span className="text-lg md:text-3xl font-black text-gray-300">/</span>
-            <span className="text-2xl md:text-3xl font-bold uppercase text-gray-500">
+            <span style={{ color: 'var(--color-secondary)' }} className="text-2xl md:text-3xl font-bold uppercase text-gray-500">
               Profile
             </span>
           </motion.div>
@@ -86,10 +86,10 @@ const Overview = () => {
                     variants={itemVariants}
                   >
                       <h2 className="md:text-3xl text-2xl text-right font-bold uppercase">
-                        web
+                        software
                       </h2>
                       <h2 className="md:text-3xl text-2xl text-right font-bold uppercase">
-                        developer
+                        Engineer & developer
                       </h2>
                   </motion.div>
 
@@ -113,16 +113,16 @@ const Overview = () => {
                         Primary Tech Stack
                       </h2>
                       <div className="relative w-full overflow-hidden">
-                        <div className="animation-tech-scroll flex items-center space-x-8">
+                        <div className="animation-tech-scroll flex items-center space-x-8 cursor-grab">
                           {primaryTechStack.map((tech, index) => (
                             <motion.div
                               key={`tech-1-${index}`}
-                              className="flex-shrink-0 flex flex-col items-center justify-center gap-2"
+                              className="flex-shrink-0 flex flex-col items-center justify-center gap-2 "
                               initial={{ opacity: 0, scale: 0 }}
                               animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                               transition={{ delay: index * 0.1, duration: 0.3 }}
                             >
-                              <div className="w-12 h-12 flex items-center justify-center p-2">
+                              <div className="w-12 h-12 flex items-center justify-center p-2 ">
                                 <img
                                   src={tech.icon}
                                   alt={tech.name}

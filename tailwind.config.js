@@ -1,3 +1,5 @@
+const { background } = require("./assets");
+
 // tailwind.config.js
 module.exports = {
   content: [
@@ -24,6 +26,16 @@ module.exports = {
         bounceSmooth: 'bounceSmooth 1.2s ease-in-out infinite',
         marquee: 'marquee 18s linear infinite',
       },
+      colors:{
+        background: "rgba(var(--background))",
+        border: "rgba(var(--border))",
+        card: "rgba(var(--card))",
+        title: "rgba(var(--title))",
+        subtitle: "rgba(var(--subtitle))",
+        overview: "rgba(var(--overview))",
+        iconcolor: "rgba(var(--iconcolor))",
+        description: "rgba(var(--description))",
+      }
     },
   },
   plugins: [],

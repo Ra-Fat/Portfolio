@@ -47,6 +47,19 @@ const Projects = () => {
     };
   }, []);
 
+  useEffect(()=>{
+    if(selectedProject !==null){
+      document.documentElement.style.overflow = 'hidden';
+    }else{
+      document.documentElement.style.overflow = '';
+    }
+
+    return ()=>{
+      document.documentElement.style.overflow = '';
+    }
+  }, [selectedProject]);
+
+
   return (
     <div className="w-full lg:px-10 xl:px-16">
       <div className="flex flex-col items-center justify-center w-full xl:px-10">
@@ -77,8 +90,8 @@ const Projects = () => {
                   transform transition-all duration-700 ease-out
                   ${
                     isVisible
-                      ? 'opacity-100 translate-y-0 scale-100 w-full'
-                      : 'opacity-0 translate-y-16 scale-90 w-11/12'
+                      ? 'opacity-100 translate-y-0 scale-100'
+                      : 'opacity-0 translate-y-16 scale-90'
                   }
                 `}
                 style={{ transitionDelay: `${150 + index * 100}ms` }}

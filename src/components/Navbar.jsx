@@ -171,18 +171,19 @@ function Navbar() {
           Arafat Man
         </div>
         
-        {/* Color mode */}
-        <button onClick={(e) => {
-            e.stopPropagation();
-            setDarkMode(!darkMode);
-          }}
-          className="rounded-full cursor-pointer bg-[#212121] p-2 border border-white/10"
+        <button onClick={(e)=>{
+          e.stopPropagation();
+          setMenuOpen((prev) => !prev);
+        }}
+          className="rounded-full cursor-pointer p-2"
         >
-          {darkMode ? (
-          <Sun size={18} className="text-yellow-400" />
-        ) : (
-          <Moon size={18} className="text-blue-400" />
-        )}
+          <motion.div
+            animate={{rotate: menuOpen ? 180 : 0}}
+            transition={{duration: 0.4 , ease: 'easeInOut'}}
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          >
+            {menuOpen ? <X /> : <Menu/>}
+          </motion.div>
         </button>
       </motion.div>
 
