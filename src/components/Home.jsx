@@ -19,7 +19,7 @@ function Home() {
 
   return (
     <div className="w-full lg:px-10 xl:px-16 h-full">
-      <div className="w-full max-w-7xl flex flex-col justify-center items-center h-full relative">
+      <div className="w-full flex flex-col justify-center items-center h-full relative">
           
           <motion.div 
             className='flex flex-col items-center gap-3'
