@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { Mail, Send, CheckCircle, XCircle } from 'lucide-react'
-import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaGithub, FaLinkedin, FaTelegram } from 'react-icons/fa'
 import { MdChat } from 'react-icons/md'
 import emailjs from '@emailjs/browser'
 
 const ContactDetail = [
   { icon: <FaLinkedin size={22} color="#0A66C2" />, ContactName: 'LinkedIn', Username: '@arafat-man', label:"Connect with me professionally and see my career journey", href: "https://www.linkedin.com/in/arafat-man/"},
-  { icon: <FaGithub size={22} color="#6e5494"/>, ContactName: 'GitHub', Username: '@Ra-Fat', label:"Check out my latest projects and open source contributions", href: "https://github.com/Ra-Fat"},
-  { icon: <FaFacebook size={22} color="#1877F2" />, ContactName: 'Facebook', Username: '@Arafat Man', label:"Behind the scenes of my development journey", href: "https://web.facebook.com/urj4zz/"},
+  { icon: <FaGithub size={22} color=""/>, ContactName: 'GitHub', Username: '@Ra-Fat', label:"Check out my latest projects", href: "https://github.com/Ra-Fat"},
+  { icon: <FaTelegram size={22} color="#1877F2" />, ContactName: 'Telegram', Username: '@Urj4zzz', label:"Connect with me professionally", href: "https://t.me/Urj4zzz"},
+  { icon: <FaFacebook size={22} color="#1877F2" />, ContactName: 'Facebook', Username: '@Arafat Man', label:"Behind the scenes of my development", href: "https://web.facebook.com/urj4zz/"},,
 ]
 
 const Contact = () => {
@@ -94,12 +95,11 @@ const Contact = () => {
       </div>
 
       {/* Contact Section */}
-      <div className='flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-10 mt-15 w-full'>
+      <div className='flex flex-col lg:flex-row items-stretch justify-center gap-6 lg:gap-6 mt-15 w-full max-w-6xl'>
 
         {/* Left Contact Links */}
-        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xs p-4">
+        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/30 backdrop-blur-md  rounded-xs p-5">
           <h2 className='flex items-center gap-3 text-xl font-bold'><MdChat size={20} /> Connect With Me</h2>
-          <p className='text-gray-300 text-[15px] sm:text-sm lg:text-base'>Follow me on social media to stay updated with my latest project, tech insight and development journey. Let's connect and build something great together !!</p>
           <div className='flex flex-col w-full gap-5 '>
             {ContactDetail.map((item,index)=>(
               <a target="_blank" rel="noopener noreferrer" href={item.href} key={index} className='flex gap-5 items-center text-[14px] bg-gray-800/20 pl-5 p-4 round-xs shadow-inner cursor-pointer transition-transform transform hover:scale-[1.02] hover:shadow-md hover:shadow-gray/10 duration-200'>
@@ -117,12 +117,9 @@ const Contact = () => {
         </div>
 
         {/* Contact Form */}
-        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/20 backdrop-blur-md rounded-xs p-4">
+        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/30 backdrop-blur-md rounded-xs p-5">
           <h2 className='flex items-center gap-3 text-xl font-bold'><Mail size={20} />Contact Form</h2>
-          <p className='text-gray-300 text-[15px] sm:text-sm lg:text-base'>
-            Have any questions or want to get in touch? Feel free to send me a message, and I will get back to you as soon as possible!
-          </p>
-          <form onSubmit={handleSubmit} className='flex flex-col w-full gap-5'>
+          <form onSubmit={handleSubmit} className='flex flex-col w-full gap-5 h-full'>
             <div className='flex flex-col gap-2 w-full'>
               <label>Email</label>
               <input name="email" type="email" value={formData.email} onChange={handleChange} required
@@ -130,9 +127,9 @@ const Contact = () => {
               />
 
             </div>
-            <div className='flex flex-col gap-2 w-full'>
+            <div className='flex flex-col gap-2 w-full flex-1'>
               <label>Message*</label>
-              <textarea name="message" value={formData.message} onChange={handleChange} required className=' bg-gray-900/60 border border-gray-500 text-gray-100 placeholder-gray-400 p-2 rounded resize-y h-24' />
+              <textarea name="message" value={formData.message} onChange={handleChange} required className=' bg-gray-900/60 border h-full border-gray-500 text-gray-100 placeholder-gray-400 p-2 rounded resize-none' />
             </div>
             <button type='submit' disabled={loading} 
               className={`flex items-center gap-2 w-full justify-center bg-gray-900/95 backdrop-blur-md cursor-pointer font-bold p-3 rounded-xs hover:bg-gray-900/70 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}

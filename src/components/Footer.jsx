@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <span className="w-full h-[1px] bg-gray-700 mb-3 mt-8"></span>
+        {/* <span className="w-full h-[1px] bg-gray-700 mb-3 mt-8"></span> */}
 
         <div
           className={`flex flex-col md:flex-row items-center justify-between w-full gap-6 mt-5 mb-8 transition-all duration-700 ease-out ${
@@ -60,7 +60,7 @@ const Footer = () => {
           }`}
           style={{ transitionDelay: '450ms' }}
         >
-          <section className="flex flex-wrap justify-center gap-5 text-gray-400">
+          <section className="hidden flex-wrap justify-center gap-5 text-gray-400 md:hidden">
             {links.map((item, index) => (
               <button
                 key={index}

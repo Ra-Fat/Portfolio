@@ -72,7 +72,8 @@ const Overview = () => {
           </motion.div>
           
           {/* Main Content */}
-          <div className='w-full flex flex-col-reverse lg:flex-row gap-10 items-stretch justify-between md:px-6 px-0'>
+         <div className='w-full flex items-center justify-center'>
+             <div className='w-full max-w-7xl flex flex-col-reverse  lg:flex-row gap-13 items-stretch justify-between md:px-6 px-0'>
               
               {/* Left Side - Content */}
               <motion.section 
@@ -206,6 +207,7 @@ const Overview = () => {
                   <ImageCarousel images={images}/>
               </motion.section>
           </div>
+         </div>
       </motion.div>
     </div>
   );
