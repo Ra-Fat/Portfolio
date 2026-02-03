@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* <span className="w-full h-[1px] bg-gray-700 mb-3 mt-8"></span> */}
+        <span className="w-full h-[1px] bg-gray-700 mb-3 mt-8"></span>
 
         <div
           className={`flex flex-col md:flex-row items-center justify-between w-full gap-6 mt-5 mb-8 transition-all duration-700 ease-out ${
@@ -60,7 +60,7 @@ const Footer = () => {
           }`}
           style={{ transitionDelay: '450ms' }}
         >
-          <section className="hidden flex-wrap justify-center gap-5 text-gray-400 md:hidden">
+          <section className="flex-wrap justify-center gap-5 text-gray-400 hidden sm:flex"> 
             {links.map((item, index) => (
               <button
                 key={index}
@@ -82,7 +82,7 @@ const Footer = () => {
                 
                 return (
                    <a key={index}
-                      className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
+                      className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-gray-700 bg-slate-900/[0.8] hover:-translate-y-1 text-white transition-all duration-300 hover:bg-slate-800"
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"

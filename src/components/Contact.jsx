@@ -129,7 +129,7 @@ const Contact = () => {
             </div>
             <div className='flex flex-col gap-2 w-full flex-1'>
               <label>Message*</label>
-              <textarea name="message" value={formData.message} onChange={handleChange} required className=' bg-gray-900/60 border h-full border-gray-500 text-gray-100 placeholder-gray-400 p-2 rounded resize-none' />
+              <textarea name="message" value={formData.message} onChange={handleChange} required className=' bg-gray-900/60 border h-40 lg:h-full border-gray-500 text-gray-100 placeholder-gray-400 p-2 rounded resize-none' />
             </div>
             <button type='submit' disabled={loading} 
               className={`flex items-center gap-2 w-full justify-center bg-gray-900/95 backdrop-blur-md cursor-pointer font-bold p-3 rounded-xs hover:bg-gray-900/70 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
