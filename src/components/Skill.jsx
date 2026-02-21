@@ -68,7 +68,7 @@ const Skills = () => {
           {technologies.map(({ name, icon }, index) => (
             <motion.div 
               key={name} 
-              className="flex flex-col justify-center items-center bg-gray-900/50 rounded-xl p-3 border border-gray-800"
+              className="flex flex-col justify-center items-center bg-gray-800/30 backdrop-blur-md rounded-xl p-3 border border-gray-800"
               variants={itemVariants}
             >
               <img className="w-10 h-10" src={icon} alt={name}/>

@@ -107,7 +107,7 @@ const Overview = () => {
 
                   {/* Tech Stack */}
                   <motion.div 
-                    className="flex flex-col gap-4 p-4 items-start w-full mt-4 bg-gray-800/30 backdrop-blur-md border-1 border-gray-700 rounded-xl"
+                    className="flex flex-col gap-4 p-4 items-start w-full mt-4 bg-gray-800/30 backdrop-blur-md border border-gray-800 rounded-xl"
                     variants={itemVariants}
                   >
                       <h2 className="text-base font-semibold uppercase text-gray-300">

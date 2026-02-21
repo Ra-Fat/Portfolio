@@ -126,7 +126,7 @@ const Projects = () => {
                     {project.languages.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1.5 rounded-full text-[11px] font-medium border border-gray-400/30 bg-gray-900 text-gray-300"
+                        className="px-3 py-1.5 rounded-full text-[11px] font-medium  bg-gray-900 text-gray-300"
                       >
                         {tech}
                       </span>

@@ -193,7 +193,7 @@ const Experiences = () => {
                         }}
                       >
                         <div
-                          className="border bg-gray-800/30 backdrop-blur-md border-b border-white/10  p-5 rounded-2xl shadow-xl cursor-pointer"
+                          className="border bg-gray-800/30 backdrop-blur-md border-b border-gray-800  p-5 rounded-2xl shadow-xl cursor-pointer"
                           onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
                         >
                           {/* Header */}

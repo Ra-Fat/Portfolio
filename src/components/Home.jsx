@@ -29,7 +29,7 @@ function Home() {
             animate="visible"
           >
               <motion.h1  
-                className="text-5xl md:text-7xl xl:text-8xl font-bold uppercase" 
+                className="text-5xl md:text-8xl xl:text-8xl font-bold uppercase" 
                 style={{ fontFamily: 'Moderniz, sans-serif' }}
                 variants={titleVariants}
               >
