@@ -58,7 +58,7 @@
     scroll-behavior: smooth;
 
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+    scrollbar-color: rgba(132, 132, 132, 0.4) transparent;
   }
 
   /* Chrome, Edge, Safari Scrollbar */

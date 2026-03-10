@@ -1,16 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import {
-  Home,
-  Mail,
-  Code,
-  FolderKanban,
-  Menu,
-  X,
-  Briefcase,
-  User,
-  Sun,
-  Moon
-} from 'lucide-react';
+import {Home,Mail,Code,FolderKanban,Menu,X,Briefcase,User,Sun,Moon} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function Navbar() {

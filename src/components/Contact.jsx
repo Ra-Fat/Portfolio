@@ -61,7 +61,7 @@ const Contact = () => {
       <div className='flex flex-col items-center justify-center xl:px-10'>
         {/* Success Modal */}
       {successModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black/20 z-50 border border-b border-white/10">
           <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg flex flex-col items-center gap-4 w-[90%] sm:w-[400px] animate-fade-in">
             <CheckCircle size={40} className="text-green-500" />
             <h2 className="text-xl font-bold">Message Sent!</h2>
@@ -72,7 +72,7 @@ const Contact = () => {
 
       {/* Error Modal */}
       {errorModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black/20 z-50 border border-b border-white/10">
           <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg flex flex-col items-center gap-4 w-[90%] sm:w-[400px] animate-fade-in">
             <XCircle size={40} className="text-red-500" />
             <h2 className="text-xl font-bold">Message Failed</h2>
@@ -98,7 +98,7 @@ const Contact = () => {
       <div className='flex flex-col lg:flex-row items-stretch justify-center gap-6 lg:gap-6 mt-15 w-full max-w-6xl'>
 
         {/* Left Contact Links */}
-        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/30 backdrop-blur-md  rounded-xs p-5">
+        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/30 border border-b border-white/10 backdrop-blur-md  rounded-2xl p-5">
           <h2 className='flex items-center gap-3 text-xl font-bold'><MdChat size={20} /> Connect With Me</h2>
           <div className='flex flex-col w-full gap-5 '>
             {ContactDetail.map((item,index)=>(
@@ -117,7 +117,7 @@ const Contact = () => {
         </div>
 
         {/* Contact Form */}
-        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[50%] flex flex-col gap-5 bg-gray-800/30 backdrop-blur-md rounded-xs p-5">
+        <div data-aos="fade-up" data-aos-duration="1300" className="w-full lg:w-[50%] flex border border-b border-white/10 flex-col gap-5 bg-gray-800/30 backdrop-blur-md rounded-2xl p-5">
           <h2 className='flex items-center gap-3 text-xl font-bold'><Mail size={20} />Contact Form</h2>
           <form onSubmit={handleSubmit} className='flex flex-col w-full gap-5 h-full'>
             <div className='flex flex-col gap-2 w-full'>
