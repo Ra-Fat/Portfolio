@@ -61,6 +61,10 @@
     scrollbar-color: rgba(132, 132, 132, 0.4) transparent;
   }
 
+  .font-moderniz {
+    font-family: 'Moderniz', sans-serif;
+  }
+
   /* Chrome, Edge, Safari Scrollbar */
   html::-webkit-scrollbar {
     width: 8px;

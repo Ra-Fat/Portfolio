@@ -28,10 +28,11 @@ function Home() {
             initial="hidden"
             animate="visible"
           >
-              <motion.h1  
-                className="text-5xl md:text-8xl xl:text-8xl font-bold uppercase" 
-                style={{ fontFamily: 'Moderniz, sans-serif' }}
+              <motion.h1
+                className="text-5xl md:text-8xl xl:text-8xl font-bold uppercase font-moderniz"
                 variants={titleVariants}
+                initial="hidden"
+                animate="visible"
               >
                 ARafat
               </motion.h1>
