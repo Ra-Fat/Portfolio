@@ -30,7 +30,7 @@ const Footer = () => {
             Let's build something
           </h1>
           <h1
-            className={`text-2xl lg:text-3xl xl:text-4xl font-moderniz font-bold leading-tight select-none transition-all duration-700 ease-out ${
+            className={`text-xl lg:text-2xl xl:text-3xl font-moderniz font-bold leading-tight select-none transition-all duration-700 ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
