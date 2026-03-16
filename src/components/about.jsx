@@ -10,6 +10,7 @@ import { headerVariants } from '../utils/animation';
 import { contentLeftVariants } from '../utils/animation';
 import { contentRightVariants } from '../utils/animation';
 import { itemVariants } from '../utils/animation';
+import cv from '../../public/cv/ManArafat-Document.pdf';
 import { buttonVariants } from '../utils/animation';
 
 
@@ -164,14 +165,24 @@ const Overview = () => {
                     className='flex items-center gap-4 mt-3'
                     variants={itemVariants}
                   >
-                    <motion.button 
+                    {/* <motion.button 
                       className="cursor-pointer relative flex px-4 rounded-xl py-3 items-center justify-center border bg-[#061a7e] text-white border-[#061a7e] hover:bg-[#07209d]"
                       variants={buttonVariants}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Download size={16} className="mr-2" />
                       <span className="text-xs font-semibold truncate">Download Resume</span>
-                    </motion.button>
+                    </motion.button> */}
+                    <motion.a
+                      href="/cv/ManArafat-Document.pdf"
+                      download
+                      className="cursor-pointer relative flex px-4 rounded-xl py-3 items-center justify-center border bg-[#061a7e] text-white border-[#061a7e] hover:bg-[#07209d]"
+                      variants={buttonVariants}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                        <Download size={16} className="mr-2" />
+                        <span className="text-xs font-semibold truncate">Download Resume</span>
+                    </motion.a>
 
                     <motion.a 
                       href="https://github.com/Ra-Fat"
