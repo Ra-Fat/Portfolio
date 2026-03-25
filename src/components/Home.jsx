@@ -11,6 +11,13 @@ import { sideInfoRightVariants } from '../utils/animation';
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  useEffect(() => {
+    document.fonts.load("bold 1em Moderniz").then(() => {
+      setFontLoaded(true);
+    });
+  }, []);
 
   useEffect(() => {
     setIsVisible(true);

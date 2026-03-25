@@ -3,7 +3,7 @@
 /* Font Faces */
 @font-face {
   font-family: 'Moderniz';
-  src: url(/fonts/Moderniz.otf) format('opentype');
+  src: url(/fonts/Moderniz.woff2) format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -107,10 +107,6 @@
   --subtitle: 209, 213, 219;
   --overview: 107, 114, 128
 }
-
-
-
-
 
 
 
