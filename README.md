@@ -18,4 +18,4 @@ Discover a clean and modern portfolio that showcases my web development skills. 
 
 ## Live Demo
 
-Check out the live site: [arafat21.vercel.app](https://arafat21.vercel.app)
+Check out the live site: [arafat21.vercel.app](https://arafatman.vercel.app)
