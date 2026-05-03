@@ -1,23 +1,18 @@
 import { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Contact from './components/Contact';
-import Home from './components/Home';
-import Projects from './components/Projects';
-import Overview from './components/about';
-import Skills from './components/Skill';
-import Squares from './utils/canvas/Squares';
-import { VectorSquare } from 'lucide-react';
-import Experiences from './components/experience';
-import { Sun, Moon } from 'lucide-react';
-import { background } from '../assets/index';
+// import Header from './components/navigation/header';
+import { Header } from './components/navigation/header';
+import {Footer} from './components/navigation/footer';
+import {Contact} from './components/page-components/contact';
+import { Home } from './components/page-components/home';
+import {Projects} from './components/page-components/project';
+import {About} from './components/page-components/about';
+import {Skills} from './components/page-components/skill';
+import {Experiences} from './components/page-components/experience';
+import Squares from './utils/canvas/squres';
 
 function App() {
-
-  const [isDark, setIsDark] = useState(true);
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -25,7 +20,7 @@ function App() {
     });
   }, []);
 
-  const [enableBackground, setEnableBackground] = useState(true);
+  const [enableBackground] = useState(true);
 
   return (
     <div className="relative text-white min-h-screen flex flex-col">
@@ -40,12 +35,11 @@ function App() {
           </div>
         )}
       <section className="flex sm:px-5 xl:px-15 items-center justify-center fixed top-6 z-50 w-full">
-        <Navbar />
+        <Header />
       </section>
-      {/* <Navbar /> */}
       <main className="relative z-10 flex flex-col  justify-center gap-15 sm:gap-25 items-center px-4 lg:px-0 sm:mx-10 xl:mx-15">
         <section className="w-full h-[calc(100vh-40px)] sm:h-screen" id="home"><Home /></section>
-        <section className="w-full" id="about"><Overview /></section>
+        <section className="w-full" id="about"><About /></section>
         <section className='w-full' id="skills"><Skills /></section>
         <section className="w-full" id="experiences"><Experiences /></section>
         <section className='w-full' id="projects"><Projects /></section>       

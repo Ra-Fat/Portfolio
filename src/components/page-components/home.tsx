@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { motion } from 'framer-motion';
 import { BsStack } from 'react-icons/bs';
-import { titleVariants } from '../utils/animation';
-import { containerVariants } from '../utils/animation';
-import { sloganVariants } from '../utils/animation';
-import { subtitleVariants } from '../utils/animation';
-import { sideInfoVariants } from '../utils/animation';
-import { sideInfoRightVariants } from '../utils/animation';
+import { motion } from 'framer-motion';
+import { titleVariants } from '../../utils/animation';
+import { containerVariants } from '../../utils/animation';
+import { sloganVariants } from '../../utils/animation';
+import { subtitleVariants } from '../../utils/animation';
+import { sideInfoVariants } from '../../utils/animation';
+import { sideInfoRightVariants } from '../../utils/animation';
 
-function Home() {
+export const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [fontLoaded, setFontLoaded] = useState(false);
 
@@ -102,6 +102,4 @@ function Home() {
       </div>
     </div>
   );
-}
-
-export default Home;
+};

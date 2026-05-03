@@ -90,32 +90,6 @@
 
 
 
-/* Dark mode */
-.dark {
-  --background: 0, 0, 0;
-  --border: 107, 114, 128; 
-  --title: 255, 255, 255;    
-  --subtitle: 209, 213, 219;
-  --overview: 107, 114, 128
-}
-
-
-.light {
-  --background: 255, 255, 255;
-  --border: 107, 114, 128; 
-  --title: 0, 0, 0;    
-  --subtitle: 209, 213, 219;
-  --overview: 107, 114, 128
-}
-
-
-
-
-
-
-
-
-
 /* ---------------------------- */
 /* Animations and Utility Classes */
 /* ---------------------------- */
@@ -221,7 +195,7 @@
   .animation-tech-scroll {
     display: flex;
     width: max-content;
-    animation: tech-scroll 25s linear infinite;
+    animation: tech-scroll 50s linear infinite;
   }
   .animation-tech-scroll:hover {
     animation-play-state: paused;
@@ -286,23 +260,4 @@
 /* Fixed full-screen pointer-events none helper */
 div.w-full.h-full.fixed.inset-0.z-0 {
   pointer-events: none;
-}
-
-/* Text Color Utilities */
-.text-primary {
-  color: var(--color-primary);
-}
-
-.text-secondary {
-  color: var(--color-secondary);
-}
-
-/* Rename to avoid confusion: text-white is actually the main text color */
-.text-main {
-  color: var(--color-text-primary);
-}
-
-/* Background Color Utilities */
-.bg-primary {
-  background-color: var(--color-primary);
 }

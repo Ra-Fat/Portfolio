@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import {Home,Mail,Code,FolderKanban,Menu,X,Briefcase,User,Sun,Moon} from 'lucide-react';
+import { Home, Mail, Code, FolderKanban, Menu, X, Briefcase, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-function Navbar() {
+export const Header = () => {
   const [active, setActive] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -73,13 +73,6 @@ function Navbar() {
     return () => window.removeEventListener('scroll', close);
   }, [menuOpen]);
 
-  // Navbar shadow on scroll
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 0);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const handleLinkClick = (id) => {
     userClickedRef.current = true;
     setActive(id);
@@ -92,12 +85,12 @@ function Navbar() {
     }
   };
 
-  const navbarVariants = {
+   const navbarVariants = {
     hidden: { opacity: 0, y: -15 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: 'easeOut' as const },
     },
   };
 
@@ -191,10 +184,8 @@ function Navbar() {
         </motion.div>
       )}
     </AnimatePresence>
-    </  div>
+    </div>
 
       </motion.div>
     );
-}
-
-export default Navbar;
+};

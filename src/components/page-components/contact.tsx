@@ -3,15 +3,16 @@ import { Mail, Send, CheckCircle, XCircle } from 'lucide-react'
 import { FaFacebook, FaInstagram, FaGithub, FaLinkedin, FaTelegram } from 'react-icons/fa'
 import { MdChat } from 'react-icons/md'
 import emailjs from '@emailjs/browser'
+import { SectionTitle } from '../sub-components/section-title'
 
 const ContactDetail = [
   { icon: <FaLinkedin size={22} color="#0A66C2" />, ContactName: 'LinkedIn', Username: '@arafat-man', label:"Connect with me professionally and see my career journey", href: "https://www.linkedin.com/in/arafat-man/"},
   { icon: <FaGithub size={22} color=""/>, ContactName: 'GitHub', Username: '@Ra-Fat', label:"Check out my latest projects", href: "https://github.com/Ra-Fat"},
   { icon: <FaTelegram size={22} color="#1877F2" />, ContactName: 'Telegram', Username: '@Urj4zzz', label:"Connect with me professionally", href: "https://t.me/Urj4zzz"},
-  { icon: <FaFacebook size={22} color="#1877F2" />, ContactName: 'Facebook', Username: '@Arafat Man', label:"Behind the scenes of my development", href: "https://web.facebook.com/urj4zz/"},,
+  { icon: <FaFacebook size={22} color="#1877F2" />, ContactName: 'Facebook', Username: '@Arafat Man', label:"Behind the scenes of my development", href: "https://web.facebook.com/urj4zz/"},
 ]
 
-const Contact = () => {
+export const Contact = () => {
   const [formData, setFormData] = useState({email: '', message: '' })
   const [loading, setLoading] = useState(false)
   const [successModal, setSuccessModal] = useState(false)
@@ -83,16 +84,7 @@ const Contact = () => {
         </div>
       )}
 
-      {/* Title */}
-      <div className='flex items-center gap-3 w-full px-6 justify-center'>
-        <span className="text-xl md:text-3xl font-bold uppercase">
-          CONNECT
-        </span>
-        <span class="text-lg md:text-3xl font-black text-gray-300">/</span>
-        <span className="text-xl md:text-3xl font-bold uppercase text-gray-500">
-          GET IN TOUCH
-        </span>
-      </div>
+      <SectionTitle title="Contact" subtitle="Get In Touch" />
 
       {/* Contact Section */}
       <div className='flex flex-col lg:flex-row items-stretch justify-center gap-6 lg:gap-6 mt-15 w-full max-w-6xl'>
@@ -152,6 +144,4 @@ const Contact = () => {
       </div>
     </div>
   )
-}
-
-export default Contact
+};

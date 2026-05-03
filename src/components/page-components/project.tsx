@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
-import { ProjectsContext } from '../utils/constants';
-import { ImageGalleryModal } from '../utils/ImageGallery';
+import { ArrowRight, Section } from 'lucide-react';
+import { ProjectsData } from '../../data/data';
+import { ImageGalleryModal } from '../../utils/image-gallery';
+import { SectionTitle } from '../sub-components/section-title';
 
-const Projects = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+export const Projects = () => {
   const [visibleIndexes, setVisibleIndexes] = useState(new Set());
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -12,8 +12,8 @@ const Projects = () => {
 
   // Keep cardRefs length synced with projects count
   useEffect(() => {
-    cardRefs.current = cardRefs.current.slice(0, ProjectsContext.length);
-  }, [ProjectsContext.length]);
+    cardRefs.current = cardRefs.current.slice(0, ProjectsData.length);
+  }, [ProjectsData.length]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,17 +63,12 @@ const Projects = () => {
   return (
     <div className="w-full lg:px-10 xl:px-16">
       <div className="flex flex-col items-center justify-center w-full xl:px-10">
-        <div className="flex items-center gap-3 w-full px-6 justify-center">
-          <span className="text-xl md:text-3xl font-bold uppercase">Projects</span>
-          <span className="text-lg md:text-3xl font-black text-gray-300">/</span>
-          <span className="text-xl md:text-3xl font-bold uppercase text-gray-500">
-            Feature work
-          </span>
-        </div>
+        
+        <SectionTitle title="Projects" subtitle="Showcase" />
 
         {/* Projects List */}
         <div className="w-full max-w-6xl flex flex-col gap-5 mt-10">
-          {ProjectsContext.map((project, index) => {
+          {ProjectsData.map((project, index) => {
             const isEven = index % 2 === 0;
             const isVisible = visibleIndexes.has(index);
 
@@ -84,8 +79,6 @@ const Projects = () => {
                 ref={el => {
                   cardRefs.current[index] = el;
                 }}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
                 className={`project-card grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0 items-center border bg-gray-800/30 backdrop-blur-md border-b border-white/10 rounded-2xl p-5
                   transform transition-all duration-700 ease-out
                   ${
@@ -123,7 +116,7 @@ const Projects = () => {
 
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-3">
-                    {project.languages.map((tech, i) => (
+                    {project.techstack.map((tech, i) => (
                       <span
                         key={i}
                         className="px-3 py-1.5 rounded-full text-[11px] font-medium  bg-gray-900 text-gray-300"
@@ -157,5 +150,3 @@ const Projects = () => {
     </div>
   );
 };
-
-export default Projects;

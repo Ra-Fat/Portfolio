@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { FaFacebook, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { ArrowUp } from 'lucide-react';
-import { links } from '../utils/constants';
-import { socialLinks } from '../utils/constants';
+import { NavbarLinks, socialLinks } from '../../data/data';
 
-
-const Footer = () => {
+export const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
-
-
 
   useEffect(() => {
     // Trigger animation on mount
@@ -61,7 +56,7 @@ const Footer = () => {
           style={{ transitionDelay: '450ms' }}
         >
           <section className="flex-wrap justify-center gap-5 text-gray-400 hidden sm:flex"> 
-            {links.map((item, index) => (
+            {NavbarLinks.map((item, index) => (
               <button
                 key={index}
                 onClick={() =>
@@ -87,7 +82,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Icon className="h-4 w-4 text-slate-400 transition-all duration-300" />
+                      <Icon size={18} />
                     </a>
                 )
               })}
@@ -97,5 +92,3 @@ const Footer = () => {
     </div>
   );
 };
-
-export default Footer;

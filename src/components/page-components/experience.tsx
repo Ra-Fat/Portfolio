@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ExperiencesContext } from "../utils/constants";
-import { freeStyle2 } from "../../assets/index";
+// import { ExperiencesContext } from "../../utils/constants";
+import { ExperienceData } from "../../data/data";
+import { freeStyle2 } from "../../../assets/index";
+import { SectionTitle } from "../sub-components/section-title";
 
-const Experiences = () => {
+export const Experiences = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -10,7 +12,7 @@ const Experiences = () => {
   const requestRef = useRef(null);
   const targetProgressRef = useRef(0);
 
-  const experiences = ExperiencesContext || [];
+  const experiences = ExperienceData || [];
 
   // Smooth scroll progress update with easing
   useEffect(() => {
@@ -55,18 +57,7 @@ const Experiences = () => {
   return (
     <section className="w-full lg:px-10 xl:px-16">
       <div className="flex flex-col items-center justify-center w-full">
-        {/* Title */}
-        <div className="flex justify-center items-center gap-3">
-          <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">
-            Experience
-          </h2>
-          <span className="text-gray-400 text-3xl font-light">/</span>
-          <h2 className="text-2xl md:text-4xl font-bold uppercase text-gray-400 tracking-tight">
-            Volunteer
-          </h2>
-        </div>
-
-        {/* Timeline - Responsive */}
+        <SectionTitle title="Experience" subtitle="Volunteer" />
         <div ref={timelineRef} className="relative max-w-6xl mx-auto mt-15">
           {/* Mobile: Bar left, cards right */}
           <div className="flex md:hidden w-full">
@@ -127,7 +118,7 @@ const Experiences = () => {
                               </h3>
                             </div>
                             <h2 className="text-[13px] font-semibold text-gray-300  transition-colors mt-2">
-                              {exp.Subtitles}
+                              {exp.position}
                             </h2>
                           </div>
                         </div>
@@ -205,7 +196,7 @@ const Experiences = () => {
                                 </h3>
                               </div>
                               <h2 className="md:text-base text-[13px] font-semibold text-gray-300  transition-colors mt-2">
-                                {exp.Subtitles}
+                                {exp.position}
                               </h2>
                             </div>
                           </div>
@@ -230,5 +221,3 @@ const Experiences = () => {
     </section>
   );
 };
-
-export default Experiences;
