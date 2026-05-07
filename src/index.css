@@ -23,7 +23,7 @@
 @layer base {
   :root {
     --color-primary: #000754;
-    --color-bg: #060010;
+    --color-bg: #000000;
     --color-text-primary: #f9fafb;
     --color-button-bg: #1f2937;
     --color-button-hover-bg: #374151;
@@ -89,12 +89,7 @@
 }
 
 
-
-/* ---------------------------- */
-/* Animations and Utility Classes */
-/* ---------------------------- */
 @layer utilities {
-  /* Keyframes */
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
@@ -144,7 +139,6 @@
     }
   }
 
-  /* Scroll animations */
   @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-33.333%); }
@@ -231,13 +225,47 @@
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.3);
   }
+
+  .text-primary {
+    color: rgba(255, 255, 255, 1);    /* white — headings, active */
+  }
+
+  .text-secondary {
+    color: rgba(255, 255, 255, 0.8);  /* white/80 — labels, titles */
+  }
+
+  .text-muted {
+    color: rgba(255, 255, 255, 0.5);  /* white/50 — body, descriptions */
+  }
+
+  .text-faint {
+    color: rgba(255, 255, 255, 0.4);  
+  }
+
+  .card {
+    background-color: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .tag{
+    background-color: #141414;
+  }
+
+  .button{
+    background-color: #1a1a1a;
+  }
+
+  .input{
+    background-color: #141414;
+     border: 1px solid rgba(255, 255, 255, 0.07);
+     /* border border-white/10  */
+     color: rgba(255, 255, 255, 0.8);
+  }
 }
 
-/* ---------------------------- */
-/* Regular CSS (outside @layer) */
-/* ---------------------------- */
 
-/* Background gradient animation */
 .bg-animated {
   background: linear-gradient(120deg, #060010 0%, #0a1a2f 40%, #1b2b4b 100%);
   background-size: 200% 200%;

@@ -39,11 +39,11 @@ export const ImageCarousel = ({images}) => {
               position === 'center' 
                 ? 'z-30 opacity-100 scale-100 cursor-grab' 
                 : position === 'left'
-                ? 'z-10 opacity-40 scale-75 -translate-x-32 -rotate-12'
-                : 'z-20 opacity-60 scale-85 translate-x-32 rotate-6'
+                ? 'z-10 opacity-40 scale-75 -translate-x-20 -rotate-12'
+                : 'z-20 opacity-60 scale-85 translate-x-20 rotate-6'
             }`}
           >
-            <div className={`w-50 h-60  md:w-70 md:h-80 rounded-3xl shadow-2xl overflow-hidden`}>
+            <div className={`w-40 h-60  md:w-40 md:h-50 rounded-3xl shadow-2xl overflow-hidden`}>
               <img src={image.img} className="w-full h-full object-cover" />
             </div>
           </div>

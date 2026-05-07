@@ -1,3 +1,5 @@
+import React from "react";
+import { Mail } from 'lucide-react';
 import { javascript, typescript, html, css, reactjs, tailwind, nodejs, mongodb, git, figma, 
   postgres, mysql, nextjs, github, java, c, komplexcertificate, cplus, bootstrap , teaching, 
   aspireoverview, aspirepic, komplexProject, grandcineplex,
@@ -12,7 +14,7 @@ fluttter,csharp,vercel, vite, game, komplexF, gameF, grandcineplexF, unifinder,
 
 import { Contact, Experience, NavbarLink, Project, SocialLink, TechStack } from './type';
 
-import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaGithub, FaPhone, FaLocationArrow } from 'react-icons/fa';
 
 
 export const TechStackData: TechStack[] = [
@@ -182,6 +184,18 @@ export const TechStackData: TechStack[] = [
 
 
 export const ExperienceData: Experience[] = [
+  {
+    title: "Internship - OneWorld Technology",
+    position: "Web Developer",
+    picture_src: teaching,
+    date: "April 2026 - June 2026",
+    description: "A 3-month internship focused on web development, where I contributed to building and maintaining web applications, gaining hands-on experience in real-world projects and collaborating with a team of developers.",
+    tags: [
+      "Teaching",
+      "Web Design",
+    ],
+    pdf_link: "/Certi.pdf"
+  },
   {
     title: "Next-Gen Engagement",
     position: "Web design trainer",
@@ -366,8 +380,87 @@ export const NavbarLinks: NavbarLink[] = [
 
 
 export const socialLinks = [
-  { href: "https://web.facebook.com/ra.fat.626421/", icon: FaFacebook, label: "Facebook" },
-  { href: "https://www.instagram.com/urj4zz_/", icon: FaInstagram, label: "Instagram" },
-  { href: "https://www.linkedin.com/in/arafat-man/", icon: FaLinkedin, label: "LinkedIn" },
-  { href: "https://github.com/Ra-Fat", icon: FaGithub, label: "GitHub" },
+  { href: "https://web.facebook.com/ra.fat.626421/", icon: React.createElement(FaFacebook), label: "Facebook" },
+  { href: "https://www.instagram.com/urj4zz_/", icon: React.createElement(FaInstagram), label: "Instagram" },
+  { href: "https://www.linkedin.com/in/arafat-man/", icon: React.createElement(FaLinkedin), label: "LinkedIn" },
+  { href: "https://github.com/Ra-Fat", icon: React.createElement(FaGithub), label: "GitHub" },
+]
+
+export const ContactDetail = [
+  {
+    icon: React.createElement(Mail, { size: 22 }),
+    ContactName: "Email",
+    label: "manrafat2006@gmail.com",
+    href: "mailto:contact@arafatman.com",
+  },
+  {
+    icon: React.createElement(FaPhone, { size: 22 }),
+    ContactName: "Phone",
+    label: "+855 69 363 138",
+    href: "tel:+85569363138",
+  },
+  {
+    icon: React.createElement(FaLocationArrow, { size: 22 }),
+    ContactName: "Location",
+    label: "Phnom Penh, Cambodia",
+    href: "https://www.google.com/maps/place/Phnom+Penh,+Cambodia",
+  },
+]
+
+export const OverviewData = [
+  {
+    id: 'experiences',
+    label: 'Experiences',
+    items: [
+      {
+        title: 'Internship - OneWorld Technology',
+        sub: 'Web Developer — Contributed to building and maintaining web applications.',
+        badge: 'April 2026 - June 2026',
+      },
+      {
+        title: 'Volunteer - Next-Gen Engagement Program',
+        sub: 'Web Design Trainer — Mentored junior students in web design and development.',
+        badge: 'July 2025 - Aug 2025',
+      },
+    ],
+  },
+  {
+    id: 'education',
+    label: 'Education',
+    items: [
+      {
+        title: 'University - CADT',
+        sub: "Major in Computer Science specializing in Software Engineering",
+        badge: '2024 – 2027',
+      },
+      {
+        title: "High School - Preah Bat Norodom Sihamoni",
+        sub: "Completed High School Education",
+        badge: '2018 – 2023',
+      },
+    ],
+  },
+  {
+    id: 'comp',
+    label: 'Competitions',
+    items: [
+      {
+        title: 'Next Gen Engagement - Komplex Competition',
+        sub: 'Participated in developing KOMPLEX for a competition project.',
+        badge: '2nd Place',
+      },
+      {
+        title: 'Innovative Tech Challenge - CamTech University',
+        sub: 'Developed an innovative solution as part of a team competition project.',
+        badge: 'Top 10 Finalist',
+      },
+    ],
+  },
+];
+
+
+export const FeatureProject = [
+  { id: 1, image: komplexProject, title: 'KOMPLEX', tag: 'Web App' },
+  { id: 2, image: grandcineplex, title: 'Grand Cineplex', tag: 'Web App' },
+  { id: 3, image: unifinder, title: 'UniFinder', tag: 'Mobile App' },
 ]
