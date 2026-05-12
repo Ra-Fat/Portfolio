@@ -42,7 +42,7 @@ export const useSphereAnimation = ({ count, size, radius, isVisible }: Options) 
     entryStartPositions.current = Array.from({ length: count }, () =>
       randomEdgePosition(size)
     );
-    delays.current = Array.from({ length: count }, () => Math.random() * 90);
+    delays.current = Array.from({ length: count }, () => Math.random() * 50);
   }, [isVisible]);
 
   useEffect(() => {
@@ -89,7 +89,7 @@ export const useSphereAnimation = ({ count, size, radius, isVisible }: Options) 
             return;
           }
 
-          const t = Math.min(delayedFrame / 90, 1);
+          const t = Math.min(delayedFrame / 60, 1);
           const eased = easeOutCubic(t);
           entryProgress.current[index] = t;
 

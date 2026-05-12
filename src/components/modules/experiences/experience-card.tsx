@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 type Props = {
   exp: {
@@ -22,15 +22,28 @@ export const ExperienceCard = ({
   scrollProgress,
   totalCount,
 }: Props) => {
+  const hasAnimatedRef = useRef(false);
+  const [isVisible, setIsVisible] = useState(false);
+
   const triggerPoint = (index / Math.max(totalCount - 1, 1)) * 100;
   const distance = scrollProgress - triggerPoint + 20;
-  const easedOpacity = Math.min(Math.max(distance / 25, 0), 1);
-  const easedTranslateY = 16 * (1 - easedOpacity);
+  const shouldBeVisible = distance >= 0;
+
+  useEffect(() => {
+    if (shouldBeVisible && !hasAnimatedRef.current) {
+      hasAnimatedRef.current = true;
+      setIsVisible(true);
+    }
+  }, [shouldBeVisible]);
 
   return (
     <div
       className="p-5 rounded-2xl card"
-      style={{ opacity: easedOpacity, transform: `translateY(${easedTranslateY}px)`, transition: 'all 300ms' }}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0px)' : 'translateY(16px)',
+        transition: 'opacity 400ms ease, transform 400ms ease',
+      }}
       onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
     >
       <div className="flex items-start justify-between gap-4 mb-4">

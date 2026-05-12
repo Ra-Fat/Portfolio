@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FeatureProject } from '../../../data/data';
+import { Feature } from '../../../data/data';
 
 export const FeaturedCarousel = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % FeatureProject.length);
+      setCurrent((prev) => (prev + 1) % Feature.length);
     }, 2500);
     return () => clearInterval(timer);
   }, []);
 
-  const project = FeatureProject[current];
+  const project = Feature[current];
 
   return (
     <div className="flex flex-col h-full">
@@ -21,7 +21,7 @@ export const FeaturedCarousel = () => {
           Featured
         </p>
         <div className="flex gap-1.5">
-          {FeatureProject.map((_, i) => (
+          {Feature.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}

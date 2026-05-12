@@ -10,7 +10,7 @@ fluttter,csharp,vercel, vite, game, komplexF, gameF, grandcineplexF, unifinder,
   firstImageUnifinder, secondImageUnifinder, thirdImageUnifinder, fourthImageUnifinder, fifthImageUnifinder,
   sixthImageUnifinder, seventhImageUnifinder, eighthImageUnifinder, ninthImageUnifinder, tenthImageUnifinder,
   eleventhImageUnifinder, twelfthImageUnifinder, firstImageGame, secondImageGame, thirdImageGame, fourthImageGame, fifthImageGame 
-, unity, threejs, postman, notion, expressjs } from '../../assets';
+, unity, threejs, postman, notion, expressjs, } from '../../assets';
 
 import { Contact, Experience, NavbarLink, Project, SocialLink, TechStack } from './type';
 
@@ -459,8 +459,8 @@ export const OverviewData = [
 ];
 
 
-export const FeatureProject = [
-  { id: 1, image: komplexProject, title: 'KOMPLEX', tag: 'Web App' },
-  { id: 2, image: grandcineplex, title: 'Grand Cineplex', tag: 'Web App' },
-  { id: 3, image: unifinder, title: 'UniFinder', tag: 'Mobile App' },
+export const Feature = [
+  { id: 1, image: aspirepic, title: 'Aspire Program', tag: 'Certificate' },
+  { id: 2, image: teaching, title: 'Trainer', tag: 'Certificate' },
+  { id: 3, image: komplexcertificate, title: 'Komplex', tag: 'Certificate' },
 ]
