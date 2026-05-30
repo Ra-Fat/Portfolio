@@ -27,16 +27,6 @@ export const Home = () => {
         initial="hidden"
         animate="visible"
       >
-        <motion.div
-          className="inline-flex items-center gap-2 border border-white/10 rounded-full px-4 py-1.5 mb-8"
-          variants={fadeUp}
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
-          <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-white/40">
-            Available for work
-          </span>
-        </motion.div>
-
         <motion.h1
           className="font-moderniz uppercase leading-[0.9] tracking-tight"
           style={{ fontSize: "clamp(52px, 12vw, 96px)" }}

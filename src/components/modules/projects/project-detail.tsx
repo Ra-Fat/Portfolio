@@ -45,10 +45,8 @@ export const ProjectDetails = ({ project, onClose }: Props) => {
           <X className="w-5 h-5 text-white" />
         </button>
 
-        {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 md:p-5">
 
-          {/* Preview */}
           <div className="md:col-span-2 bg-gray-800 rounded-xl overflow-hidden aspect-video">
             {selectedIndex === 0 && hasVideo ? (
               <iframe
@@ -73,7 +71,6 @@ export const ProjectDetails = ({ project, onClose }: Props) => {
             )}
           </div>
 
-          {/* Thumbnails */}
           <div className="flex md:flex-col gap-3 overflow-x-auto md:overflow-y-auto md:overflow-x-hidden max-h-none md:max-h-[370px] pr-0 md:pr-2 custom-scrollbar">
             {hasVideo && (
               <button onClick={() => setSelectedIndex(0)} className={thumbnailClass(selectedIndex === 0)}>
@@ -103,20 +100,9 @@ export const ProjectDetails = ({ project, onClose }: Props) => {
           </div>
         </div>
 
-        {/* Footer */}
         <div className="px-4 md:px-5 pb-5">
           <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
           <div className="flex gap-2 pt-4">
-            {project.hosting_link?.trim() && (
-            <a 
-                href={project.hosting_link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-2 bg-blue-700 rounded-lg font-bold text-sm hover:-translate-y-1 transition"
-              >
-                <ExternalLink size={15} /> Live Demo
-              </a>
-            )}
             {project.github_link && (
             <a
                 href={project.github_link}

@@ -12,12 +12,12 @@ import { Experiences } from "./pages/experience";
 import Squares from "./components/canvas/squres";
 
 const sections = [
-  { id: "home", component: <Home />},
-  { id: "about", component: <About /> ,  },
-  { id: "skills", component: <Skills /> ,  },
+  { id: "home", component: <Home /> },
+  { id: "about", component: <About /> },
+  { id: "skills", component: <Skills /> },
   { id: "experiences", component: <Experiences /> },
-  { id: "projects", component: <Projects /> ,  },
-  { id: "contact", component: <Contact /> ,  },
+  { id: "projects", component: <Projects /> },
+  { id: "contact", component: <Contact /> },
 ];
 
 function App() {
@@ -29,10 +29,14 @@ function App() {
 
   return (
     <div className="relative text-white min-h-screen flex flex-col">
-
       {enableBackground && (
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <Squares speed={0.2} squareSize={45} direction="diagonal" borderColor="rgba(255,255,255,0.03)" />
+          <Squares
+            speed={0.2}
+            squareSize={45}
+            direction="diagonal"
+            borderColor="rgba(255,255,255,0.03)"
+          />
         </div>
       )}
 
@@ -51,7 +55,6 @@ function App() {
       <footer className="mt-8 xl:mt-10 w-full relative z-10 bg-gray-800/30 backdrop-blur-md border-t border-white/10">
         <Footer />
       </footer>
-
     </div>
   );
 }

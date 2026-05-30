@@ -18,7 +18,7 @@ export const CraftCard = () => {
         I understand what advantages modern tech can provide — helping advise on solutions a
         business actually needs.
       </p>
-      <div className="mt-auto pt-4 sm:pt-0">
+      <div className="mt-auto sm:pt-0">
         <p className="text-[10px] tracking-[0.2em] uppercase text-secondary mb-3">
           Primary Tech Stack
         </p>
@@ -32,12 +32,6 @@ export const CraftCard = () => {
             </div>
           ))}
         </Marquee>
-      </div>
-      <div className="flex items-center gap-2 mt-2">
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-        <span className="text-[11px] text-emerald-400/80 tracking-wider">
-          Open to collaborations and new opportunities
-        </span>
       </div>
     </>
   );
